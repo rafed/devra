@@ -6,6 +6,10 @@ image: "image/docker.jpeg"
 draft: true
 ---
 
+<!-- USE THIS 
+https://docs.docker.com/v17.06/get-started/part3/#run-your-new-load-balanced-app
+ -->
+
 ## Display Docker version and info
 {{< highlight bash >}}
 # Check Docker version on the machine
