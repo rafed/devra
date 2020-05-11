@@ -11,12 +11,12 @@ $ docker info</code></pre></div><h2 id=manage-docker-images>Manage Docker images
 $ docker run hello-world
 
 <span style=color:#75715e># List Docker images</span>
-docker image ls
-docker image ls -a  <span style=color:#75715e># List all images</span>
+$ docker image ls
+$ docker image ls -a  <span style=color:#75715e># List all images</span>
 
 <span style=color:#75715e># Remove Docker images</span>
-docker image rm &lt;image id&gt; <span style=color:#75715e># Remove specified image</span>
-docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span></code></pre></div><h2 id=build-and-run-docker-containers>Build and run Docker containers</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
+$ docker image rm &lt;image id&gt; <span style=color:#75715e># Remove specified image</span>
+$ docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span></code></pre></div><h2 id=build-and-run-docker-containers>Build and run Docker containers</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
 $ docker build -t friendlyhello .  
 
 <span style=color:#75715e># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
@@ -27,20 +27,20 @@ $ docker container ls --all     <span style=color:#75715e># list all containers<
 $ docker container ls -aq       <span style=color:#75715e># all in quiet mode</span>
 
 <span style=color:#75715e># Stopping &amp; removing containers</span>
-$ docker container stop &lt;hash&gt;  <span style=color:#75715e># Gracefully stop a container</span>
-$ docker container kill &lt;hash&gt;  <span style=color:#75715e># Force shutdown of a container</span>
-$ docker container rm &lt;hash&gt;    <span style=color:#75715e># Remove specified container</span>
+$ docker container stop <span style=color:#f92672>[</span>id<span style=color:#f92672>]</span>  <span style=color:#75715e># Gracefully stop a container</span>
+$ docker container kill <span style=color:#f92672>[</span>id<span style=color:#f92672>]</span>  <span style=color:#75715e># Force shutdown of a container</span>
+$ docker container rm <span style=color:#f92672>[</span>id<span style=color:#f92672>]</span>    <span style=color:#75715e># Remove specified container</span>
 $ docker container rm <span style=color:#66d9ef>$(</span>docker container ls -a -q<span style=color:#66d9ef>)</span>  <span style=color:#75715e># Remove all containers</span>
 
 <span style=color:#75715e># Fetch the logs of a container</span>
-$ docker logs -f &lt;hash&gt;
+$ docker logs -f <span style=color:#f92672>[</span>id<span style=color:#f92672>]</span>
 
 <span style=color:#75715e># Run a command in a running container</span>
-$ docker exec -it &lt;hash&gt; bash   <span style=color:#75715e># bash is the program here</span></code></pre></div><h2 id=managing-remotes>Managing remotes</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Log in this CLI session using your Docker credentials</span>
+$ docker exec -it <span style=color:#f92672>[</span>id<span style=color:#f92672>]</span> bash   <span style=color:#75715e># bash is the program here</span></code></pre></div><h2 id=managing-remotes>Managing remotes</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Log in this CLI session using your Docker credentials</span>
 $ docker login             
 
-<span style=color:#75715e># Tag &lt;image&gt; for upload to registry</span>
-$docker tag &lt;image&gt; username/repository:tag
+<span style=color:#75715e># Tag image for upload to registry</span>
+$docker tag <span style=color:#f92672>[</span>image<span style=color:#f92672>]</span> username/repository:tag
 
 <span style=color:#75715e># Upload tagged image to registry</span>
 $ docker push username/repository:tag            
