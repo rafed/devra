@@ -1,6 +1,5 @@
 ---
 title: Useful Docker commands
-description: 
 date: 2020-05-09
 tags: [docker]
 image: "image/docker.jpeg"
@@ -58,16 +57,16 @@ $ docker container ls --all     # list all containers
 $ docker container ls -aq       # all in quiet mode
 
 # Stopping & removing containers
-$ docker container stop <hash>  # Gracefully stop a container
-$ docker container kill <hash>  # Force shutdown of a container
-$ docker container rm <hash>    # Remove specified container
+$ docker container stop [id]  # Gracefully stop a container
+$ docker container kill [id]  # Force shutdown of a container
+$ docker container rm [id]    # Remove specified container
 $ docker container rm $(docker container ls -a -q)  # Remove all containers
 
 # Fetch the logs of a container
-$ docker logs -f <hash>
+$ docker logs -f [id]
 
 # Run a command in a running container
-$ docker exec -it <hash> bash   # bash is the program here
+$ docker exec -it [id] bash   # bash is the program here
 {{< / highlight >}}
 
 <!------------------------------------>
@@ -78,8 +77,8 @@ $ docker exec -it <hash> bash   # bash is the program here
 # Log in this CLI session using your Docker credentials
 $ docker login             
 
-# Tag <image> for upload to registry
-$docker tag <image> username/repository:tag
+# Tag image for upload to registry
+$docker tag [image] username/repository:tag
 
 # Upload tagged image to registry
 $ docker push username/repository:tag            
