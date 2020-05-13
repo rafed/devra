@@ -31,7 +31,7 @@ We can't. There will always be rumors. And with the rise of deepfakes, there's a
 > 1. What's the evidence?
 > 1. What do other sources say?
 
-## Who's behind the information?
+#### Who's behind the information?
 
 - Is there an author's name with the news? The absence of an author's name is a red flag.
 - Do you know the person who wrote it? Is he credible enough to write about it?
@@ -39,13 +39,13 @@ We can't. There will always be rumors. And with the rise of deepfakes, there's a
 - Is the URL legit? Fakers often use misspelled URL links to look legit.
 - Does the news identify itself as "sponsored content?" It means someone is paying to show you this, and I wouldn't put too much on trust it.
 
-## What's the evidence?
+#### What's the evidence?
 
 - Does the news properly cite sources such as "from where information was taken?" and "who said it?"
 - Are images in the news fabricated? Right-click on the image to do a reverse google image search.
 URLs ending with .gov, .edu, and .org are more credible than websites ending with .com, .net.
 
-## What do other sources say?
+#### What do other sources say?
 
 - Are other sources also saying the same? If not, it could be a red flag.
 - Even if the fundamental news is the same across other sources, the minor differences in details could be an indicator that not all parts of the story are true.

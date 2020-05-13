@@ -7,19 +7,19 @@ draft: true
 ---
 
 ## Display Docker version and info
-{{< highlight bash >}}
+{{<highlight bash>}}
 # Check Docker version on the machine
 $ docker --version
 
 # Show summary of images/containers in the system
 $ docker info
-{{< / highlight >}}
+{{</highlight>}}
 
 <!------------------------------------>
 
 ## Manage Docker images
 
-{{< highlight bash >}}
+{{<highlight bash>}}
 # Run a Docker image
 $ docker run hello-world
 
@@ -30,26 +30,26 @@ docker image ls -a  # List all images
 # Remove Docker images
 docker image rm <image id> # Remove specified image
 docker image rm $(docker image ls -a -q) # Remove all images
-{{< / highlight >}}
+{{</highlight>}}
 
 <!------------------------------------>
 
 ## Build and run Docker containers
 
-{{< highlight bash >}}
+{{<highlight bash>}}
 # Create image using this directory's Dockerfile
 $ docker build -t friendlyhello .  
 
 # Run "friendlyname" mapping port 4000 to 80
 $ docker run -p 4000:80 friendlyhello  
 $ docker run -d -p 4000:80 friendlyhello    # In detached mode
-{{< / highlight >}}
+{{</highlight >}}
 
 <!------------------------------------>
 
 ## Manage Docker containers
 
-{{< highlight bash >}}
+{{<highlight bash>}}
 # List Docker containers
 $ docker container ls           # list running containers
 $ docker container ls --all     # list all containers
@@ -66,13 +66,13 @@ $ docker logs -f [id]
 
 # Run a command in a running container
 $ docker exec -it [id] bash   # bash is the program here
-{{< / highlight >}}
+{{</highlight>}}
 
 <!------------------------------------>
 
 ## Managing remotes
 
-{{< highlight bash >}}
+{{<highlight bash>}}
 # Log in this CLI session using your Docker credentials
 $ docker login             
 
@@ -84,7 +84,7 @@ $ docker push username/repository:tag
 
 # Run image from a registry
 $ docker run username/repository:tag                   
-{{< / highlight >}}
+{{</highlight>}}
 
 <!------------------------------------>
 
@@ -92,10 +92,10 @@ $ docker run username/repository:tag
 
 The commands mentioned above are just the ones that I mostly use. To know more commands run the following.
 
-{{< highlight bash >}}
+{{<highlight bash>}}
 # See list of all commands
 $ docker 
 
 # Run 'docker COMMAND --help' for more information on a command.
 $ docker container --help
-{{< / highlight >}}
+{{</highlight>}}
