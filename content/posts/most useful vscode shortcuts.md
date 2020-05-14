@@ -1,54 +1,57 @@
 ---
 title: Most Useful VScode shortcuts
 date: 2020-01-27
-tags: [coding]
+tags: [programming]
 image: "image/vscode.png"
 ---
 
 VScode is my go-to editor now, but I keep forgetting all the nice shortcuts and commands. This article is a cheat sheet for me to look back when I forget my favorite ones.
 
-VScode has different key bindings for each OS. Although most of the following should be general, if any of them isn't working, the full bindings are available here for Linux, Windows, MacOS.
+VScode has different key bindings for each OS. Although most of the following should be general, if any of them isn't working, the full bindings are available here for [Linux](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-linux.pdf), [Windows](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-windows.pdf), [MacOS](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf).
+
 
 ## Editing
 
-> <kbd>Ctrl</kbd> + X        Cut line (no need for selection)
-> <kbd>Ctrl</kbd> + C        Copy line (no need for selection)
-> <kbd>Alt</kbd> + ↓ / ↑     Move line up/down
-> <kbd>Ctrl</kbd> + /          Toggle line comment
-> <kbd>Ctrl</kbd> +Shift+I  Format document
-> <kbd>Ctrl</kbd> + .          Quick fix
-> <kbd>F12</kbd>               Rename symbol
-> <kbd>Ctrl</kbd> + H        Find and Replace
+<pre>
+<kbd>Ctrl + X</kbd>          Cut line (no need for selection)  
+<kbd>Ctrl + C</kbd>          Copy line (no need for selection)   
+<kbd>Alt + ↓/↑</kbd>         Move line up/down                 
+<kbd>Ctrl + /</kbd>          Toggle line comment               
+<kbd>Ctrl + Shift + I</kbd>  Format document
+<kbd>Ctrl + .</kbd>          Quick fix                         
+<kbd>F12</kbd>               Rename symbol                     
+<kbd>Ctrl + H</kbd>          Find and Replace                  
+</pre>
 
 ## Display
 
-```
-F11                 Full screen
-Ctrl + B          Toggle sidebar
-Ctrl + K    V   Show markdown preview to the side
-Ctrl + K    Z   Open Zen mode
-Ctrl + \           Split the editor. Change windows with  Ctrl + 1  (2,3...)
-Ctrl + `           Show terminal (backtick)
-```
+<pre>
+<kbd>F11 </kbd>          Full screen
+<kbd>Ctrl + B</kbd>      Toggle sidebar
+<kbd>Ctrl + K</kbd> <kbd>V</kbd>   Show markdown preview to the side
+<kbd>Ctrl + K</kbd> <kbd>Z</kbd>   Open Zen mode
+<kbd>Ctrl + \</kbd>      Split editor. Change pane with Ctrl + 1,2,3...
+<kbd>Ctrl + `</kbd>      Show terminal (backtick)
+</pre>
 
 ## Navigation
 
-```
-Ctrl + G                     Go to line
-Ctrl + Alt/Shift + -    Navigate back/Navigate forward
-Ctrl + P                     Quick open. Go to file...
-Ctrl + K    Z              Open Zen mode (full screen editor with no disrtactions)
-Ctrl + T                     Show all symbols
-Ctrl + Shift + O         Go to symbol
-```
+<pre>
+<kbd>Ctrl + G</kbd>             Go to line
+<kbd>Ctrl + Alt/Shift + -</kbd> Navigate back/Navigate forward
+<kbd>Ctrl + P</kbd>             Quick open. Go to file...
+<kbd>Ctrl + K</kbd> <kbd>Z</kbd>          Open Zen mode (full screen editor with no disrtactions)
+<kbd>Ctrl + T</kbd>             Show all symbols
+<kbd>Ctrl + Shift + O</kbd>     Go to symbol
+</pre>
 
 ## Debug
 
-```
-F8     Go to next error/warning
-F9     Toggle breakpoint
-F5     Start/continue
-F11/Shift+F11  Step into/out
-```
+<pre>
+<kbd>F8</kbd>             Go to next error/warning
+<kbd>F9</kbd>             Toggle breakpoint
+<kbd>F5</kbd>             Start/continue
+<kbd>F11/Shift+F11</kbd>  Step into/out
+</pre>
 
 Missed any nice shortcuts I should be using? Comment down below.
