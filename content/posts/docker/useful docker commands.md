@@ -3,8 +3,9 @@ title: Useful Docker commands
 date: 2020-05-09
 tags: [docker]
 image: "image/docker.jpeg"
-draft: true
 ---
+
+This guide is a shortlist of the only docker commands you will ever need to know. I keep on forgetting them, so I'm noting them down here. <!--more-->
 
 ## Display Docker version and info
 {{<highlight bash>}}
