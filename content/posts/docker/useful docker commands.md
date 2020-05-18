@@ -25,12 +25,12 @@ $ docker info
 $ docker run hello-world
 
 # List Docker images
-docker image ls
-docker image ls -a  # List all images
+$ docker image ls
+$ docker image ls -a  # List all images
 
 # Remove Docker images
-docker image rm <image id> # Remove specified image
-docker image rm $(docker image ls -a -q) # Remove all images
+$ docker image rm <image id> # Remove specified image
+$ docker image rm $(docker image ls -a -q) # Remove all images
 {{</highlight>}}
 
 <!------------------------------------>
