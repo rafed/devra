@@ -11,12 +11,12 @@ $ docker info</code></pre></div><h2 id=manage-docker-images>Manage Docker images
 $ docker run hello-world
 
 <span style=color:#75715e># List Docker images</span>
-docker image ls
-docker image ls -a  <span style=color:#75715e># List all images</span>
+$ docker image ls
+$ docker image ls -a  <span style=color:#75715e># List all images</span>
 
 <span style=color:#75715e># Remove Docker images</span>
-docker image rm &lt;image id&gt; <span style=color:#75715e># Remove specified image</span>
-docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span></code></pre></div><h2 id=build-and-run-docker-containers>Build and run Docker containers</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
+$ docker image rm &lt;image id&gt; <span style=color:#75715e># Remove specified image</span>
+$ docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span></code></pre></div><h2 id=build-and-run-docker-containers>Build and run Docker containers</h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
 $ docker build -t friendlyhello .  
 
 <span style=color:#75715e># Run &#34;friendlyname&#34; mapping port 4000 to 80</span>
