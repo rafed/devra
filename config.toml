@@ -11,7 +11,7 @@ pluralizeListTitles = false
 enableemoji = false
 
 [params]
-    description = "A description for the meta tag of the site"
+    description = "The practical software engineering blog"
     googleSearch = "000151824860492892407:kd5zijxwj6a"
     showDate = true # make false if dont want to show date
     math = false # best to enable this in the front matter of a page
@@ -20,7 +20,7 @@ enableemoji = false
     tagsInHome = 40
     sectionsInHome = 5
     paginatePostsPerPage = 5
-    paginateTagsPerPage = 6
+    paginateTagsPerPage = 10
 
 [taxonomies]
     tag = "tags"
