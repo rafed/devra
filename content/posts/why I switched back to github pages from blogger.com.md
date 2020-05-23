@@ -1,7 +1,7 @@
 ---
 title: Why I switched back to Github pages from blogger.com
 date: 2020-05-20
-tags: [blogging]
+tags: [blogging, webdev]
 image: "image/hugo-icon.png"
 ---
 
