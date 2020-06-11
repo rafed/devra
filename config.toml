@@ -13,6 +13,7 @@ enableemoji = false
 [params]
     description = "The practical software engineering blog"
     googleSearch = "000151824860492892407:kd5zijxwj6a"
+    adsense = "ca-pub-7125931910131040"
     showDate = true # make false if dont want to show date
     math = false # best to enable this in the front matter of a page
     githubProfile = "rafed"
