@@ -1,17 +1,24 @@
-In resume, However, I believe in tool agnostic skills. Being in an industry that moves at the speed of time, it sometimes doesn't matter what frameworks/tools I'm familiar with. Because tools/frameworks are so fickle these days that they can become obsolete within months! What matters more is how fast can I learn and make myself comfortable with newer technology. I believe I'm a quick learner. I prioritize concepts over techniques.
-Dabbling into experimental cutting edge new technologies is my favorite pastime.
+https://uxdesign.cc/13-of-my-favorite-ui-ux-goodies-ae4b8b0c133e
+Owasp testing guide
+https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
+https://medium.com/better-programming/9-vue-js-libraries-that-will-make-your-life-easier-5f14c09b0ce0
+
+terminal commands
+sl
+fortune | cowsay
+toilet # ascii art
+oneko # cats chae mouse
+xeyes
+cmatrix
+
+overvue
+
 You never really know a technology until the honeymoon is over and you are familiar with all of the ways it sucks
 
 ### Devops/cloud
 DWDM and lambdas
 How to avoid a communication failure (A->B msg all combinations and their solutions
 Proxying and reverse proxying
-
-A cool way to understand DevOps
-  1 4 7 10 13 16
-  1 5 9 13 17 21
-  3 Devs, 1 Manager, 1 Tester, 1 Sys admin
-  Aquib er burger bribe
 
 ### Software engineering
 Introduction to Software Ethics
@@ -48,12 +55,6 @@ An Introduction to Software Metrics
   SLOC
   Bill Gates- judging the quality of a plane by how big it is
 
-All about the AAS
-  Bots as a service
-  Dbaas
-  iaas, paas, saas, baas, dbaas, faas serverless, mvc, microservices, monolith
-
-
 Modern CMSes to speed up backend development
   strapi
   directus
@@ -75,6 +76,7 @@ Make a crawler with firebase
 Make and CMake, MAKE *
 Building a c++ project
 experience with data preprocessing in remote server
+You're doing bootstrap wrong 
 
 Tips and tricks to make a console program
   How to color fg/bg
@@ -99,8 +101,8 @@ Crawling Google & Google Scholar Search results
   echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
 
 ### Others
-How to get prizes in Hackkathons
-Thnuderbird
+How to get prizes in Hackathons
+Thunderbird
 Open Source Stories (HacktoberFest)
 Gmail tricks you need to use now
 How to give a good presentation
@@ -136,6 +138,7 @@ https://dev.to/oyetoket/how-to-create-productive-bash-command-aliases-practical-
 https://dev.to/davidepacilio/50-free-tools-and-resources-to-create-awesome-user-interfaces-1c1b
 https://dev.to/perborgen/learn-basic-ui-design-in-5-minutes-1mlk
 https://dev.to/perborgen/learn-ui-design-fundamentals-with-this-free-one-hour-course-2llo
+https://dev.to/sasidharan/free-illustrations-for-developers-35hl?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email
 
 7 rules for creating beautiful UI
 
