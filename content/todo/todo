@@ -100,7 +100,6 @@ Crawling Google & Google Scholar Search results
   echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
 
 ### Others
-How to get prizes in Hackathons
 Thunderbird
 Open Source Stories (HacktoberFest)
 Gmail tricks you need to use now
@@ -112,7 +111,6 @@ cool reference extractor:
  crossref
  http://freecite.library.brown.edu/welcome/api_instructions
 What to do on github / gist.github /classroom.github / guides.github.com // all subdomains of github
-all google services/ use google like a pro
 life motivation - not everyone has the same privilege, find your own answers
 how I write my blog/ How to find blog articles to write about
 
@@ -133,21 +131,12 @@ Difference between bash, shell, terminal
 
 https://dev.to/oyetoket/how-to-create-productive-bash-command-aliases-practical-guide-2d23
 
-### UI stuff
-https://dev.to/davidepacilio/50-free-tools-and-resources-to-create-awesome-user-interfaces-1c1b
-https://dev.to/perborgen/learn-basic-ui-design-in-5-minutes-1mlk
-https://dev.to/perborgen/learn-ui-design-fundamentals-with-this-free-one-hour-course-2llo
-https://dev.to/sasidharan/free-illustrations-for-developers-35hl?utm_source=digest_mailer&utm_medium=email&utm_campaign=digest_email
-
-7 rules for creating beautiful UI
-
 ### Security
 How to get started with ctf
 https://medium.com/@impratikdabhi/how-to-get-started-in-ctf-complete-begineer-guide-15ab5a6856d
 https://hackingpassion.com/vulnerable-websites-improve-hacking-skills/
 Computer Security for Civilians
 Firevu vulnerable Android app
-
 
 ### Git
 https://dev.to/bellawoo/how-to-fix-a-typo-after-you-ve-already-pushed-your-commit-342l
