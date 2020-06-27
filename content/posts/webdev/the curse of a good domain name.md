@@ -12,6 +12,8 @@ We always want a good domain name for our websites, right? The qualities that ma
 - Have a .com extension
 - Doesn't have hyphens/numbers
 
+But sometimes, having all of these together may come at a price.
+
 Last week I got a call from my cousin who works at a private company. That company has a website that is managed by some software firm. It's a simple website in terms of functionality, nothing complicated. Since opening their website, one year has passed and they needed to renew their domain and hosting.
 
 So, she basically called me to consult what would be a fair renewal charge for everything combined. The renewal costs the software firm asking was too high and her company couldn't afford to spend that much money. 
@@ -20,7 +22,7 @@ From whatever understanding I had about their system, I said that it should be a
 
 She said, they are asking $4100.
 
-HOLY COW!! FREAKING $4200?? FOR WHAT??
+HOLY COW!! FREAKING $4100?? FOR WHAT??
 
 My immediate response was that they were overcharging and she should not accept this charge in no way. She asked for my assistance in renewing their domain and servers.
 
@@ -38,4 +40,4 @@ For this particular domain, the prefix "to", postfix "institute" and ".com" exte
 
 Note that, they did not buy this domain at this price for the first year. Now that they cannot afford this domain anymore, all their valuable traffic would be lost.
 
-So, be careful folks. Don't fall in the trap of buying premium domains. And if you're buying them, make sure you can afford it
+So, be careful folks. Don't fall in the trap of buying premium domains. And if you're buying them, make sure you can afford it.
