@@ -1,3 +1,10 @@
+---
+title: Understanding the github licences
+date: 2020-06-27
+tags: [github, software ethics]
+draft: true
+---
+
 Tutorials
 Roadmap to becoming a web developer in 2019 https://github.com/kamranahmedse/developer-roadmap
 

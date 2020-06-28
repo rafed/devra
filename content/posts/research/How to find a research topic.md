@@ -1,3 +1,10 @@
+---
+title: How to write a research proposal
+date: 2020-06-27
+tags: [research]
+draft: true
+---
+
 is it hard?
 is it elegant?
 is it useful?

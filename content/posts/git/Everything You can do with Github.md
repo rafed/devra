@@ -1,3 +1,9 @@
+---
+title: Common git problems and how to fix them
+date: 2020-06-27
+tags: [git, github]
+draft: true
+---
 
 If your are using Github only to store your projects, you're missing out on all the fun stuff. Using Github to it's full potential will make your life as a developer a lot more simple and productive. In this article, I'll show you the ways you can use Github.
 
@@ -27,3 +33,5 @@ Check out these funny repos  here site
 
 gitbook
 git tag
+
+What to do on github / gist.github /classroom.github / guides.github.com // all subdomains of github

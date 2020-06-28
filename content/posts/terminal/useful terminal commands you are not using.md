@@ -1,5 +1,9 @@
-
-
+---
+title: Useful terminal commands you are not using
+date: 2020-06-27
+tags: [terminal, linux]
+draft: true
+---
 
 nano
 htop
@@ -19,9 +23,6 @@ convert +append input1.jpg input2.jpg output.jpg
 convert -append input1.jpg input2.jpg output.jpg
 convert -resize 50% input.png output.png
 convert problem2.gif -shave 1x1 -bordercolor black -border 1 problem3.gif
-
-ls; spd-say fuck_you_shihab
-
 
 This prints the file count per directory for the current directory level:
 du -a | cut -d/ -f2 | sort | uniq -c | sort -nr

@@ -1,17 +1,4 @@
-https://uxdesign.cc/13-of-my-favorite-ui-ux-goodies-ae4b8b0c133e
-Owasp testing guide
 https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
-https://medium.com/better-programming/9-vue-js-libraries-that-will-make-your-life-easier-5f14c09b0ce0
-
-terminal commands
-sl
-fortune | cowsay
-toilet # ascii art
-oneko # cats chae mouse
-xeyes
-cmatrix
-
-overvue
 
 You never really know a technology until the honeymoon is over and you are familiar with all of the ways it sucks
 
@@ -27,7 +14,6 @@ Database tips https://www.youtube.com/watch?v=665oN7vRQU4
 My favorite software engineers,  Uncle bob
 8 lines of code https://www.infoq.com/presentations/8-lines-code-refactoring/
 GRASP OOP design patterns
-meaning of the github licences
 https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf
 https://dev.to/paulasantamaria/clean-code-why-bother-part-2-1eme?fbclid=IwAR2hg_AbuYNHQFgBdnHuL6oWQkAEpGGe6cX6Ca8whjNmd_9iPWgCD1Bu-Fg
 monolith vs non structured
@@ -36,6 +22,7 @@ Human action automators! sikulix/selenium
 web libraries to use font-awesome/ scrollr /vue.js / three.js
 Introduction to practical software testing/ how to do unit test /frameworks
 Look like a hacker :p geektyper, zsh
+Software engineering books you have to read
 
 architectures in cse
  - computer architecture
@@ -72,18 +59,7 @@ Analyzing Survey Results with Python
 How I made a distributed system with docker
 thrift basics
 Make a crawler with firebase
-Make and CMake, MAKE *
-Building a c++ project
 experience with data preprocessing in remote server
-You're doing bootstrap wrong 
-
-Tips and tricks to make a console program
-  How to color fg/bg
-  password
-  autocompletion
-  shell like feature msf>
-  terminal gui
-  overwriting
 
 Sorting "Sorting Algorithms"
   Bubblesort
@@ -101,7 +77,7 @@ Crawling Google & Google Scholar Search results
 
 ### Others
 Thunderbird
-Open Source Stories (HacktoberFest)
+
 Gmail tricks you need to use now
 How to give a good presentation
   Follow the 3 second rule when giving lecture. (look at a person for 3 seconds)
@@ -110,7 +86,6 @@ cool reference extractor:
  anysite.io
  crossref
  http://freecite.library.brown.edu/welcome/api_instructions
-What to do on github / gist.github /classroom.github / guides.github.com // all subdomains of github
 life motivation - not everyone has the same privilege, find your own answers
 how I write my blog/ How to find blog articles to write about
 
@@ -119,35 +94,15 @@ how I write my blog/ How to find blog articles to write about
  pagespeed insights
  google analytics (how to know yor site is good)
  google alerts
-
+ google lighthouse
 what is sql / why sql
-Best way to design sites bootstrap studio
-
-### Linux/Terminal
-Awesome Terminal Productivity
-  https://github.com/chubin/cheat.sh
-  https://github.com/tldr-pages/tldr
-Difference between bash, shell, terminal
-
-https://dev.to/oyetoket/how-to-create-productive-bash-command-aliases-practical-guide-2d23
 
 ### Security
 How to get started with ctf
 https://medium.com/@impratikdabhi/how-to-get-started-in-ctf-complete-begineer-guide-15ab5a6856d
 https://hackingpassion.com/vulnerable-websites-improve-hacking-skills/
 Computer Security for Civilians
-Firevu vulnerable Android app
-
-### Git
-https://dev.to/bellawoo/how-to-fix-a-typo-after-you-ve-already-pushed-your-commit-342l
-basics of git and github { //// bare minimum git commands to know
-    Revert - You want to be able to confidently undo changes that break your code.
-    Track changes - You want to be able to figure out what was necessary to implement a feature, or how various code is related to other code.   Mostly, you want to know why somebody chose to write a particular piece of code.
-    
-    https://dev.to/andydangerous/how-i-git
-    https://github.com/k88hudson/git-flight-rules
-    https://dev.to/murkrage/five-git-commands-i-started-using-that-might-be-helpful-to-you-536e
-}
+Owasp testing guide
 
 ----
 
