@@ -1,10 +1,10 @@
 ---
-title: Free tools for easier front end development
+title: Free Front end development tools for the non front end guy
 date: 2020-06-27
-tags: [WebDev]
+tags: [front-end, WebDev]
 ---
 
-Front end is hard if you're not a designer. This list is a collection of tools that will help you speed up your front end workflow. Lets ease front end as much as possible!
+Front end development is hard if you're not a designer. This list is a collection of tools that will help you speed up your front end workflow as a non front end guy. Lets make front end easy again!
 
 #### Table of Contents
 
@@ -20,14 +20,14 @@ Front end is hard if you're not a designer. This list is a collection of tools t
 ## Color Palette
 
 - [Parametric colormixer](https://colormixer.web.app/) - Generate your palette
-- [Css gradient](https://cssgradient.io/)
+- [Css gradient](https://cssgradient.io/) - Beautiful gradients
 - [Colorsinspo](https://colorsinspo.com/) - Pre made color palettes
 - [Color Hexa](https://www.colorhexa.com/) - Learn more information about colors
-- [Color Space](https://mycolor.space/) - Generate nice colour palettes, gradients, and matching colour schemes
+- [Color Space](https://mycolor.space/) - Generate nice color palettes, gradients, and matching color schemes
 
 ## Design practices
 
-- [Design checklist](https://www.checklist.design/)
+- [Design checklist](https://www.checklist.design/) - Best design practices to follow 
 - [Design System Repo](https://designsystemsrepo.com/design-systems-recent/) - Curated list of designs for inspiration
 - [SaaS Landing Page](https://saaslandingpage.com/) - SaaS landing page inspirations
 
@@ -84,7 +84,7 @@ Front end is hard if you're not a designer. This list is a collection of tools t
 This list has been made by copying shamelessly from the following lists:
 1. [https://dev.to/deavidepacilio/](https://dev.to/davidepacilio/50-free-tools-and-resources-to-create-awesome-user-interfaces-1c1b)
 1. [https://dev.to/vaibhavkhulbe/](https://dev.to/vaibhavkhulbe/bookmark-these-tools-websites-for-your-next-ui-ux-project-right-now-4132)
-1. [github.com/bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers). This is a complete list of every free things for designing)
+1. [github.com/bradtraversy/design-resources-for-developers](https://github.com/bradtraversy/design-resources-for-developers). This is a complete list of every free thing for designing)
 
 
 
