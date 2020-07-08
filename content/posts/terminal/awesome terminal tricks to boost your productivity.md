@@ -60,6 +60,7 @@ $ www               # starts server in the current directory
 <kbd>Ctrl + x + e </kbd>     Edit big cmds in editor  
 <kbd>Ctrl + a</kbd>          Go to beginning of cmd
 <kbd>Ctrl + e</kbd>          Go to end of cmd  
+<kbd>Ctrl + w</kbd>          Erase entire word  
 <kbd>Ctrl + ←/→</kbd>        Move faster within the cmd
 </pre>
 
