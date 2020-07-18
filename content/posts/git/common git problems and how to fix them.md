@@ -18,3 +18,6 @@ basics of git and github { //// bare minimum git commands to know
 
 git reset (unstage accidentally staged files)
 add upstream when cloned repository is behind commits of main branch
+
+# set remote url when changed
+git remote set-url origin new.git.url/here
