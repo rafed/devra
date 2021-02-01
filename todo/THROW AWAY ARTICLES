@@ -1,0 +1,41 @@
+My experience with clusterings
+Analyzing Survey Results with Python
+How I made a distributed system with docker
+thrift basics
+Make a crawler with firebase
+experience with data preprocessing in remote server
+
+TERMINAL
+Tips and tricks for making a console program
+    How to color fg/bg, hidden passwords, autocompletion, shell like feature msf>, terminal gui, overwriting text
+
+PROGRAMMING
+Popular Stacks
+    MEAN, MERN, JAMstack, LAMP, ELK
+
+GIT
+Understanding the github licences
+Open Source Stories (HacktoberFest)
+
+DOCKER
+how i use docker and why you should use it too
+Advanced Docker commands
+
+PARSING GIT REPOS WITH PYTHON
+It's been sometime since I've been working with analyzing git repositories from Github. In this article I will discuss how I did it with python, the challenges I faced and other stuff.
+Choosing a Library
+Gitpython and pydriller
+The Challenge
+
+DEBUGGING LIKE A PRO WITH VSCODE
+Admit it, we all used print() to debug code. There are debuggers and profilers but we don't seem to use them (maybe because they are not convenient?).
+Conditional Breakpoints
+Log points
+Tasks
+VSCode tasks are a great way to bring terminal commands into VS Code (e.g, starting-up dependencies using before debugging). This allows you to quickly run frequently used shell commands with a few keystrokes.
+The additional benefit of tasks is that you can even configure a given task to run immediately before a debug session is started or run immediately after a debug session using preLaunchTask and postDebugTask properties in your launch.json debug config. This is extremely helpful to automate preparation commands/clean up commands when debugging. (e.g, Startup 3rd party dependencies in docker as preLaunchTask, and stopping dependencies once the debug session finishes as a postDebugTask).
+User Inputs in Tasks and Launch Configurations
+If we need to frequently change the arguments of a shell command in a VSCode task, we can define it as a VSCode input variable and provide it when the task is about to run. VSCode inputs can be used both in tasks as well as launch configurations which makes them extremely helpful.
+
+
+THE MOMENT I REALIZED I NEEDED TYPESCRIPT
