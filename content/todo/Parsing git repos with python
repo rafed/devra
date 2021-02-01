@@ -1,9 +1,0 @@
-It's been sometime since I've been working with analyzing git repositories from Github. In this article I will discuss how I did it with python, the challenges I faced and other stuff.
-
-Choosing a Library
-
-
-Gitpython and pydriller
-
-The Challenge
-
