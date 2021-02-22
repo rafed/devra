@@ -11,7 +11,7 @@ disqusShortname = ""
 googleAnalytics = "UA-106132552-1"
 
 [params]
-    description  = "The Ultimate Tech Blogging Theme"
+    description  = "A personal blog on programming, software engineering, machine lelarning, security and tech"
     contactEmail = "rafed123@gmail.com"
     footer       = ""
     googleSearch = "000151824860492892407:kd5zijxwj6a"
