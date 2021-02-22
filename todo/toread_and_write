@@ -1,14 +1,10 @@
-
-Computer quotes:
-“If a machine is expected to be infallible, it cannot also be intelligent.”
-― Alan Turing
-
 ML series 
 
 Python tricks series:
 	python logging https://medium.com/dev-genius/python-logging-basics-458ad969e850
 	https://medium.com/better-programming/9-python-3-features-you-might-not-use-yet-fade13932a3e
 	https://medium.com/techtofreedom/8-levels-of-using-list-comprehension-in-python-efc3c339a1f0
+  https://dev.to/carminezacc/basic-python-scripting-to-automate-everyday-tasks-add-text-to-images-using-imagemagick-and-wand-5fib?
 
 cssScan for copying CSS
 https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
@@ -18,23 +14,6 @@ You never really know a technology until the honeymoon is over and you are famil
 ### Devops/cloud
 DWDM and lambdas
 Proxying and reverse proxying
-
-### Software engineering
-Introduction to Software Ethics
-Architectural patterns in web development
-software architecture, https://www.educative.io/courses/web-application-software-architecture-101?aid=5082902844932096&utm_source=facebook&utm_medium=single-ad&utm_campaign=web-app-architecture&fbclid=IwAR2HGu-we4S5yjgBWm5DrPL6TtIvNTSl6VMWRiAJ8BCaQ7M1J7gUP2-oPsQ
-Database tips https://www.youtube.com/watch?v=665oN7vRQU4
-My favorite software engineers,  Uncle bob
-8 lines of code https://www.infoq.com/presentations/8-lines-code-refactoring/
-GRASP OOP design patterns
-https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf
-monolith vs non structured
-all about command line text processing github.com/learnbyexample/Command-line-text-processing
-Human action automators! sikulix/selenium
-web libraries to use font-awesome/ scrollr /vue.js / three.js
-Introduction to practical software testing/ how to do unit test /frameworks
-Look like a hacker :p geektyper, zsh
-Software engineering books you have to read
 
 architectures in cse
  - computer architecture
@@ -47,11 +26,6 @@ Comment documentation
   godoc
   python string
   Docusaurus
-
-An Introduction to Software Metrics
-  LOC
-  SLOC
-  Bill Gates- judging the quality of a plane by how big it is
 
 Modern CMSes to speed up backend development
   strapi
@@ -81,7 +55,6 @@ Crawling Google & Google Scholar Search results
 
 ### Others
 Thunderbird
-
 Gmail tricks you need to use now
 How to give a good presentation
   Follow the 3 second rule when giving lecture. (look at a person for 3 seconds)
@@ -104,12 +77,6 @@ what is sql / why sql
 genjam with regex - https://regex101.com/ ++++ http://txt2re.com/index-python.php3?s=[2,%2018,%2013,%204]%20hello%20how%20are%20you&-64&-12&-65
 https://dev.to/emmabostian/regex-cheat-sheet-2j2a
 
-https://medium.com/the-ascent/how-to-start-earning-10x-more-money-in-the-next-30-days-60206dfc96d7
-https://www.entrepreneur.com/article/361691
-http://www.planetofsuccess.com/blog/2015/stephen-coveys-time-management-matrix-explained/#:~:text=Covey's%20matrix%20allows%20you%20to%20organize%20your%20priorities%20much%20better%20than%20before.&text=Covey's%20system%20makes%20use%20of,if%20you%20can%20postpone%20it.
-How to found a startup https://www.ycombinator.com/library
-How to win debates https://www.vbriefly.com/2014/11/26/drillin-like-a-villain-how-to-get-better-at-debate-by-danny-debois/?
-
 
 Security
 https://blog.ropnop.com/docker-for-pentesters/?
@@ -121,6 +88,7 @@ https://medium.com/@impratikdabhi/how-to-get-started-in-ctf-complete-begineer-gu
 https://hackingpassion.com/vulnerable-websites-improve-hacking-skills/
 Computer Security for Civilians
 Owasp testing guide
+Look like a hacker :p geektyper, zsh
 
 Productivity
 https://dev.to/ilonacodes/ultimate-short-guide-to-stop-procrastinating-2jof?
@@ -130,6 +98,11 @@ https://dev.to/iamdoomling/five-things-that-are-killing-my-productivity-as-a-dev
 https://dev.to/zoebourque/a-guide-to-deep-work-how-to-achieve-the-ultimate-productivity-1mmg
 https://dev.to/gaelthomas/poor-productivity-how-to-stop-wasting-time-dj1
 https://entrepreneurshandbook.co/how-to-get-more-done-in-3-hours-than-most-do-in-a-week-c5bcdcff801e
+https://medium.com/the-ascent/how-to-start-earning-10x-more-money-in-the-next-30-days-60206dfc96d7
+https://www.entrepreneur.com/article/361691
+http://www.planetofsuccess.com/blog/2015/stephen-coveys-time-management-matrix-explained/#:~:text=Covey's%20matrix%20allows%20you%20to%20organize%20your%20priorities%20much%20better%20than%20before.&text=Covey's%20system%20makes%20use%20of,if%20you%20can%20postpone%20it.
+How to found a startup https://www.ycombinator.com/library
+How to win debates https://www.vbriefly.com/2014/11/26/drillin-like-a-villain-how-to-get-better-at-debate-by-danny-debois/?
 
 Blogging
 https://dev.to/taillogs/how-to-write-a-good-blog-post-2eom?
@@ -146,15 +119,8 @@ https://dev.to/pluralsight/the-top-10-books-on-devops-you-need-to-read-45m2?
 https://dev.to/ashokdey_/building-a-scalable-system-4l41?
 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://dev.to/emmawedekind/design-systems-part-ii-design-language-217k?
+https://dev.to/justaashir/do-design-systems-prevent-creativity-8pa?
 
-SRS
-https://dev.to/sm0ke/best-documentation-generators-and-why-5hfc?
-https://dev.to/napicella/improve-documentation-quality-in-4-minutes-with-architectural-decision-records-g0h?
-https://dev.to/kmruiz/organic-software-architecture-3548?
-https://sobolevn.me/2019/02/engineering-guide-to-user-stories
-https://dev.to/rolfstreefkerk/why-document-a-rest-api-as-code-5e7p
-https://dev.to/martinbelev/what-are-you-using-for-your-documentation-4iib
-https://dev.to/simonbrown/visio-draw-io-lucidchart-gliffy-etc-not-recommended-for-software-architecture-diagrams-4bmm?
 
 Adhoc
 https://dev.to/deciduously/how-to-make-a-makefile-1dep?
@@ -162,7 +128,6 @@ https://forum.hackthebox.eu/discussion/1730/a-script-kiddie-s-guide-to-passing-o
 https://dev.to/cppchedy/rolling-out-your-own-mom-or-how-i-did-it-general-introduction-3j20?
 https://dev.to/carlillo/do-you-want-to-be-a-top-developer-you-must-build-things-7-apps-to-build-2oje?
 https://dev.to/bnevilleoneill/learn-these-keyboard-shortcuts-to-become-a-vs-code-ninja-31me?
-https://www.facebook.com/GitHub/photos/a.493394137429548/1991505347618412/
 https://www.testim.io/blog/unit-test-rest-api/
 https://blog.logrocket.com/top-10-vs-code-extensions-2021/
 https://dev.to/nialljoemaher/dockerize-your-development-environment-1a50?
@@ -170,13 +135,10 @@ https://dev.to/kendalmintcode/30-helpful-tools-apps-and-websites-3c8h?
 https://dev.to/sandordargo/the-best-8-books-i-read-this-year-a03?
 https://dev.to/khalyomede/design-an-easy-to-use-and-flexible-rest-endpoints-3fia
 https://dev.to/awwsmm/20-small-steps-to-become-a-regex-master-mpc
-https://dev.to/carminezacc/basic-python-scripting-to-automate-everyday-tasks-add-text-to-images-using-imagemagick-and-wand-5fib?
 https://dev.to/sofiajonsson/interview-prep-system-design-4p50?
-https://dev.to/justaashir/do-design-systems-prevent-creativity-8pa?
 https://dev.to/victoria/a-portable-makefile-for-continuous-delivery-with-hugo-and-github-pages-5244?
 https://dev.to/x-team/essential-resources-to-learn-about-devops-1ad8?
 https://dev.to/mikulskibartosz/four-books-to-boost-your-programmer-career-in-2020-including-the-one-that-made-me-quit-my-dream-job-2ni9?
-https://dev.to/martinheinz/making-python-programs-blazing-fast-4knl?
 https://dev.to/deepal/4-things-you-should-know-vscode-can-do-without-extensions-in8
 https://dev.to/dotnet/the-secret-art-of-debugging-1lfi
 https://dev.to/drminnaar/rest-api-guide-14n2
