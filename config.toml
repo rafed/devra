@@ -7,13 +7,13 @@ theme           = "BlogRa"
 languageCode    = "en-us"
 title           = "DevRa"
 
-disqusShortname = ""
+disqusShortname = "rafed"
 googleAnalytics = "UA-106132552-1"
 
 [params]
     description  = "A personal blog on programming, software engineering, machine lelarning, security and tech"
     contactEmail = "rafed123@gmail.com"
-    footer       = ""
+    footer       = "© 2021 Rafed Muhammad Yasir."
     googleSearch = "000151824860492892407:kd5zijxwj6a"
     adsense      = "ca-pub-7125931910131040"
     math         = false   # best to enable this in the front matter of a page
