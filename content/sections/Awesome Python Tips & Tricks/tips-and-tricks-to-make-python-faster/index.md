@@ -10,13 +10,10 @@ Python is known for being slow in terms of execution speed. However, you can try
 Ways to improve:
 
 1. Identify slow functions and improve them
-1. Use built-in data types instead of custom ones
 1. Use a cache
-1. Use local variables
-1. Reduce access to attributes
-1. Beware of strings
-1. Use generators
 1. Use numba
+1. Use generators
+1. Other tips
 
 ## 1. Identify slow functions and improve them
 
@@ -42,7 +39,7 @@ print(fib(20))
 print(loop(9999999))
 ```
 
-Instead of manually figuring out functions that could be bottlnecks, lets run the profiler to automatically do it for us. In the terminal, run-
+Instead of manually figuring out functions that could be bottlenecks, lets run the profiler to automatically do it for us. In the terminal, run-
 
 ```bash
 $ python3 -m cProfile -s time code.py
@@ -64,7 +61,7 @@ and the output should be something like this-
         1    0.000    0.000    0.000    0.000 {method 'disable' of '_lsprof.Profiler' objects}
 ```
 
-Notice the **ncalls** and **tottime** values. **ncalls** shows the number of times a function has been called and **tottime** shows the total time of execution of a function. By observing these values of all the functions in your code you can start thinking about which functions need to be optimized.
+Notice the **ncalls** and **tottime** values. **ncalls** shows the number of times a function has been called and **tottime** shows the total time of execution of a function. By observing these values of all the functions in your code you can start thinking about which functions need to be optimized. For example, the _loop_ function took 0.595s to run and it was called 1 time. The _fib_ function took much lesser time to run (0.006s) but it was called 21891 times. It may need to be improved as it is a function that is being called numerous times.
 
 
 ## 2. Use a Cache
