@@ -28,3 +28,12 @@ $ git config --global user.name "John Doe"
 $ git config --global user.email johndoe@example.com
 
 $ git config --global core.editor nano
+
+
+# Revert to previous n-th commit
+
+The last commit will be removed from your Git history.
+
+$ git reset --soft HEAD~1
+
+If you are not familiar with this notation, “HEAD~1” means that you want to reset the HEAD (the last commit) to one commit before in the log history.
