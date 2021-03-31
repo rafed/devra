@@ -21,39 +21,52 @@ If you are glued to the terminal, you may want to use the following tricks to im
 
 It's best to **put aliases in .bashrc** because most .bash_profile configs also execute .bashrc when invoked. -->
 
-Copy the lines starting with **alias** to your ~/.bashrc file to enable them.
+Copy the lines starting with **alias** to your **~/.bashrc** file to enable them.
 
-{{<highlight bash>}}
-# 1. Open a file in GUI mode
+#### 1. Open a file in GUI mode
+```bash
 alias open='xdg-open &>/dev/null'
 $ open home/        # opens home directory
+```
 
-# 2. Copy output of a command
+#### 2. Copy output of a command
+
+```bash
 # Install xclip (apt-get install xclip)
 alias c="xclip -selection clipboard"
 $ ls | c            # copies output of ls (now you can paste)
+```
 
-# 3. Show your public ip
+#### 3. Show your public ip
+```bash
 alias myip='curl ifconfig.me'
 $ myip              # outputs your ip
+```
 
-# 4. Go back in directories
+#### 4. Go back in directories
+```bash
 alias ..='cd ../'
 alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
+```
 
-# 5. Use bat instead of cat
+#### 5. Use bat instead of cat
+```bash
 alias cat=bat       # make sure bat is installed
 $ cat myfile.txt    # apt-get install bat
+```
 
-# 6. No need to type sudo everytime now when installing
+#### 6. No need to type sudo everytime now when installing
+```bash
 alias apt-get='sudo apt-get'
+```
 
-# 7. Start a http server
+#### 7. Start a http server
+```bash
 alias www='python3 -m http.server'
 $ www               # starts server in the current directory
-{{</highlight>}}
+```
 
 ## Command editing hacks
 
@@ -67,35 +80,47 @@ $ www               # starts server in the current directory
 
 ## Running past commands
 
-{{<highlight bash>}}
+#### 1. Run the previously executed command
+```bash
+$ !!
+$ sudo !! # previously executed command with sudo
+```
 
-# Run the last exectued command
-$ sudo !!
-
-# Run the last command starting with xxx
+#### 2. Run the last command starting with xxx
+```bash
 $ !xxx
+```
 
-# Reverse-i-search
-$ Ctrl + r [now type chars]   # shows recent command based on the characters provided
+#### 3. Reverse-i-search
+```bash
+# shows recent command based on the typed characters
+$ Ctrl + r [now type chars]   
+```
 
-# Search by filtering entire search history
+#### 4. Search by filtering entire search history
+```bash
 $ history | grep "xxx"        # searches for commands including xxx
-{{</highlight>}}
+```
 
 ## Useful commands
 
-{{<highlight bash>}}
-
-# Know when internet connection is up
+#### 1. Know when internet connection is up
+```bash
 $ ping 8.8.8.8 -a     # Makes periodic beeps when there is connectivity
+```
 
-# Show open ports
+#### 2. Show open ports
+```bash
 $ sudo lsof -ni
+```
 
-# Live read log files
+#### 3. Live read log files
+```bash
 tail -f /var/log/my-app/my-app.log | grep ERROR
+```
 
-# Simple image editing
+#### 4. Simple image editing
+```bash
 # Must have imagemagick installed (apt-get install imagemagick)
 
 # Append multiple images horizontally
@@ -109,8 +134,13 @@ convert -resize 50% input.png output.png
 
 # Add border to image
 convert input.gif -shave 1x1 -bordercolor black -border 1 output.gif
+```
 
-{{</highlight>}}
+### 5. Easily go to last directory
+```bash
+# Takes you to the previous directory you were in
+cd -
+```
 
 <!-- Awesome Terminal Productivity
   https://github.com/chubin/cheat.sh
