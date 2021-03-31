@@ -1,6 +1,6 @@
 ---
 title: Useful Terminal Commands You Need to Use NOW!
-date: 2021-03-26
+date: 2021-03-30
 tags: [terminal, linux]
 image: htop.png
 ---
