@@ -25,7 +25,7 @@ jobs:
         with:
           personal_token: ${{ secrets.TOKEN }}
           external_repository: rafed/devra
-          publish_dir: ./
+          publish_dir: ./public
           #   keep_files: true
           user_name: rafed
           user_email: rafed123@gmail.com
