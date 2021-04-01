@@ -1,0 +1,7 @@
+node_modules/
+/content/
+/resources/
+/public/
+/config.toml
+
+ads/
