@@ -1,8 +1,14 @@
+
+Go
+  https://dev.to/royal_bhati/package-layout-for-a-go-web-app-4oea
+  https://keccikun.medium.com/top-10-framework-golang-library-to-build-microservice-391a2bb4c2cb
+  https://medium.com/@vidhyanshu/implementing-clean-architecture-in-go-56aca59311b3
+
 Python tricks series:
-	python logging https://medium.com/dev-genius/python-logging-basics-458ad969e850
+  https://towardsdatascience.com/5-lesser-known-python-features-19989db6e13e
 	https://medium.com/better-programming/9-python-3-features-you-might-not-use-yet-fade13932a3e
+	python logging https://medium.com/dev-genius/python-logging-basics-458ad969e850
 	https://medium.com/techtofreedom/8-levels-of-using-list-comprehension-in-python-efc3c339a1f0
-  https://dev.to/carminezacc/basic-python-scripting-to-automate-everyday-tasks-add-text-to-images-using-imagemagick-and-wand-5fib?
 
 https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
 capable of writing shell scripts
@@ -51,7 +57,6 @@ Crawling Google & Google Scholar Search results
   echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
 
 ### Others
-Thunderbird
 Gmail tricks you need to use now
 How to give a good presentation
   Follow the 3 second rule when giving lecture. (look at a person for 3 seconds)
@@ -86,6 +91,9 @@ https://hackingpassion.com/vulnerable-websites-improve-hacking-skills/
 Computer Security for Civilians
 Owasp testing guide
 Look like a hacker :p geektyper, zsh
+writing breach reports: what, so what, now what?
+Social engineering the art of human hacking
+
 
 Productivity
 https://dev.to/ilonacodes/ultimate-short-guide-to-stop-procrastinating-2jof?
@@ -100,6 +108,8 @@ https://www.entrepreneur.com/article/361691
 http://www.planetofsuccess.com/blog/2015/stephen-coveys-time-management-matrix-explained/#:~:text=Covey's%20matrix%20allows%20you%20to%20organize%20your%20priorities%20much%20better%20than%20before.&text=Covey's%20system%20makes%20use%20of,if%20you%20can%20postpone%20it.
 How to found a startup https://www.ycombinator.com/library
 How to win debates https://www.vbriefly.com/2014/11/26/drillin-like-a-villain-how-to-get-better-at-debate-by-danny-debois/?
+https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/how-to-stay-productive-all-day-coding-and-scheduling-tips-for-programmers/amp/
+https://medium.com/@lauravanderkam/a-mental-trick-to-make-any-task-less-intimidating-71ab2b25d663
 
 Blogging
 https://dev.to/taillogs/how-to-write-a-good-blog-post-2eom?
@@ -145,3 +155,4 @@ https://dev.to/danihodovic/advanced-usage-of-python-requests-timeouts-retries-ho
 https://dev.to/stevensunflash/using-domain-driven-design-ddd-in-golang-3ee5?
 https://dev.to/heroku/two-million-ways-to-use-postgres-3k62?
 https://dev.to/trekhleb/technical-interview-preparation-checklist-4m4f?
+Patt flynn will it fly

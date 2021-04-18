@@ -6,6 +6,8 @@ https://sobolevn.me/2019/02/engineering-guide-to-user-stories
 https://dev.to/rolfstreefkerk/why-document-a-rest-api-as-code-5e7p
 https://dev.to/martinbelev/what-are-you-using-for-your-documentation-4iib
 https://dev.to/simonbrown/visio-draw-io-lucidchart-gliffy-etc-not-recommended-for-software-architecture-diagrams-4bmm?
+https://dev.to/maikomiyazaki/first-meeting-with-a-client-knowing-requirement-gathering-techniques-makes-a-difference-1p6b
+https://www.freecodecamp.org/news/what-is-trunk-based-development/
 
 ### Software engineering
 Introduction to Software Ethics
@@ -22,8 +24,20 @@ Human action automators! sikulix/selenium
 web libraries to use font-awesome/ scrollr /vue.js / three.js
 Introduction to practical software testing/ how to do unit test /frameworks
 Software engineering books you have to read
+https://javascript.plainenglish.io/13-vscode-extensions-that-every-web-developer-must-use-d86fe3798f76
 
 An Introduction to Software Metrics
   LOC
   SLOC
   Bill Gates- judging the quality of a plane by how big it is
+
+All acronyms in SE
+  oop
+  scm source code management
+  vcs version control system
+  wysiwyg
+  gui
+  api
+  ide
+  tdd
+  sdk
