@@ -25,7 +25,7 @@ jobs:
         with:
           # personal_token: ${{ secrets.TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          external_repository: rafed/devra
+          # external_repository: rafed/devra
           publish_dir: ./public
           #   keep_files: true
           user_name: rafed
