@@ -5,9 +5,9 @@ tags: [terminal, linux]
 image: ssh.png
 ---
 
-SSH, short for Secure Shell, is a protocol and a tool for secure network communications. It is widely used for connecting to remote servers for executing commands and transferring files between computers.
+SSH stands for Secure Shell. It is both a network protocol and a network tool for secure network communications. It can be used for connecting to remote servers for executing commands and transferring files between computers.
 
-In this post I'll share tips on how I use SSH for various tasks in my day to day work and how it helps me to get jobs done in remote servers.
+In this post, I'll share tips on how I use SSH for various tasks in my day to day work and how it helps me to get the job done on remote servers.
 
 ## Basic SSH
 
@@ -21,7 +21,7 @@ $ ssh the_user@10.100.1.10
 $ ssh the_user@10.100.1.10 -p 2222
 ```
 
-After executing, you'll be asked for password, enter it and boom! You are now connected.
+After executing, you'll be asked for a password, enter it and boom! You are now connected to the remote.
 
 ## Passwordless SSH
 
@@ -34,7 +34,7 @@ Enter passphrase (empty for no passphrase): # Keep empty
 Enter same passphrase again: # Keep empty
 ```
 
-This will create a public and a private pair key in your mentioned path. Copy the contents of the file ending in **.pub** to **.ssh/authorized_keys**.
+This will create a public and a private pair key in your mentioned path. Copy the contents of the file ending in **.pub** to **.ssh/authorized_keys** of the remote server.
 
 Alternatively, you could run the following to automatically do that.
 
@@ -75,6 +75,7 @@ To sync folder on local host with files from remote host, execute
 ```bash
 $ rsync --archive --compress --partial --progress user@remote.com:path/to/folder/ path/to/folder/
 ```
+
 ## File transfer with FTP
 
 Sometimes it makes more sense to login to a machine, see what files are present there and then download them. This can be done through **sftp**,, which stands for _secure file transfer protocol_.
@@ -94,17 +95,20 @@ sftp> lpwd      # See current working directory on local
 sftp> ls        # List files on current remote directory
 sftp> lls       # List files on current local directory
 
+sftp> cd        # Change remote directory
+sftp> lcd       # Change local directory
+
 sftp> get remoteFile         # Get remote file
 sftp> get remoteFile name    # Get remote file with custom name
 sftp> get -r remoteDirectory # Get remote directory
 
-sftp> put localFile
-sftp> put -r localDirectory
+sftp> put localFile          # Upload file to remote
+sftp> put -r localDirectory  # Upload folder to remote
 ```
 
 ## Configure local SSH for easier access
 
-Sometimes it is troublesome to write the full __user@host.com__. It's especially troublesome when there is not domain configured and you need to enter with an IP like __user@92.168.1.110__.
+Sometimes it is troublesome to write the full __user@host.com__. It's especially troublesome when there is no domain configured and you need to enter with an IP like __user@92.168.1.110__.
 
 We can configure the ssh client to make things easier.
 
@@ -128,3 +132,21 @@ $ sftp office
 ```
 
 Boom! Now you can connect more easily to remote PCs!
+
+## SSH Tunneling
+
+Sometimes you may want to forward the port of a client PC to a port of a remote PC. This can be achieved through SSH tunneling.
+
+Serve remote service at client's localhost (hitting localhost:1313 on client will hit to remote:5000)
+
+```bash
+$ ssh -L 1313:localhost:5000 root@10.100.101.45
+# ssh -L {local_port}:localhost:{remote_port} user@remote.ip
+```
+
+Serve client service at remote's localhost (hitting localhost:5000 on server will hit to client:1313)
+
+```bash
+$ ssh -R 5000:localhost:1313 root@10.100.101.45
+# ssh -R {remote_port}:localhost:{local_port} user@remote.ip
+```
