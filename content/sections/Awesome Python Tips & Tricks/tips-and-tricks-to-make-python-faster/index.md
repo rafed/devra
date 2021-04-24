@@ -1,7 +1,7 @@
 ---
 title: "Tips & Tricks to Make Python Faster!"
 date: 2021-02-26
-tags: [Programming, Python]
+tags: [programming, python]
 image: python.png
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "A better dictionary in python"
 date: 2021-04-23
-tags: [Programming, Python]
+tags: [programming, python]
 image: dictionary.jpg
 ---
 

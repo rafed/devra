@@ -1,7 +1,7 @@
 ---
 title: "Powerful Python One Liners"
 date: 2021-02-20
-tags: [Programming, Python]
+tags: [programming, python]
 image: python.png
 ---
 
