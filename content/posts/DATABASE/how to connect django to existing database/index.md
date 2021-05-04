@@ -1,7 +1,7 @@
 ---
 title: How to Connect Django to an Existing Legacy Database
 date: 2021-04-05
-tags: [programming, python]
+tags: [database, programming, python]
 image: "image.png"
 ---
 
