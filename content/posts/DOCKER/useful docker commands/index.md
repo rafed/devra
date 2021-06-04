@@ -7,6 +7,15 @@ image: "docker.jpeg"
 
 This guide is a shortlist of the only docker commands you will ever need to know. I keep on forgetting them, so I'm noting them down here. <!--more-->
 
+## Install docker
+```bash
+$ sudo apt install docker.io
+
+# Do the following so that sudo is not required everytime for running
+$ sudo groupadd docker
+$ sudo usermod -aG docker $USER
+```
+
 ## Display Docker version and info
 {{<highlight bash>}}
 # Check Docker version on the machine
