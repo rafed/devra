@@ -50,10 +50,16 @@ $ docker image rm $(docker image ls -a -q) # Remove all images
 # Create image using this directory's Dockerfile
 $ docker build -t friendlyhello .  
 
-# Run "friendlyname" mapping port 4000 to 80
-$ docker run -p 4000:80 friendlyhello  
-$ docker run -d -p 4000:80 friendlyhello    # In detached mode
+# Run "friendlyname" mapping port 4000 of host to port 80 on container
+$ docker run -p 4000:80 friendlyhello       # host-4000:container-80
+
+# Run container in background
+$ docker run -d -p 4000:80 friendlyhello    # Detached mode
 {{</highlight >}}
+
+# Attach a volume
+# Saves db files in container to ~/Desktop/data/db on host machine
+docker run -v ~/Desktop/data/db:/data/db  mongo 
 
 <!------------------------------------>
 
@@ -87,7 +93,10 @@ $ docker exec -it [id] bash   # bash is the program here
 $ docker login             
 
 # Tag <image> for upload to registry
-$docker tag <image> username/repository:tag
+$ docker tag <image hash> username/repository:tag
+
+# Or directly tag an image when building it
+$ docker build -t username/repository:tag directory/
 
 # Upload tagged image to registry
 $ docker push username/repository:tag            
