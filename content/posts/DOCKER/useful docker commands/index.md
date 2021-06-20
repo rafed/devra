@@ -11,7 +11,7 @@ This guide is a shortlist of the only docker commands you will ever need to know
 ```bash
 $ sudo apt install docker.io
 
-# Do the following so that sudo is not required everytime for running
+# Do the following so that sudo is not required every time for running
 $ sudo groupadd docker
 $ sudo usermod -aG docker $USER
 ```
@@ -55,11 +55,12 @@ $ docker run -p 4000:80 friendlyhello       # host-4000:container-80
 
 # Run container in background
 $ docker run -d -p 4000:80 friendlyhello    # Detached mode
-{{</highlight >}}
 
 # Attach a volume
-# Saves db files in container to ~/Desktop/data/db on host machine
+# Saves db files inside container in ~/Desktop/data/db on host machine
 docker run -v ~/Desktop/data/db:/data/db  mongo 
+
+{{</highlight >}}
 
 <!------------------------------------>
 
@@ -112,7 +113,7 @@ $ docker run username/repository:tag
 The commands mentioned above are just the ones that I mostly use. To know more commands run the following.
 
 {{<highlight bash>}}
-# See list of all commands
+# See a list of all commands
 $ docker 
 
 # Run 'docker COMMAND --help' for more information on a command.
