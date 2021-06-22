@@ -150,3 +150,13 @@ Serve client service at remote's localhost (hitting localhost:5000 on server wil
 $ ssh -R 5000:localhost:1313 root@10.100.101.45
 # ssh -R {remote_port}:localhost:{local_port} user@remote.ip
 ```
+
+## Mount remote directory locally
+
+This one is my personal favorite. I load the remote directory locally and work on my local machine. Changes made are automatically reflected in the remote directory.
+
+```bash
+# sshfs must be installed
+# $ sudo apt install sshfs
+sshfs user@domain:/remote/directory/ /local/directory/
+```
