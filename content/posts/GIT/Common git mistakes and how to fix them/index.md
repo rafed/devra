@@ -90,6 +90,23 @@ $ git checkout new-branch  # finally switch to the new branch
 
 Avoid this mistake by making the habit of creating a new branch whenever you are implementing a new feature (even if they are going to be discarded).
 
+#### 6. Committed files that should have been ignored
+
+Oops, you committed some files that should have been ignored (such as .env, exe). You add .gitignores for those but the files are still in the git tree. No problem, we can remove them.
+
+```bash
+# First, add files to be ignored in .gitignore
+$ git rm -r --path/to/file .  
+```
+
+Or, if the number of files are too many
+
+```bash
+# First, add files to be ignored in .gitignore
+$ git rm -r --cached .  # remove all files from git
+$ git add .             # re-add all files
+# Then, commit as usual
+```
 
 <!--*The (https://github.com/k88hudson/git-flight-rules).
 Squashing
