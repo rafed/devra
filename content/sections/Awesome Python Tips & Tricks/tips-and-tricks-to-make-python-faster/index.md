@@ -7,6 +7,8 @@ image: python.png
 
 Python is known for being slow in terms of execution speed. However, you can try out the following tricks to make your code faster.
 
+<!--more-->
+
 Ways to improve:
 
 1. Identify slow functions and improve them

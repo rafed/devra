@@ -5,7 +5,7 @@ tags: [programming, python]
 image: dictionary.jpg
 ---
 
-A Python dictionary is a very useful data structure that stores key value pairs. A python dictionary is declared like the following
+A Python dictionary is a very useful data structure that stores key value pairs. A python dictionary is declared like the following- <!--more-->
 
 ```python
 _dict = {}

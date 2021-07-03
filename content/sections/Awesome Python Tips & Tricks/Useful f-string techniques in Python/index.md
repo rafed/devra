@@ -7,6 +7,8 @@ image: python.png
 
 Python f-strings are super useful for formatting strings. Before python 3.6 _str.format()_ were used. But f-strings makes string manipulation much more easier and effective.
 
+<!--more-->
+
 #### 0. The simplest way to use f-strings
 
 ```python
