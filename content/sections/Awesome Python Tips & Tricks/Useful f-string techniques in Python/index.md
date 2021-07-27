@@ -29,10 +29,14 @@ print("value is {num%2=}") # value is num%2=1
 #### 2. Formatting
 
 ```python
-num_float = 12.34
+num_int = 123456789
+print(f"{num_int:,d}")    # 123,456,789
+
+num_float = 12.3456
+print(f"{num_float:.2f}") # 12.35
+
 now = datetime.datetime.utcnow()
-print(f"{now=:%Y-%m-%d}")
-print(f"{num_float:.2f}")
+print(f"{now=:%Y-%m-%d}") # now=2021-07-27
 ```
 
 #### 3. Padding
