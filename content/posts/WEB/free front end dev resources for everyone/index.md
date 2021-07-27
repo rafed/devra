@@ -80,6 +80,7 @@ Front end development is hard if you're not a designer. This list is a collectio
 - [AI Image Upscaler](https://icons8.com/upscaler) - use AI to upscale image
 - [App Launch Pad](https://theapplaunchpad.com/mockup-generator/?device_type=iPhone) - Put your image on computers, tabs and mobiles
 - [Artboard studio](https://artboard.studio/) - Create product mockups
+- [Mockuper](https://mockuper.net/) - Create view mockups with MAC viewports
 
 #### References
 
