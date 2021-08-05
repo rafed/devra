@@ -1,20 +1,20 @@
 ---
 title: Monitor Kubernetes Apps through Metrics, Logs and Traces (MLT)
-date: 2021-06-29
+date: 2021-07-05
 tags: [cloud, kubernetes]
 image: MLT.png
 ---
 
-Metrics, Logs and Traces (MLT) are the three pillars of monitoring that can give us a complete observability of a system.
+Metrics, Logs and Traces (MLT) are the three pillars of monitoring that can give us complete observability of a system.
 
-In this article we're going to set up all three of MLT on a kubernetes platform to monitor a app made with microservices.
+In this article, we're going to set up all three of MLT on a Kubernetes platform to monitor an app made with microservices.
 ## What are metrics, logs and traces?
 
 #### Metrics 
-Metrics show the measure of how the system is used. Typically they are shown in numbers or graphs. For example-
-* How much cpu was used the past hour?
-* How much storage is consumed?
-* How much bandwidth is left?
+Metrics show the measure of how a system resource is used. They are typically shown in numbers. For example-
+* How much CPU was used in the past hour?
+* How much disk space is consumed?
+* How much bandwidth has been used?
 
 #### Logs
 Logs are events that a running software records. For example-
@@ -22,11 +22,11 @@ Logs are events that a running software records. For example-
 * Log when a user accesses the system
 
 #### Traces
-Traces shows the path of a programs execution. In a modern distributed system, a request from client may get processed by several services. It is important to know through which path a request got processed and how much time was needed in each individual nodes so that bottlenecks can be identified.
+Traces show the path of a program's execution. In a modern distributed system, a request from a client may get processed through several services. It is important to know through which path a request got processed and how much time was needed in each node so that errors and bottlenecks can be identified.
 
 ## Technologies required
 
-Implementing all of this requires a bunch of different technologies. It's easy to get lost, so take it easy. Let's introduce the technoligies we're gonna use.
+Implementing all of this requires a bunch of different technologies. It's easy to get lost, so take it easy. Let's introduce the programs we're gonna use.
 
 1. **Grafana** _[Dashboard]_: This is a central dashboard where we will observe every MLT data collected by different services
 2. **Prometheus** _[Monitoring]_: This collects kubernetes/pods/containers metrics (CPU, Memory, Bandwidth, etc) and sends them to grafana
@@ -40,10 +40,20 @@ The following figure summarizes our implementation.
 ![MLT in kubernetes](./MLT.png)
 ## Installation
 
-We usually make deployments in Kubernetes throuh yml files containing our preferred deployment. However, writing such deployment files are difficult and time consuming when you're not an expert. Fortunately there is **[Helm](https://helm.sh/)** which is a sort of package manager for Kubernetes. With helm programs can be installed in a Kubernetes cluster through a few commands.
+We usually make deployments in Kubernetes through YAML files containing our preferred deployment. However, writing such deployment files can be difficult and tedious when you're not a systems expert. Fortunately, there is **[Helm](https://helm.sh/)** which is sort of a package manager for Kubernetes. With helm, services can be installed in a Kubernetes cluster with a few commands.
 
-In this tutorial we will be using helm for our deployments.
+In this tutorial, we will be using helm to deploy services in Kubernetes. Also, make sure you have kubectl installed and configured to manage your cluster.
 
+
+#### Install kubectl and configure
+```bash
+$ sudo snap install kubectl --classic
+
+## This example is for AWS
+$ aws eks --region eu-west-1 update-kubeconfig --name name-of-cluster
+
+## For GCP and Azure check out their CLI config documentation
+```
 #### Install Helm
 
 ```bash
@@ -52,42 +62,134 @@ $ sudo snap install helm --classic
 
 Or try another method from their [official docs](https://helm.sh/docs/intro/install/)
 
-#### Install MLT
+#### Install the MLT Services
 
 The procedures in this section have been made by following these official docs:
 * [grafana.com](https://grafana.com/docs/loki/next/installation/helm/)
 * [github.com/jaegertracing](https://github.com/jaegertracing/helm-charts)
 
+We will deploy the required services in the **monitor** namespace. So let's create this namespace first.
+
 ```bash
-helm repo add grafana https://grafana.github.io/helm-charts
-helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
-helm repo update
-
-helm upgrade --install loki grafana/loki-stack,  \
-             --set grafana.enabled=true, \
-             prometheus.enabled=true, \
-             prometheus.alertmanager.persistentVolume.enabled=false, \
-             prometheus.server.persistentVolume.enabled=false, \
-             loki.persistence.enabled=true, \
-             loki.persistence.storageClassName=standard, \
-             loki.persistence.size=5Gi
-
-helm upgrade --install jaeger jaegertracing/jaeger
+$ kubectl create namespace monitor
 ```
 
-That's it! Give it a few minutes and everything should be installed. Before installation, make sure you have enough resources in the cluster for allocation.
+Now, install the services. Make sure you have sufficient resources in the cluster before you proceed.
 
-More config values to use in the CLI for helm can be found at the following:
-* [Base config (grafana/loki-stack)](https://github.com/grafana/helm-charts/blob/main/charts/loki-stack/values.yaml)
+```bash
+$ helm repo add grafana https://grafana.github.io/helm-charts
+$ helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+$ helm repo update
+
+## Copy the values file from below
+$ helm upgrade --install loki grafana/loki-stack  --namespace monitor --values values.yaml
+$ helm upgrade --install jaeger jaegertracing/jaeger
+```
+
+Put the below config values in a **values.yaml** before running the grafana helm chart.
+
+```yaml
+grafana:
+  image:
+    repository: grafana/grafana
+    tag: 8.0.6
+  enabled: true
+  persistence:
+    enabled: true
+    size: 500Mi
+    # existingClaim: loki-grafana
+
+prometheus:
+  enabled: true
+  alertmanager:
+    persistentVolume:
+      enabled: false
+  server:
+    persistentVolume:
+      enabled: false
+
+loki:
+  enabled: true
+  image:
+    repository: grafana/loki
+    tag: 2.2.1
+  persistence:
+    enabled: true
+    size: 3Gi
+  # existingClaim: loki-grafana
+promtail:
+  image:
+    repository: grafana/promtail
+    tag: 2.2.1
+```
+
+More config variables can be found at the following:
 * [Grafana](https://github.com/helm/charts/blob/master/stable/grafana/values.yaml)
 * [Loki](https://github.com/grafana/loki/blob/main/production/helm/loki/values.yaml)
 * [Promtail](https://github.com/grafana/helm-charts/blob/main/charts/promtail/values.yaml)
 * [Prometheus](https://github.com/helm/charts/blob/master/stable/prometheus/values.yaml)
 * [Jaeger](https://github.com/jaegertracing/helm-charts/blob/main/charts/jaeger/values.yaml)
 
-## Configuring the Programs
 
-Coming soon!
+## Configuring the Services
+
+#### Accessing the Grafana Dashboard
+
+Access the grafana dashboard by making a proxy.
+
+```bash
+kubectl -n monitor port-forward service/loki-grafana 3000:80
+```
+
+Now hit on **localhost:3000** and you should see the grafana dashboard.
+
+![Grafana dashboard](./grafana-dashboard.png)
+
+Use, username: admin, and password as the output of the following command.
+
+```bash
+$ kubectl get secret --namespace monitor loki-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+```
+
+#### Setup prometheus metrics dashboard
+
+Grafana has tons of awesome dashboards built by the open source community. We will proceed to use those ones. To import a graph go to sidebar > create > import.
+
+![Grafana import](grafana-import.png)
+
+In the "import via grafana.com" input box enter ids of community-built dashboard. Search grafana.com for the dashboards. Or you can use mine below favorites.
+
+Best kubernetes cluster dashboards for grafana:
+* Summary dashboards
+    * Kubernetes Cluster: 7249
+    * K8s Cluster Summary: 8685
+    * Kubernetes / Node Exporter Full: 12132
+* Specific dashboards
+    * Kubernetes / Compute Resources / Namespace (Pods): 12117
+    * Kubernetes / Compute Resources / Node (Pods): 12119
+    * Kubernetes / Compute Resources / Pod: 12120
+    * Kubernetes / Networking / Cluster: 12124
+    * Kubernetes / Networking / Namespace (Pods): 12125
+
+Here's an example of what you could see.
+
+![Example grafana prometheus dashboard](example-dashboard.png)
+
+#### Setup loki logs dashboard
+
+On the left-hand side panel, go to create > dashboard. Click on add an empty panel. In this panel
+* On the top right, change visualization to logs
+* In data source, select loki
+* Click on "Log browser" and select labels with which you'd like to filter the logs. I personally use namespaces and pods most.
+
+![loki logs setup](logs-setup.png)
+
+Save the dashboard and you should see something like this!
+
+![loki logs view](logs-view.png)
+
+Do check out the live tail feature, where the logs are live tailed as they are generated from the pods. Very useful for debugging applications.
+
 
 <details>
     <summary>Legacy config</summary>
