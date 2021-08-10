@@ -26,7 +26,7 @@ Optional requirements-
 
 #### How to run Kubernetes?
 
-Kubernetes clusters can be be purchased from cloud providers-
+Kubernetes clusters can be purchased from cloud providers-
 * GKE: Google Kubernetes Engine
 * AKS: Azure Kubernetes Service
 * EKS: Elastic Kubernetes Service
@@ -61,29 +61,29 @@ There are two types of Nodes in a Kubernetes cluster-
 1. Hosts the control pane. This is where the Kubernetes magic happens.
 1. It coordinates/manages nodes and pods in the cluster
 
-In a managed kubernetes cluster (GKE, AKS, EKS) the master node is not visible among the service nodes. It can be only accessed via the Kubernetes API only. 
+In a managed Kubernetes cluster (GKE, AKS, EKS) the master node is not visible among the service nodes. It can be only accessed via the Kubernetes API only. 
 
 ##### Worker Node
 1. A Kubernetes cluster consists of a set of worker machines, called **nodes**
 1. Every cluster has **at least one worker node**
 1. The worker node(s) host the **Pods** that are the components of the application
 
-#### How Kubernetes works?
+#### How Kubernetes work?
 
-The overall desired state of a cluster is defined in a **yaml file**. Then, Kubectl is used to post that yaml file to the cluster. This in turn kicks work pane nodes into action. Control panes constantly checks whether the current state is in the desired state. When a mismatch is found from the current state with the desired state, the current state is updated.
+The overall desired state of a cluster is defined in a **yaml file**. Then, Kubectl is used to post that yaml file to the cluster. This in turn kicks work pane nodes into action. Control panes constantly check whether the current state is in the desired state. When a mismatch is found from the current state with the desired state, the current state is updated.
 
 #### Kubernetes Objects
 
-The following are some kubernetes objects.
+The following are some Kubernetes objects.
 
-1. A **Pod** is a wrapper for containers. Although Kubernetes mainly runs containers, pods the atomic units in a K8s cluster. 
+1. A **Pod** is a wrapper for containers. Although Kubernetes mainly runs containers, pods are the atomic units in a K8s cluster. 
 1. Pods are wrapped in a high level object called **Deployments**. This helps to-
     - make them _scalable_
     - make easier _rolling updates_
     - apply _rollbacks_
 1. A **Daemonset** ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them.
-1. A **Volume** is a directory that contains data accessible to containers in a given Pod. Volumes make data in stored by containers persistent.
-1. A **Service** exposes an interface to a group of pods which perform the same function
+1. A **Volume** is a directory that contains data accessible to containers in a given Pod. Volumes make data stored by containers persistent.
+1. A **Service** exposes an interface to a group of pods that perform the same function
 1. A **Secret** is an object that contains a small amount of sensitive data such as a password, a token, or a key
 1. **Namespaces** are a way to organize clusters into virtual sub-clusters 
 
