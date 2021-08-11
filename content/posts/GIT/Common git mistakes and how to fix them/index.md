@@ -11,7 +11,7 @@ image: mistake.jpg
 
 What's the worst thing you can do at your day job as a software developer?
 
-Mess up the git project, that's for sure.
+Mess up the git project tree, that's for sure.
 
 To err is human. But surely, nobody wants to be "the guy" who messed it up. So in this article, I'm going to show you the common mistakes everyone makes in git and how you can avoid/fix them (so that you don't have to be "the guy" who messes up stuff).
 
@@ -23,7 +23,7 @@ Let's say you have a fresh git installation and is now about to make your first 
 Please tell me who you are
 ```
 
-It's because, when you make a commmit, git adds a name and an email to the commit so that others can know who made these changes. Let's configure the global name and email.
+It's because, when you make a commit, git adds a name and an email to the commit so that others can know who made these changes. Let's configure the global name and email.
 
 ```bash
 $ git config --global user.email johndoe@example.com
@@ -57,6 +57,8 @@ $ git add .
 $ git commit --amend --no-edit # --no-edit for not changing commit message
 ```
 
+_Don't amend pushed commits._
+
 #### 3. Unmodify a modified file
 
 Maybe you started modifying a file, but now want to unmodify it and get it back to its original form. Then run
@@ -66,16 +68,18 @@ $ git checkout -- filename
 $ git checkout -- .  # To umodify the entire folder
 ```
 
+_Don't amend pushed commits._
+
 #### 4. Undo local commits
 
 Oops, you have made commits but now want to undo them and go back to previous states. 
 
 ```bash
 # Undo the last three commits, KEEP CHANGES
-$ git reset HEAD~ 3
+$ git reset HEAD~3
 
 # Undo the last three commits, DISCARD CHANGES
-$ git reset --hard HEAD~ 3
+$ git reset --hard HEAD~3
 ```
 
 #### 5. Mistakenly committed to a branch
@@ -108,11 +112,53 @@ $ git add .             # re-add all files
 # Then, commit as usual
 ```
 
-<!--*The (https://github.com/k88hudson/git-flight-rules).
-Squashing
-stashing
-Making feature branches
-git reset (unstage accidentally staged files)
-add upstream when cloned repository is behind commits of main branch
-https://www.infoworld.com/article/3512975/6-git-mistakes-you-will-make-and-how-to-fix-them.html*-->
+#### 7. Added Commits previously that needs to be removed (Repo NOT PUSHED to remote)
+
+Let's say you made the following commits.
+
+```bash
+925ed76 commit 5
+1ef488d commit 4
+89c6e05 commit 3
+8efbd1c commit 2
+02baddf Commit 1
+```
+
+But now you have realized that changes made in commit 3 were a mistake and it needs to be removed.
+
+The solution shown below will only work for repos not pushed to the remote. Run-
+
+```bash
+$ git rebase -i HEAD~3
+```
+
+This command will open an editor with the past 3 commits from HEAD so that you can pick or drop a commit. For example, the above would show something like this in a text editor-
+
+```bash
+pick 925ed76 commit 5
+pick 1ef488d commit 4
+pick 89c6e05 commit 3
+```
+
+Since we want to delete commit 3, remove that line and close the editor. That commit will be undone.
+
+In some cases, merge conflicts may occur. In case they occur, resolve the conflicts and run-
+
+```bash
+4 git rebase --continue
+```
+
+#### 8. Added Commits previously that needs to be removed (Repo PUSHED to remote)
+
+The solution in point 7 works when the repo is not pushed to the remote. What if the repo has been pushed and we want to remove past commits?
+
+To solve this we need to use _git revert_. The _git rebase_ command shown previously modified the commit history to solve the issue. But this cannot be done now as the repo is pushed to the remote. The remote will reject the push as the commit tree will not match. A force push will work, but that will mess up the commit tree of other contributors to the project.
+
+A _git revert_ adds a new commit that undoes changes made in a past commit. To revert, run-
+
+```bash
+$ git revert 1ab241 ## Hash of the commit to be undone
+```
+
+Then resolve conflict, merge and push. Voila!
 
