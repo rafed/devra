@@ -61,7 +61,7 @@ There are two types of Nodes in a Kubernetes cluster-
 1. Hosts the control pane. This is where the Kubernetes magic happens.
 1. It coordinates/manages nodes and pods in the cluster
 
-In a managed Kubernetes cluster (GKE, AKS, EKS) the master node is not visible among the service nodes. It can be only accessed via the Kubernetes API only. 
+In a managed Kubernetes cluster (GKE, AKS, EKS) the master node is not visible among the service nodes. It can be accessed only via the Kubernetes API. 
 
 ##### Worker Node
 1. A Kubernetes cluster consists of a set of worker machines, called **nodes**
