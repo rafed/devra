@@ -100,8 +100,8 @@ $ kubectl exec --stdin --tty pod-name -- /bin/bash
 
 ```bash
 # Port forward services to localhost (local-port:remote-port)
-4 kubectl port-forward pod-name 3000:80
-4 kubectl port-forward service/service-name 3000:80
+$ kubectl port-forward pod-name 3000:80
+$ kubectl port-forward service/service-name 3000:80
 ```
 
 ##### Check logs of pods
