@@ -45,8 +45,8 @@ $ kubesctl describe pvc -n namespace
 $ kubectl get storageClass    <span style=color:#75715e># or in short &#34;sc&#34;</span>
 </code></pre></div><h4 id=interact-with-podsservices>Interact with Pods/Services</h4><p>Sometimes it is useful to get inside a pod and execute shell commands.</p><h5 id=get-shell-in-a-pod>Get shell in a pod</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec --stdin --tty pod-name -- /bin/bash
 </code></pre></div><h5 id=access-service-with-a-proxy>Access service with a proxy</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Port forward services to localhost (local-port:remote-port)</span>
-<span style=color:#ae81ff>4</span> kubectl port-forward pod-name 3000:80
-<span style=color:#ae81ff>4</span> kubectl port-forward service/service-name 3000:80
+$ kubectl port-forward pod-name 3000:80
+$ kubectl port-forward service/service-name 3000:80
 </code></pre></div><h5 id=check-logs-of-pods>Check logs of pods</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl logs pod-name -n namespace
 </code></pre></div><h4 id=undo--delete--rollbacks>Undo / Delete / Rollbacks</h4><h5 id=get-information-about-a-deployment>Get information about a deployment</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl rollout history deployment/frontend               <span style=color:#75715e># Check the history of deployments including the revision </span>
 $ kubectl rollout status -w deployment/frontend             <span style=color:#75715e># Watch rolling update status of &#34;frontend&#34; deployment until completion</span>
