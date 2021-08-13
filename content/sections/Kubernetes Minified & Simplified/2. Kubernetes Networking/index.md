@@ -52,12 +52,12 @@ Services abstract pod addresses by assigning a single virtual IP (a cluster IP) 
 There are three ways to map services to pods-
 1. **ClusterIP** (default)
     * Gets own IP
-    * Only accessible from within the cluster
+    * Service accessible only from within the cluster
 1. **Nodeport**
     * Gets cluster-wide port
-    * Also accessible from outside of the cluster
+    * service accessible from outside of the cluster
 1. **Loadbalancer**
-    * Integrates with public cloud platform    
+    * Integrates with a public cloud load balancer (e.g. AWS ELB, GCP CLB)  
 
 ##### 4. Internet-to-Service Networking (Handled by Services)
 
