@@ -1,3 +1,10 @@
+https://forge.medium.com/the-7-emails-you-should-send-every-week-to-get-ahead-in-your-career-2358f8451ef9
+https://javascript.plainenglish.io/14-useful-tools-for-faster-and-easier-web-development-9fd0ebc1f3f8
+
+
+Apache superset
+Things you need in your code for enterprise grade software
+  logging, instrumentation/monitoring, git, docker-compose, orm, pydocs
 
 Go
   https://dev.to/royal_bhati/package-layout-for-a-go-web-app-4oea
@@ -5,8 +12,6 @@ Go
   https://medium.com/@vidhyanshu/implementing-clean-architecture-in-go-56aca59311b3
 
 Python tricks series:
-  https://towardsdatascience.com/5-lesser-known-python-features-19989db6e13e
-	https://medium.com/better-programming/9-python-3-features-you-might-not-use-yet-fade13932a3e
 	python logging https://medium.com/dev-genius/python-logging-basics-458ad969e850
 	https://medium.com/techtofreedom/8-levels-of-using-list-comprehension-in-python-efc3c339a1f0
 
@@ -16,7 +21,6 @@ You never really know a technology until the honeymoon is over and you are famil
 
 ### Devops/cloud
 DWDM and lambdas
-Proxying and reverse proxying
 
 architectures in cse
  - computer architecture
@@ -33,6 +37,7 @@ Comment documentation
 Modern CMSes to speed up backend development
   strapi
   directus
+  Supabase strapi appwrite
 
 Agile vs kanban https://medium.com/developers-cafe/agile-scrum-vs-kanban-simplified-3d03a8d72cc0
 
@@ -121,13 +126,13 @@ https://dev.to/alialp/soap-vs-rest-219k?
 https://dev.to/semaphore/ci-cd-continuous-integration-delivery-explained-75l?
 https://dev.to/getd/reinvent-graphql-using-restful-learn-graphql-from-the-perspective-of-restful-in-4-mins-3khk?
 https://dev.to/adammc331/mvwtf-demystifying-architecture-patterns-ap1?
-https://dev.to/risafj/beginner-s-guide-to-oauth-understanding-access-tokens-and-authorization-codes-2988?
+https://dev.to/risafj/beginner-s-guide-to-oauth-understanding-access-tokens-and-authorization-codes-2988
 https://dev.to/pluralsight/the-top-10-books-on-devops-you-need-to-read-45m2?
 https://dev.to/ashokdey_/building-a-scalable-system-4l41?
 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://dev.to/emmawedekind/design-systems-part-ii-design-language-217k?
 https://dev.to/justaashir/do-design-systems-prevent-creativity-8pa?
-
+Patterns of Enterprise Application Architecture:
 
 Adhoc
 https://dev.to/deciduously/how-to-make-a-makefile-1dep?
@@ -156,3 +161,4 @@ https://dev.to/stevensunflash/using-domain-driven-design-ddd-in-golang-3ee5?
 https://dev.to/heroku/two-million-ways-to-use-postgres-3k62?
 https://dev.to/trekhleb/technical-interview-preparation-checklist-4m4f?
 Patt flynn will it fly
+Fancy programming words: idempotent, abstraction, ephermal, anonymous, memoization, serialization, predicate (https://www.youtube.com/watch?v=4Zc9ci9L5wY)
