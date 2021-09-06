@@ -1,8 +1,9 @@
 ---
 title: Look How Google Writes Technical Documentations! (With Examples)
-date: 2021-09-06
+date: 2021-09-05
 tags: [software engineering]
 image: documentation.jpg
+description: A simple guide/tutorial on how to write technical documentations for software engineers.
 ---
 
 Writing software is hard. And writing documentation is harder. No wonder good documentations are hard to find.
