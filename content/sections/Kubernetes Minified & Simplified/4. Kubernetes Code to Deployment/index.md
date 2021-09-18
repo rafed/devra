@@ -57,23 +57,23 @@ metadata:
   labels:
     app: nginx
 spec:
-    minReadyseconds: 300
-    replicas: 3
-    strategy:
-        rollingupdate :
-            maxSurge: 1       
-            maxUnavailable: 0 
-        type: RollingUpdate
-    template:
-        metadata:
-            labels:
-                app: nginx
-        spec:
-            containers:
-            - name: nginx
-                image: nginx:1.14.2
-                ports:
-                - containerPort: 80
+  minReadyseconds: 300
+  replicas: 3
+  strategy:
+    rollingupdate :
+        maxSurge: 1       
+        maxUnavailable: 0 
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+      app: nginx
+  spec:
+    containers:
+    - name: nginx
+      image: nginx:1.14.2
+      ports:
+        - containerPort: 80
 ```
 
 What some of these fields mean are described below:
@@ -81,3 +81,22 @@ What some of these fields mean are described below:
 * **minReadySeconds**: minimum number of seconds for which a newly created Pod should be ready without any of its containers crashing, for it to be considered available
 * **maxSurge**: maximum number of Pods that can be created over the desired number of Pods
 * **maxUnavailable**: maximum number of Pods that can be unavailable during the update process
+
+A deployment isn't accessible unless a **service** is attached to it (recall from the [networking section](../2.-kubernetes-networking/)). Let's make the above deployment available though a service.
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-deployment
+  labels:
+    run: nginx
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+  selector:
+    run: nginx
+```
+
+Now the deployed nginx service can be accessed and used.
