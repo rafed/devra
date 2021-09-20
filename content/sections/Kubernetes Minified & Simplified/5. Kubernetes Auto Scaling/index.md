@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Autoscaling
+title: "#05 - Kubernetes Autoscaling"
 date: 2021-09-18
 tags: [cloud, kubernetes]
 image: autoscaling.png

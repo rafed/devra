@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Overview
+title: "#01 - Kubernetes Overview"
 date: 2021-08-10
 tags: [cloud, kubernetes]
 image: main.png
@@ -7,13 +7,13 @@ image: main.png
 
 #### What is Kubernetes?
 
-1. Kubernetes is an open source platform for running **cloud native apps**
-1. Its a layer over Vms and provide a rich set of APIs for running cloud native apps
+* Kubernetes is an open source platform for running **cloud native apps**
+* Its a layer over Vms and provide a rich set of APIs for running cloud native apps
 
 #### What are cloud native apps?
 
-1. Cloud native apps are built of small interacting services that work together to do something useful
-1. Making them small makes them easy to **scale** and **update** 
+* Cloud native apps are built of small interacting services that work together to do something useful
+* Making them small makes them easy to **scale** and **update** 
 
 #### Prerequisites to learn Kubernetes?
 
@@ -21,8 +21,8 @@ Compulsory requirements-
 * Container technology (Preferably Docker)
 
 Optional requirements-
-1. Concept of System design 
-1. Orchestration (Docker-compose)
+* Concept of System design 
+* Orchestration (Docker-compose)
 
 #### How to run Kubernetes?
 
@@ -54,12 +54,12 @@ $ kubectl get pv,pvc
 #### Kubernetes Componenets
 
 There are two types of Nodes in a Kubernetes cluster-
-1. Master Nodes
-1. Worker Nodes
+* Master Nodes
+* Worker Nodes
 
 ##### Master Node
-1. Hosts the control pane. This is where the Kubernetes magic happens.
-1. It coordinates/manages nodes and pods in the cluster
+* Hosts the control pane. This is where the Kubernetes magic happens.
+* It coordinates/manages nodes and pods in the cluster
 
 In a managed Kubernetes cluster (GKE, AKS, EKS) the master node is not visible among the service nodes. It can be accessed only via the Kubernetes API. 
 
@@ -76,16 +76,16 @@ The overall desired state of a cluster is defined in a **yaml file**. Then, Kube
 
 The following are some Kubernetes objects.
 
-1. A **Pod** is a wrapper for containers. Although Kubernetes mainly runs containers, pods are the atomic units in a K8s cluster. 
-1. Pods are wrapped in a high level object called **Deployments**. This helps to-
+* A **Pod** is a wrapper for containers. Although Kubernetes mainly runs containers, pods are the atomic units in a K8s cluster. 
+* Pods are wrapped in a high level object called **Deployments**. This helps to-
     - make them _scalable_
     - make easier _rolling updates_
     - apply _rollbacks_
-1. A **Daemonset** ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them.
-1. A **Volume** is a directory that contains data accessible to containers in a given Pod. Volumes make data stored by containers persistent.
-1. A **Service** exposes an interface to a group of pods that perform the same function
-1. A **Secret** is an object that contains a small amount of sensitive data such as a password, a token, or a key
-1. **Namespaces** are a way to organize clusters into virtual sub-clusters 
+* A **Daemonset** ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to them.
+* A **Volume** is a directory that contains data accessible to containers in a given Pod. Volumes make data stored by containers persistent.
+* A **Service** exposes an interface to a group of pods that perform the same function
+* A **Secret** is an object that contains a small amount of sensitive data such as a password, a token, or a key
+* **Namespaces** are a way to organize clusters into virtual sub-clusters 
 
 Here's how different Kubernetes Objects map to a real world cloud native app.
 
@@ -123,7 +123,7 @@ spec:
     requests:
       storage: 20Gi
 ---
-apiVersion: apps/v1 #  for k8s versions before 1.9.0 use apps/v1beta2  and before 1.8.0 use extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wordpress
@@ -165,3 +165,4 @@ spec:
           claimName: wp-pv-claim
 ```
 
+That was all the basics of Kubernetes. Head on to the next section to learn about [Kubernetes Networking](../2.-kubernetes-networking).

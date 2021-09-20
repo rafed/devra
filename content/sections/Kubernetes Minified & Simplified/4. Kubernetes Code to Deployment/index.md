@@ -1,12 +1,10 @@
 ---
-title: "Kubernetes: From Writing Code to Deploying in Kubernetes"
+title: "#04 - Kubernetes: From Writing Code to Deploying in Kubernetes"
 date: 2021-09-07
 tags: [cloud, kubernetes]
 image: cover.png
 mermaid: true
 ---
-
-## From Writing Code to Deploying in Kubernetes
 
 A typical Kubernetes workflow follows the following steps-
 
@@ -100,3 +98,5 @@ spec:
 ```
 
 Now the deployed nginx service can be accessed and used.
+
+That was all about how you can deploy your code to Kubernetes. Head on to the next section to learn about how you can [autoscale pods](../5.-kubernetes-auto-scaling).

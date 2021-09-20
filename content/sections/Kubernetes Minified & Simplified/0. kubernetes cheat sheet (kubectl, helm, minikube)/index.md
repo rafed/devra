@@ -1,5 +1,5 @@
 ---
-title: Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)
+title: "#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)"
 date: 2021-06-29
 tags: [cloud, kubernetes]
 image: cover.png
@@ -9,9 +9,9 @@ This cheat sheet focuses on the most important CLI commands for Kubectl, helm an
 
 But what are the differences between them you ask?
 
-1. **kubectl**: The most important CLI to learn. It is used to manage a Kubernetes cluster
-1. **helm**: Package manager for Kubernetes. It is sort of like _apt install_ in Linux but for installing services in Kubernetes clusters
-1. **minikube**: CLI for running Kubernetes locally
+* **kubectl**: The most important CLI to learn. It is used to manage a Kubernetes cluster
+* **helm**: Package manager for Kubernetes. It is sort of like _apt install_ in Linux but for installing services in Kubernetes clusters
+* **minikube**: CLI for running Kubernetes locally
 
 ## 1. kubectl
 
