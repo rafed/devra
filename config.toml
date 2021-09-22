@@ -68,6 +68,9 @@ googleAnalytics = "UA-106132552-1"
         url = "/contact/"
         weight = 4
 
+[markup.goldmark.parser.attribute]
+    block = true
+
 # Don't touch this
 [markup.goldmark.renderer]
     unsafe = true

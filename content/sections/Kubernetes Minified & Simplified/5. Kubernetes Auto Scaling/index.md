@@ -39,7 +39,6 @@ spec:
   minReplicas: 1
   maxReplicas: 10
 targetCPUUtilizationPercentage: 50%
-
 ```
 
 Autoscaling occurs based on _targetCPUUtilizationPercentage_. As per the example, when all the existing pods of a deployment have reached 50% usage, a new pod will be added to distribute the load. The addition of a new pod will happen until it reaches the _maxReplicas_ count which in our case is 10. The minReplicas enforce the minimum number of pods that should be kept running.

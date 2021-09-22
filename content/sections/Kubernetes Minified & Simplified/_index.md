@@ -1,5 +1,5 @@
 ---
-title: Kubernetes Minified and simplified
+title: Kubernetes Minified and Simplified
 image: kubernetes.png
 ---
 
