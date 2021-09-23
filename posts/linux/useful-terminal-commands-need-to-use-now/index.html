@@ -1,39 +1,218 @@
-<!doctype html><html lang=en-us><head><title>Useful Terminal Commands You Need to Use NOW! |
-DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/posts/linux/useful-terminal-commands-need-to-use-now/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
-1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2."><meta property="og:title" content="Useful Terminal Commands You Need to Use NOW!"><meta property="og:description" content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
-1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2."><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/posts/linux/useful-terminal-commands-need-to-use-now/"><meta property="article:published_time" content="2021-03-30T00:00:00+00:00"><meta property="article:modified_time" content="2021-03-30T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Useful Terminal Commands You Need to Use NOW!"><meta name=twitter:description content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
-1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2."><meta itemprop=name content="Useful Terminal Commands You Need to Use NOW!"><meta itemprop=description content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
-1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2."><meta itemprop=datePublished content="2021-03-30T00:00:00+00:00"><meta itemprop=dateModified content="2021-03-30T00:00:00+00:00"><meta itemprop=wordCount content="446"><meta itemprop=keywords content="terminal,linux,"><link rel=stylesheet href=/devra/main.min.css><script src=/devra/bundle.js></script><script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-106132552-1','auto');ga('send','pageview');}</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg');" role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<!doctype html><html lang=en-us>
+<head><title>
+Useful Terminal Commands You Need to Use NOW! |
+DevRa
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel=canonical href=https://rafed.github.io/devra/posts/linux/useful-terminal-commands-need-to-use-now/>
+<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
+<meta name=description content="
+    Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
+1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2.
+    
+">
+<meta property="og:title" content="Useful Terminal Commands You Need to Use NOW!">
+<meta property="og:description" content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
+1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafed.github.io/devra/posts/linux/useful-terminal-commands-need-to-use-now/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-03-30T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-03-30T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Useful Terminal Commands You Need to Use NOW!">
+<meta name=twitter:description content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
+1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2.">
+<meta itemprop=name content="Useful Terminal Commands You Need to Use NOW!">
+<meta itemprop=description content="Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.
+1. Monitor your PC Task manager equivalent for Linux # sudo apt install htop $ htop Monitor system temperature # sudo apt install lm-sensors $ sensors Check ram usage $ free -h Check system specs $ lscpu $ cat /proc/cpuinfo Check disk usage $ df -h Check file space usage of current directory $ du -sh * $ du -h | sort -h #### Print the file count per directory for the current directory level $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr Check if anyone is logged in $ who 2."><meta itemprop=datePublished content="2021-03-30T00:00:00+00:00">
+<meta itemprop=dateModified content="2021-03-30T00:00:00+00:00">
+<meta itemprop=wordCount content="446">
+<meta itemprop=keywords content="terminal,linux,">
+<link rel=stylesheet href=/devra/main.min.css>
+<script src=/devra/bundle.js></script>
+<script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-106132552-1','auto'),ga('send','pageview'))</script>
+</head>
+<body><header id=header>
+<div class=top-bar>
+<div class=container-md>
+<div class="row align-items-center">
+<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</div>
+<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
+<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="col-6 col-sm-4">
+<h2 class=title><a href=/devra/>DevRa</a></h2>
+</div>
+<div class="col-3 col-sm-4">
+<div class="col col-md-8 offset-md-4 d-none d-sm-block">
+<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
+<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=/devra/contact/>Contact</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs');" role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=container-md>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item d-block d-sm-none">
+<ul class=social-buttons>
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</ul>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/>
+Home
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
+Blog
+</a>
+<div class=dropdown-menu>
+<a class=dropdown-item href=/devra/posts/>Posts</a>
+<a class=dropdown-item href=/devra/sections/>Sections</a>
+<div class=dropdown-divider></div>
+<a class=dropdown-item href=/devra/tags/>Tags</a>
+</div>
+</li>
+<li class=nav-item>
+<a class=nav-link href=http://rafed.github.io/>
+About
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/contact/>
+Contact
+</a>
+</li>
+</ul>
+<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
+<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><h1 class=title>Useful Terminal Commands You Need to Use NOW!</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>Mar 30, 2021</span>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<main class=blog-content>
+<div class=container-md>
+<div class=row>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-left-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+<div class="col-md-12 col-lg-8 px-lg-4">
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<h1 class=title>Useful Terminal Commands You Need to Use NOW!</h1>
+<div class="container-fluid px-0 mb-4">
+<div class="row align-items-end">
+<div class="col-md-4 date-time">
+<span class=date>
+Mar 30, 2021
+</span>
 &#183;
-<span class=time-to-read>2 mins read</span></div><div class="col-md-8 tags"><a href=/devra/tags/terminal><span class="tag bg-dark">terminal</span></a>
-<a href=/devra/tags/linux><span class="tag bg-dark">linux</span></a></div></div></div><figure><img src=/devra/posts/linux/useful-terminal-commands-need-to-use-now/htop.png alt="Useful Terminal Commands You Need to Use NOW!"></figure><p>Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.</p><h2 id=1-monitor-your-pc>1. Monitor your PC</h2><h4 id=task-manager-equivalent-for-linux>Task manager equivalent for Linux</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sudo apt install htop</span>
+<span class=time-to-read>
+2 mins read</span>
+</div>
+<div class="col-md-8 tags">
+<a href=/devra/tags/terminal><span class="tag bg-dark">terminal</span></a>
+<a href=/devra/tags/linux><span class="tag bg-dark">linux</span></a>
+</div>
+</div>
+</div>
+<figure>
+<img id=cover-image src=/devra/posts/linux/useful-terminal-commands-need-to-use-now/htop.png alt="Useful Terminal Commands You Need to Use NOW!">
+</figure>
+<p>Linux is loaded with different commands. In this article, I&rsquo;m just listing the ones that I frequently use all the time.</p>
+<h2 id=1-monitor-your-pc>1. Monitor your PC</h2>
+<h4 id=task-manager-equivalent-for-linux>Task manager equivalent for Linux</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sudo apt install htop</span>
 $ htop
-</code></pre></div><h4 id=monitor-system-temperature>Monitor system temperature</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sudo apt install lm-sensors</span>
+</code></pre></div><h4 id=monitor-system-temperature>Monitor system temperature</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># sudo apt install lm-sensors</span>
 $ sensors
-</code></pre></div><h4 id=check-ram-usage>Check ram usage</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ free -h
-</code></pre></div><h4 id=check-system-specs>Check system specs</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lscpu 
+</code></pre></div><h4 id=check-ram-usage>Check ram usage</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ free -h
+</code></pre></div><h4 id=check-system-specs>Check system specs</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lscpu 
 $ cat /proc/cpuinfo
-</code></pre></div><h4 id=check-disk-usage>Check disk usage</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ df -h
-</code></pre></div><h4 id=check-file-space-usage-of-current-directory>Check file space usage of current directory</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -sh *
+</code></pre></div><h4 id=check-disk-usage>Check disk usage</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ df -h
+</code></pre></div><h4 id=check-file-space-usage-of-current-directory>Check file space usage of current directory</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ du -sh *
 $ du -h | sort -h
 
 <span style=color:#75715e>#### Print the file count per directory for the current directory level</span>
 $ du -a | cut -d/ -f2 | sort | uniq -c | sort -nr
-</code></pre></div><h4 id=check-if-anyone-is-logged-in>Check if anyone is logged in</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ who
-</code></pre></div><h2 id=2-file-operations>2. File Operations</h2><h4 id=edit-a-file-in-the-terminal>Edit a file in the terminal</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nano file.txt
-</code></pre></div><h4 id=scroll-through-a-file>Scroll through a file</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ less file.txt
+</code></pre></div><h4 id=check-if-anyone-is-logged-in>Check if anyone is logged in</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ who
+</code></pre></div><h2 id=2-file-operations>2. File Operations</h2>
+<h4 id=edit-a-file-in-the-terminal>Edit a file in the terminal</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ nano file.txt
+</code></pre></div><h4 id=scroll-through-a-file>Scroll through a file</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ less file.txt
 <span style=color:#75715e># Press &#39;q&#39; to quit</span>
-</code></pre></div><h4 id=clear-contents-in-a-fille>Clear contents in a fille</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat /dev/null &gt; file.txt 
-</code></pre></div><h4 id=rename-a-file-to-add-extension-easily>Rename a file to add extension easily</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># renames file.md -&gt; file.md.backup</span>
+</code></pre></div><h4 id=clear-contents-in-a-fille>Clear contents in a fille</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ cat /dev/null &gt; file.txt 
+</code></pre></div><h4 id=rename-a-file-to-add-extension-easily>Rename a file to add extension easily</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># renames file.md -&gt; file.md.backup</span>
 mv /folder/file.md<span style=color:#f92672>{</span>,.backup<span style=color:#f92672>}</span>
-</code></pre></div><h4 id=print-a-file-in-reverse>Print a file in reverse</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tac file.txt
-</code></pre></div><h4 id=tar-compression-decompression>Tar compression decompression</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Compress a file</span>
+</code></pre></div><h4 id=print-a-file-in-reverse>Print a file in reverse</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tac file.txt
+</code></pre></div><h4 id=tar-compression-decompression>Tar compression decompression</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Compress a file</span>
 $ tar -czvf archive.tar.gz /path/to/directory-or-file
 
 <span style=color:#75715e># Extract a file</span>
@@ -42,31 +221,105 @@ $ tar -xzvf archive.tar.gz
 <span style=color:#75715e># z means gzip</span>
 <span style=color:#75715e># To use bzip2 replace &#39;z&#39; with &#39;j&#39;</span>
 <span style=color:#75715e># gzip is faster but bzip2 makes smaller archives</span>
-</code></pre></div><h4 id=sort-a-file>Sort a file</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sort &lt; file.txt
-</code></pre></div><h4 id=search-for-files>Search for files</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ find . -name <span style=color:#e6db74>&#34;*.mp3&#34;</span>
+</code></pre></div><h4 id=sort-a-file>Sort a file</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ sort &lt; file.txt
+</code></pre></div><h4 id=search-for-files>Search for files</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ find . -name <span style=color:#e6db74>&#34;*.mp3&#34;</span>
 $ find . -type f -size +100M
-</code></pre></div><h4 id=live-read-a-system-log>Live read a system log</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tail -f /var/log/app.log 
+</code></pre></div><h4 id=live-read-a-system-log>Live read a system log</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ tail -f /var/log/app.log 
 $ tail -f /var/log/app.log | grep ERROR
-</code></pre></div><h2 id=3-command-execution>3. Command execution</h2><h4 id=measure-time-of-execution-of-a-program>Measure time of execution of a program</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ time anyprogram
-</code></pre></div><h4 id=cron-jobs-to-execute-commands-periodically>Cron jobs to execute commands periodically</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ crontab -e
-</code></pre></div><p>Get help from <a href=https://crontab.guru/>crontab.guru</a> for making crons easily.</p><h2 id=4-networking>4. Networking</h2><h4 id=get-websites-listed-in-a-file>Get websites listed in a file</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#66d9ef>$(</span>cat websites.txt<span style=color:#66d9ef>)</span>
+</code></pre></div><h2 id=3-command-execution>3. Command execution</h2>
+<h4 id=measure-time-of-execution-of-a-program>Measure time of execution of a program</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ time anyprogram
+</code></pre></div><h4 id=cron-jobs-to-execute-commands-periodically>Cron jobs to execute commands periodically</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ crontab -e
+</code></pre></div><p>Get help from <a href=https://crontab.guru/>crontab.guru</a> for making crons easily.</p>
+<h2 id=4-networking>4. Networking</h2>
+<h4 id=get-websites-listed-in-a-file>Get websites listed in a file</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ curl <span style=color:#66d9ef>$(</span>cat websites.txt<span style=color:#66d9ef>)</span>
 <span style=color:#75715e># or (another form of command substitution)</span>
 $ curl <span style=color:#e6db74>`</span>cat websites.txt<span style=color:#e6db74>`</span>
-</code></pre></div><h4 id=check-occupied-ports>Check occupied ports</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lsof -i
+</code></pre></div><h4 id=check-occupied-ports>Check occupied ports</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ lsof -i
 $ lsof -ni
-</code></pre></div><h4 id=port-forward-remote-machine-to-your-machine>Port forward remote machine to your machine</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ssh -L2000:localhost:1313 root@10.100.101.45
+</code></pre></div><h4 id=port-forward-remote-machine-to-your-machine>Port forward remote machine to your machine</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ ssh -L2000:localhost:1313 root@10.100.101.45
 <span style=color:#75715e># ssh -L{local_port}:localhost:{remote_port} user@remote.ip</span>
-</code></pre></div><h2 id=5-wildcards-and-redirects>5. Wildcards, and Redirects</h2><h4 id=remove-all-files-except-html>Remove all files except .html</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>rm -r !<span style=color:#f92672>(</span>*.html<span style=color:#f92672>)</span>
-</code></pre></div><h4 id=redirecting>Redirecting</h4><p>Just remember-</p><ul><li>0 - stdin, the standard input stream.</li><li>1 - stdout, the standard output stream.</li><li>2 - stderr, the standard error stream</li></ul><h5 id=redirect-stderr-to-file>Redirect stderr to file</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; file
-</code></pre></div><h5 id=stderr-and-stdout-to-different-files>Stderr and stdout to different files</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; error.txt 1&gt; output.txt
-</code></pre></div><h5 id=suppress-error-messages>Suppress error messages</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; /dev/null
-</code></pre></div><h5 id=redirect-stderr-to-stdout>Redirect stderr to stdout</h5><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command &gt; file 2&gt;&amp;<span style=color:#ae81ff>1</span>
-</code></pre></div><h4 id=for-wildcards-check-the-following>For wildcards, check the following</h4><ol><li><a href=http://www.linfo.org/wildcard.html>Linux wildcards</a></li></ol><h2 id=conclusion>Conclusion</h2><p>That seems to be most of the Linux commands that I use all the time. If you have more suggestions to add, comment down below. Check out my other article where I show <a href=/devra/posts/terminal/awesome-terminal-tricks-to-boost-your-productivity/>Terminal tricks to boost your productivity</a>.</p><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Facebook. Opens in a new window."><img src=/devra/icons/45px/facebook.png></a>
-<a href="https://twitter.com/intent/tweet?text=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Twitter. Opens in a new window."><img src=/devra/icons/45px/twitter.png></a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Reddit. Opens in a new window."><img src=/devra/icons/45px/reddit.png></a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Pinterest. Opens in a new window."><img src=/devra/icons/45px/pinterest.png></a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Tumblr. Opens in a new window."><img src=/devra/icons/45px/tumblr.png></a>
+</code></pre></div><h2 id=5-wildcards-and-redirects>5. Wildcards, and Redirects</h2>
+<h4 id=remove-all-files-except-html>Remove all files except .html</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>rm -r !<span style=color:#f92672>(</span>*.html<span style=color:#f92672>)</span>
+</code></pre></div><h4 id=redirecting>Redirecting</h4>
+<p>Just remember-</p>
+<ul>
+<li>0 - stdin, the standard input stream.</li>
+<li>1 - stdout, the standard output stream.</li>
+<li>2 - stderr, the standard error stream</li>
+</ul>
+<h5 id=redirect-stderr-to-file>Redirect stderr to file</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; file
+</code></pre></div><h5 id=stderr-and-stdout-to-different-files>Stderr and stdout to different files</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; error.txt 1&gt; output.txt
+</code></pre></div><h5 id=suppress-error-messages>Suppress error messages</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command 2&gt; /dev/null
+</code></pre></div><h5 id=redirect-stderr-to-stdout>Redirect stderr to stdout</h5>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>command &gt; file 2&gt;&amp;<span style=color:#ae81ff>1</span>
+</code></pre></div><h4 id=for-wildcards-check-the-following>For wildcards, check the following</h4>
+<ol>
+<li><a href=http://www.linfo.org/wildcard.html>Linux wildcards</a></li>
+</ol>
+<h2 id=conclusion>Conclusion</h2>
+<p>That seems to be most of the Linux commands that I use all the time. If you have more suggestions to add, comment down below. Check out my other article where I show <a href=/devra/posts/terminal/awesome-terminal-tricks-to-boost-your-productivity/>Terminal tricks to boost your productivity</a>.</p>
+<div id=social-media-share>
+<p><i>Sharing is caring!</i></p>
+<div class=share-buttons>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
+<img src=/devra/icons/45px/facebook.png>
+</a>
+<a href="https://twitter.com/intent/tweet?text=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
+<img src=/devra/icons/45px/twitter.png>
+</a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
+<img src=/devra/icons/45px/reddit.png>
+</a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
+<img src=/devra/icons/45px/pinterest.png>
+</a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
+<img src=/devra/icons/45px/tumblr.png>
+</a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f
-			&title=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&summary=Linux%20is%20loaded%20with%20different%20commands.%20In%20this%20article%2c%20I%26rsquo%3bm%20just%20listing%20the%20ones%20that%20I%20frequently%20use%20all%20the%20time.%0a1.%20Monitor%20your%20PC%20Task%20manager%20equivalent%20for%20Linux%20%23%20sudo%20apt%20install%20htop%20%24%20htop%20Monitor%20system%20temperature%20%23%20sudo%20apt%20install%20lm-sensors%20%24%20sensors%20Check%20ram%20usage%20%24%20free%20-h%20Check%20system%20specs%20%24%20lscpu%20%24%20cat%20%2fproc%2fcpuinfo%20Check%20disk%20usage%20%24%20df%20-h%20Check%20file%20space%20usage%20of%20current%20directory%20%24%20du%20-sh%20%2a%20%24%20du%20-h%20%7c%20sort%20-h%20%23%23%23%23%20Print%20the%20file%20count%20per%20directory%20for%20the%20current%20directory%20level%20%24%20du%20-a%20%7c%20cut%20-d%2f%20-f2%20%7c%20sort%20%7c%20uniq%20-c%20%7c%20sort%20-nr%20Check%20if%20anyone%20is%20logged%20in%20%24%20who%202.&source=https://rafed.github.io/devra/" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on LinkedIn. Opens in a new window."><img src=/devra/icons/45px/linkedin.png></a>
-<a href="mailto:?subject=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" title="Share via Email. Opens in a new window."><img src=/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")
-return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='rafed';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script><gcse:searchresults-only></gcse:searchresults-only></body></html>
+			&title=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&summary=Linux%20is%20loaded%20with%20different%20commands.%20In%20this%20article%2c%20I%26rsquo%3bm%20just%20listing%20the%20ones%20that%20I%20frequently%20use%20all%20the%20time.%0a1.%20Monitor%20your%20PC%20Task%20manager%20equivalent%20for%20Linux%20%23%20sudo%20apt%20install%20htop%20%24%20htop%20Monitor%20system%20temperature%20%23%20sudo%20apt%20install%20lm-sensors%20%24%20sensors%20Check%20ram%20usage%20%24%20free%20-h%20Check%20system%20specs%20%24%20lscpu%20%24%20cat%20%2fproc%2fcpuinfo%20Check%20disk%20usage%20%24%20df%20-h%20Check%20file%20space%20usage%20of%20current%20directory%20%24%20du%20-sh%20%2a%20%24%20du%20-h%20%7c%20sort%20-h%20%23%23%23%23%20Print%20the%20file%20count%20per%20directory%20for%20the%20current%20directory%20level%20%24%20du%20-a%20%7c%20cut%20-d%2f%20-f2%20%7c%20sort%20%7c%20uniq%20-c%20%7c%20sort%20-nr%20Check%20if%20anyone%20is%20logged%20in%20%24%20who%202.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
+<img src=/devra/icons/45px/linkedin.png>
+</a>
+<a href="mailto:?subject=Useful%20Terminal%20Commands%20You%20Need%20to%20Use%20NOW%21&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2flinux%2fuseful-terminal-commands-need-to-use-now%2f" title="Share via Email. Opens in a new window.">
+<img src=/devra/icons/45px/mail.png>
+</a>
+</div>
+</div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<br>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-right-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p>
+© 2021 Rafed Muhammad Yasir.
+</p>
+</footer>
+<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+</body>
+</html>

@@ -1,49 +1,224 @@
-<!doctype html><html lang=en-us><head><title>Powerful Python One Liners |
-DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="Why write more code when you can write less? Become a Python Ninja with the below one-liners."><meta property="og:title" content="Powerful Python One Liners"><meta property="og:description" content="Why write more code when you can write less? Become a Python Ninja with the below one-liners."><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/"><meta property="article:published_time" content="2021-02-20T00:00:00+00:00"><meta property="article:modified_time" content="2021-02-20T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Powerful Python One Liners"><meta name=twitter:description content="Why write more code when you can write less? Become a Python Ninja with the below one-liners."><meta itemprop=name content="Powerful Python One Liners"><meta itemprop=description content="Why write more code when you can write less? Become a Python Ninja with the below one-liners."><meta itemprop=datePublished content="2021-02-20T00:00:00+00:00"><meta itemprop=dateModified content="2021-02-20T00:00:00+00:00"><meta itemprop=wordCount content="334"><meta itemprop=keywords content="programming,python,"><link rel=stylesheet href=/devra/main.min.css><script src=/devra/bundle.js></script><script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-106132552-1','auto');ga('send','pageview');}</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg');" role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<!doctype html><html lang=en-us>
+<head><title>
+Powerful Python One Liners |
+DevRa
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel=canonical href=https://rafed.github.io/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/>
+<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
+<meta name=description content="
+    Why write more code when you can write less? Become a Python Ninja with the below one-liners.
+    
+">
+<meta property="og:title" content="Powerful Python One Liners">
+<meta property="og:description" content="Why write more code when you can write less? Become a Python Ninja with the below one-liners.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafed.github.io/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/"><meta property="article:section" content="sections">
+<meta property="article:published_time" content="2021-02-20T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-02-20T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Powerful Python One Liners">
+<meta name=twitter:description content="Why write more code when you can write less? Become a Python Ninja with the below one-liners.">
+<meta itemprop=name content="Powerful Python One Liners">
+<meta itemprop=description content="Why write more code when you can write less? Become a Python Ninja with the below one-liners."><meta itemprop=datePublished content="2021-02-20T00:00:00+00:00">
+<meta itemprop=dateModified content="2021-02-20T00:00:00+00:00">
+<meta itemprop=wordCount content="334">
+<meta itemprop=keywords content="programming,python,">
+<link rel=stylesheet href=/devra/main.min.css>
+<script src=/devra/bundle.js></script>
+<script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-106132552-1','auto'),ga('send','pageview'))</script>
+</head>
+<body><header id=header>
+<div class=top-bar>
+<div class=container-md>
+<div class="row align-items-center">
+<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</div>
+<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
+<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="col-6 col-sm-4">
+<h2 class=title><a href=/devra/>DevRa</a></h2>
+</div>
+<div class="col-3 col-sm-4">
+<div class="col col-md-8 offset-md-4 d-none d-sm-block">
+<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
+<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=/devra/contact/>Contact</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs');" role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=container-md>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item d-block d-sm-none">
+<ul class=social-buttons>
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</ul>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/>
+Home
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
+Blog
+</a>
+<div class=dropdown-menu>
+<a class=dropdown-item href=/devra/posts/>Posts</a>
+<a class=dropdown-item href=/devra/sections/>Sections</a>
+<div class=dropdown-divider></div>
+<a class=dropdown-item href=/devra/tags/>Tags</a>
+</div>
+</li>
+<li class=nav-item>
+<a class=nav-link href=http://rafed.github.io/>
+About
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/contact/>
+Contact
+</a>
+</li>
+</ul>
+<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
+<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><h1 class=title>Powerful Python One Liners</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>Feb 20, 2021</span>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<main class=blog-content>
+<div class=container-md>
+<div class=row>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-left-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+<div class="col-md-12 col-lg-8 px-lg-4">
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<h1 class=title>Powerful Python One Liners</h1>
+<div class="container-fluid px-0 mb-4">
+<div class="row align-items-end">
+<div class="col-md-4 date-time">
+<span class=date>
+Feb 20, 2021
+</span>
 &#183;
-<span class=time-to-read>2 mins read</span></div><div class="col-md-8 tags"><a href=/devra/tags/programming><span class="tag bg-dark">programming</span></a>
-<a href=/devra/tags/python><span class="tag bg-dark">python</span></a></div></div></div><figure><img src=/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/python.png alt="Powerful Python One Liners"></figure><p>Why write more code when you can write less? Become a Python Ninja with the below one-liners.</p><h4 id=1-swapping-variables>1. Swapping variables</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>a, b <span style=color:#f92672>=</span> b, a
-</code></pre></div><h4 id=2-assigning-multiple-values>2. Assigning multiple values</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>a, b, c <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>
-</code></pre></div><h4 id=3-create-a-list>3. Create a list</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
+<span class=time-to-read>
+2 mins read</span>
+</div>
+<div class="col-md-8 tags">
+<a href=/devra/tags/programming><span class="tag bg-dark">programming</span></a>
+<a href=/devra/tags/python><span class="tag bg-dark">python</span></a>
+</div>
+</div>
+</div>
+<figure>
+<img id=cover-image src=/devra/sections/awesome-python-tips-tricks/powerful-python-one-liners/python.png alt="Powerful Python One Liners">
+</figure>
+<p>Why write more code when you can write less? Become a Python Ninja with the below one-liners.</p>
+<h4 id=1-swapping-variables>1. Swapping variables</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>a, b <span style=color:#f92672>=</span> b, a
+</code></pre></div><h4 id=2-assigning-multiple-values>2. Assigning multiple values</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>a, b, c <span style=color:#f92672>=</span> <span style=color:#ae81ff>10</span>, <span style=color:#ae81ff>20</span>, <span style=color:#ae81ff>30</span>
+</code></pre></div><h4 id=3-create-a-list>3. Create a list</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
 nums <span style=color:#f92672>=</span> []
 <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>):
     nums<span style=color:#f92672>.</span>append(i)
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
 nums <span style=color:#f92672>=</span> [i <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>)]
-</code></pre></div><h4 id=4-take-subset-of-a-list>4. Take subset of a list</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>nums <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>]
+</code></pre></div><h4 id=4-take-subset-of-a-list>4. Take subset of a list</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>nums <span style=color:#f92672>=</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>6</span>]
 b <span style=color:#f92672>=</span> [num <span style=color:#66d9ef>for</span> num <span style=color:#f92672>in</span> nums <span style=color:#66d9ef>if</span> num<span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>]
-</code></pre></div><h4 id=5-shorten-ifelse-with-ternary-operator>5. Shorten if/else (with ternary operator)</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
+</code></pre></div><h4 id=5-shorten-ifelse-with-ternary-operator>5. Shorten if/else (with ternary operator)</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
 <span style=color:#66d9ef>if</span> age<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>20</span>:
-    <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Young&#34;</span>)
+    print(<span style=color:#e6db74>&#34;Young&#34;</span>)
 <span style=color:#66d9ef>else</span>:
-    <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Old&#34;</span>)
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
-<span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Young&#34;</span>) <span style=color:#66d9ef>if</span> age<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>20</span> <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>print</span>(<span style=color:#e6db74>&#34;Old&#34;</span>)
-</code></pre></div><h4 id=6-reverse-a-stringlist>6. Reverse a string/list</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;GMO&#34;</span>
+    print(<span style=color:#e6db74>&#34;Old&#34;</span>)
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
+print(<span style=color:#e6db74>&#34;Young&#34;</span>) <span style=color:#66d9ef>if</span> age<span style=color:#f92672>&lt;</span><span style=color:#ae81ff>20</span> <span style=color:#66d9ef>else</span> print(<span style=color:#e6db74>&#34;Old&#34;</span>)
+</code></pre></div><h4 id=6-reverse-a-stringlist>6. Reverse a string/list</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;GMO&#34;</span>
 <span style=color:#f92672>&gt;&gt;&gt;</span> s[::<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
 <span style=color:#e6db74>&#34;OMG&#34;</span>
-</code></pre></div><h4 id=7-check-palindrome>7. Check palindrome</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;madam&#34;</span>
+</code></pre></div><h4 id=7-check-palindrome>7. Check palindrome</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;madam&#34;</span>
 <span style=color:#f92672>&gt;&gt;&gt;</span> s <span style=color:#f92672>==</span> s[::<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>]
-True
-</code></pre></div><h4 id=8-take-input-in-one-line>8. Take input in one line</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
+<span style=color:#66d9ef>True</span>
+</code></pre></div><h4 id=8-take-input-in-one-line>8. Take input in one line</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## Instead of this</span>
 a <span style=color:#f92672>=</span> input()
 b <span style=color:#f92672>=</span> input()
 c <span style=color:#f92672>=</span> input()
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
 a, b, c <span style=color:#f92672>=</span> input()<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## If type casting is needed then, (from string to int)-</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## If type casting is needed then, (from string to int)-</span>
 a, b, c <span style=color:#f92672>=</span> [int(x) <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> input()<span style=color:#f92672>.</span>split(<span style=color:#e6db74>&#39; &#39;</span>)]
-</code></pre></div><h4 id=9-read-a-file>9. Read a file</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>f <span style=color:#f92672>=</span> [line <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> open(<span style=color:#e6db74>&#34;filename&#34;</span>)]
-</code></pre></div><h4 id=10-generate-groups>10. Generate groups</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> groups <span style=color:#f92672>=</span> [(a, b) <span style=color:#66d9ef>for</span> a <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>] <span style=color:#66d9ef>for</span> b <span style=color:#f92672>in</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>]] 
+</code></pre></div><h4 id=9-read-a-file>9. Read a file</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>f <span style=color:#f92672>=</span> [line <span style=color:#66d9ef>for</span> line <span style=color:#f92672>in</span> open(<span style=color:#e6db74>&#34;filename&#34;</span>)]
+</code></pre></div><h4 id=10-generate-groups>10. Generate groups</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>&gt;&gt;&gt;</span> groups <span style=color:#f92672>=</span> [(a, b) <span style=color:#66d9ef>for</span> a <span style=color:#f92672>in</span> [<span style=color:#e6db74>&#39;a&#39;</span>, <span style=color:#e6db74>&#39;b&#39;</span>] <span style=color:#66d9ef>for</span> b <span style=color:#f92672>in</span> [<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>]] 
 <span style=color:#f92672>&gt;&gt;&gt;</span> groups
 [(a, <span style=color:#ae81ff>1</span>), (a, <span style=color:#ae81ff>2</span>), (a, <span style=color:#ae81ff>3</span>), (b, <span style=color:#ae81ff>1</span>), (b, <span style=color:#ae81ff>2</span>), (b, <span style=color:#ae81ff>3</span>)]
-</code></pre></div><h4 id=11-generator-expression>11. Generator expression</h4><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>nums <span style=color:#f92672>=</span> [x <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>)]
+</code></pre></div><h4 id=11-generator-expression>11. Generator expression</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>nums <span style=color:#f92672>=</span> [x <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>)]
 
 <span style=color:#75715e>## Instead of this</span>
 <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>number_generator</span>(list):
@@ -53,17 +228,63 @@ a, b, c <span style=color:#f92672>=</span> [int(x) <span style=color:#66d9ef>for
 <span style=color:#f92672>&gt;&gt;&gt;</span> g <span style=color:#f92672>=</span> number_generator(nums)
 <span style=color:#f92672>&gt;&gt;&gt;</span> next(g)
 <span style=color:#ae81ff>0</span>
-</code></pre></div><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#75715e>## DO THIS</span>
 <span style=color:#f92672>&gt;&gt;&gt;</span> nums <span style=color:#f92672>=</span> [x <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>10</span>)]
 <span style=color:#f92672>&gt;&gt;&gt;</span> g <span style=color:#f92672>=</span> (n <span style=color:#66d9ef>for</span> n <span style=color:#f92672>in</span> nums)
 <span style=color:#f92672>&gt;&gt;&gt;</span> next(g)
 <span style=color:#ae81ff>0</span>
-</code></pre></div><h2 id=conclusion>Conclusion</h2><p>One-liners look cool and it does make code smaller. However, it might not be the best idea to always use them. One-liners can make code hard to read. Additionally, they might not always be the most memory efficient. If your code needs to be more readable/maintainable, avoid complex one-liners in favor of longer but readable code.</p><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Facebook. Opens in a new window."><img src=/devra/icons/45px/facebook.png></a>
-<a href="https://twitter.com/intent/tweet?text=Powerful%20Python%20One%20Liners&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Twitter. Opens in a new window."><img src=/devra/icons/45px/twitter.png></a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Reddit. Opens in a new window."><img src=/devra/icons/45px/reddit.png></a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Pinterest. Opens in a new window."><img src=/devra/icons/45px/pinterest.png></a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Tumblr. Opens in a new window."><img src=/devra/icons/45px/tumblr.png></a>
+</code></pre></div><h2 id=conclusion>Conclusion</h2>
+<p>One-liners look cool and it does make code smaller. However, it might not be the best idea to always use them. One-liners can make code hard to read. Additionally, they might not always be the most memory efficient. If your code needs to be more readable/maintainable, avoid complex one-liners in favor of longer but readable code.</p>
+<div id=social-media-share>
+<p><i>Sharing is caring!</i></p>
+<div class=share-buttons>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
+<img src=/devra/icons/45px/facebook.png>
+</a>
+<a href="https://twitter.com/intent/tweet?text=Powerful%20Python%20One%20Liners&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
+<img src=/devra/icons/45px/twitter.png>
+</a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
+<img src=/devra/icons/45px/reddit.png>
+</a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
+<img src=/devra/icons/45px/pinterest.png>
+</a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
+<img src=/devra/icons/45px/tumblr.png>
+</a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f
-			&title=Powerful%20Python%20One%20Liners&summary=%3cp%3eWhy%20write%20more%20code%20when%20you%20can%20write%20less%3f%20Become%20a%20Python%20Ninja%20with%20the%20below%20one-liners.%3c%2fp%3e&source=https://rafed.github.io/devra/" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on LinkedIn. Opens in a new window."><img src=/devra/icons/45px/linkedin.png></a>
-<a href="mailto:?subject=Powerful%20Python%20One%20Liners&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" title="Share via Email. Opens in a new window."><img src=/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")
-return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='rafed';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script><gcse:searchresults-only></gcse:searchresults-only></body></html>
+			&title=Powerful%20Python%20One%20Liners&summary=%3cp%3eWhy%20write%20more%20code%20when%20you%20can%20write%20less%3f%20Become%20a%20Python%20Ninja%20with%20the%20below%20one-liners.%3c%2fp%3e&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
+<img src=/devra/icons/45px/linkedin.png>
+</a>
+<a href="mailto:?subject=Powerful%20Python%20One%20Liners&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fawesome-python-tips-tricks%2fpowerful-python-one-liners%2f" title="Share via Email. Opens in a new window.">
+<img src=/devra/icons/45px/mail.png>
+</a>
+</div>
+</div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<br>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-right-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p>
+© 2021 Rafed Muhammad Yasir.
+</p>
+</footer>
+<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+</body>
+</html>

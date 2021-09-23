@@ -1,21 +1,240 @@
-<!doctype html><html lang=en-us><head><title>Fix Bulma Mobile View Problem |
-DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/posts/web/fix-bulma-mobile-view-problem/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="Fix a mobile view problem in bulma CSS."><meta property="og:title" content="Fix Bulma Mobile View Problem"><meta property="og:description" content="Fix a mobile view problem in bulma CSS."><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/posts/web/fix-bulma-mobile-view-problem/"><meta property="article:published_time" content="2020-05-16T00:00:00+00:00"><meta property="article:modified_time" content="2020-05-16T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Fix Bulma Mobile View Problem"><meta name=twitter:description content="Fix a mobile view problem in bulma CSS."><meta itemprop=name content="Fix Bulma Mobile View Problem"><meta itemprop=description content="Fix a mobile view problem in bulma CSS."><meta itemprop=datePublished content="2020-05-16T00:00:00+00:00"><meta itemprop=dateModified content="2020-05-16T00:00:00+00:00"><meta itemprop=wordCount content="64"><meta itemprop=keywords content="web,frontend,"><link rel=stylesheet href=/devra/main.min.css><script src=/devra/bundle.js></script><script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create','UA-106132552-1','auto');ga('send','pageview');}</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg');" role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<!doctype html><html lang=en-us>
+<head><title>
+Fix Bulma Mobile View Problem |
+DevRa
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel=canonical href=https://rafed.github.io/devra/posts/web/fix-bulma-mobile-view-problem/>
+<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
+<meta name=description content="
+    Fix a mobile view problem in bulma CSS.
+    
+">
+<meta property="og:title" content="Fix Bulma Mobile View Problem">
+<meta property="og:description" content="Fix a mobile view problem in bulma CSS.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafed.github.io/devra/posts/web/fix-bulma-mobile-view-problem/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2020-05-16T00:00:00+00:00">
+<meta property="article:modified_time" content="2020-05-16T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Fix Bulma Mobile View Problem">
+<meta name=twitter:description content="Fix a mobile view problem in bulma CSS.">
+<meta itemprop=name content="Fix Bulma Mobile View Problem">
+<meta itemprop=description content="Fix a mobile view problem in bulma CSS."><meta itemprop=datePublished content="2020-05-16T00:00:00+00:00">
+<meta itemprop=dateModified content="2020-05-16T00:00:00+00:00">
+<meta itemprop=wordCount content="64">
+<meta itemprop=keywords content="web,frontend,">
+<link rel=stylesheet href=/devra/main.min.css>
+<script src=/devra/bundle.js></script>
+<script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-106132552-1','auto'),ga('send','pageview'))</script>
+</head>
+<body><header id=header>
+<div class=top-bar>
+<div class=container-md>
+<div class="row align-items-center">
+<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</div>
+<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
+<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="col-6 col-sm-4">
+<h2 class=title><a href=/devra/>DevRa</a></h2>
+</div>
+<div class="col-3 col-sm-4">
+<div class="col col-md-8 offset-md-4 d-none d-sm-block">
+<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
+<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=/devra/contact/>Contact</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs');" role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=container-md>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item d-block d-sm-none">
+<ul class=social-buttons>
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</ul>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/>
+Home
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
+Blog
+</a>
+<div class=dropdown-menu>
+<a class=dropdown-item href=/devra/posts/>Posts</a>
+<a class=dropdown-item href=/devra/sections/>Sections</a>
+<div class=dropdown-divider></div>
+<a class=dropdown-item href=/devra/tags/>Tags</a>
+</div>
+</li>
+<li class=nav-item>
+<a class=nav-link href=http://rafed.github.io/>
+About
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/contact/>
+Contact
+</a>
+</li>
+</ul>
+<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
+<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><h1 class=title>Fix Bulma Mobile View Problem</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>May 16, 2020</span>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<main class=blog-content>
+<div class=container-md>
+<div class=row>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-left-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+<div class="col-md-12 col-lg-8 px-lg-4">
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<h1 class=title>Fix Bulma Mobile View Problem</h1>
+<div class="container-fluid px-0 mb-4">
+<div class="row align-items-end">
+<div class="col-md-4 date-time">
+<span class=date>
+May 16, 2020
+</span>
 &#183;
-<span class=time-to-read>1 min read</span></div><div class="col-md-8 tags"><a href=/devra/tags/web><span class="tag bg-dark">web</span></a>
-<a href=/devra/tags/frontend><span class="tag bg-dark">frontend</span></a></div></div></div><figure><img src=/devra/posts/web/fix-bulma-mobile-view-problem/bulma.png alt="Fix Bulma Mobile View Problem"></figure><p>I&rsquo;ve been working with bulma for a while. Although the desktop rendering worked well, there were issues with the mobile view:</p><h4 id=problem>Problem</h4><ol><li>There is like a white border on the right</li><li>The screen is scrollable towards the right (which should not be)</li></ol><p><img src=./problem.gif alt="Bulmda problem"></p><h4 id=problem-fix>Problem fix</h4><p>To fix this, add the following code</p><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css>.<span style=color:#a6e22e>columns</span> {
+<span class=time-to-read>
+1 min read</span>
+</div>
+<div class="col-md-8 tags">
+<a href=/devra/tags/web><span class="tag bg-dark">web</span></a>
+<a href=/devra/tags/frontend><span class="tag bg-dark">frontend</span></a>
+</div>
+</div>
+</div>
+<figure>
+<img id=cover-image src=/devra/posts/web/fix-bulma-mobile-view-problem/bulma.png alt="Fix Bulma Mobile View Problem">
+</figure>
+<p>I&rsquo;ve been working with bulma for a while. Although the desktop rendering worked well, there were issues with the mobile view:</p>
+<h4 id=problem>Problem</h4>
+<ol>
+<li>There is like a white border on the right</li>
+<li>The screen is scrollable towards the right (which should not be)</li>
+</ol>
+<p><img src=./problem.gif alt="Bulmda problem"></p>
+<h4 id=problem-fix>Problem fix</h4>
+<p>To fix this, add the following code</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-css data-lang=css>.<span style=color:#a6e22e>columns</span> {
     <span style=color:#66d9ef>margin</span>: <span style=color:#ae81ff>0</span>;
-}</code></pre></div><p>With the above css it should render properly.</p><p><img src=./fixed.gif alt="Bulma problem fixed"></p><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Facebook. Opens in a new window."><img src=/devra/icons/45px/facebook.png></a>
-<a href="https://twitter.com/intent/tweet?text=Fix%20Bulma%20Mobile%20View%20Problem&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="socialMediaPopUp(this.href,'',500,500);return false;" title="Share on Twitter. Opens in a new window."><img src=/devra/icons/45px/twitter.png></a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Reddit. Opens in a new window."><img src=/devra/icons/45px/reddit.png></a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Pinterest. Opens in a new window."><img src=/devra/icons/45px/pinterest.png></a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on Tumblr. Opens in a new window."><img src=/devra/icons/45px/tumblr.png></a>
+}</code></pre></div>
+<p>With the above css it should render properly.</p>
+<p><img src=./fixed.gif alt="Bulma problem fixed"></p>
+<div id=social-media-share>
+<p><i>Sharing is caring!</i></p>
+<div class=share-buttons>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
+<img src=/devra/icons/45px/facebook.png>
+</a>
+<a href="https://twitter.com/intent/tweet?text=Fix%20Bulma%20Mobile%20View%20Problem&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
+<img src=/devra/icons/45px/twitter.png>
+</a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
+<img src=/devra/icons/45px/reddit.png>
+</a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
+<img src=/devra/icons/45px/pinterest.png>
+</a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
+<img src=/devra/icons/45px/tumblr.png>
+</a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f
-			&title=Fix%20Bulma%20Mobile%20View%20Problem&summary=I%26rsquo%3bve%20been%20working%20with%20bulma%20for%20a%20while.%20Although%20the%20desktop%20rendering%20worked%20well%2c%20there%20were%20issues%20with%20the%20mobile%20view%3a%0aProblem%20%20There%20is%20like%20a%20white%20border%20on%20the%20right%20The%20screen%20is%20scrollable%20towards%20the%20right%20%28which%20should%20not%20be%29%20%20Problem%20fix%20To%20fix%20this%2c%20add%20the%20following%20code&source=https://rafed.github.io/devra/" onclick="socialMediaPopUp(this.href,'',900,500);return false;" title="Share on LinkedIn. Opens in a new window."><img src=/devra/icons/45px/linkedin.png></a>
-<a href="mailto:?subject=Fix%20Bulma%20Mobile%20View%20Problem&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" title="Share via Email. Opens in a new window."><img src=/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")
-return;var dsq=document.createElement('script');dsq.type='text/javascript';dsq.async=true;var disqus_shortname='rafed';dsq.src='//'+disqus_shortname+'.disqus.com/embed.js';(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(dsq);})();</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script><gcse:searchresults-only></gcse:searchresults-only></body></html>
+			&title=Fix%20Bulma%20Mobile%20View%20Problem&summary=I%26rsquo%3bve%20been%20working%20with%20bulma%20for%20a%20while.%20Although%20the%20desktop%20rendering%20worked%20well%2c%20there%20were%20issues%20with%20the%20mobile%20view%3a%0aProblem%20%20There%20is%20like%20a%20white%20border%20on%20the%20right%20The%20screen%20is%20scrollable%20towards%20the%20right%20%28which%20should%20not%20be%29%20%20Problem%20fix%20To%20fix%20this%2c%20add%20the%20following%20code&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
+<img src=/devra/icons/45px/linkedin.png>
+</a>
+<a href="mailto:?subject=Fix%20Bulma%20Mobile%20View%20Problem&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fweb%2ffix-bulma-mobile-view-problem%2f" title="Share via Email. Opens in a new window.">
+<img src=/devra/icons/45px/mail.png>
+</a>
+</div>
+</div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<br>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-right-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p>
+© 2021 Rafed Muhammad Yasir.
+</p>
+</footer>
+<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+</body>
+</html>
