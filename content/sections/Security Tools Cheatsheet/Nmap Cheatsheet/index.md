@@ -7,7 +7,7 @@ image: nmap.png
 
 Nmap is a CLI based port scanner. As modern networking relies heavily on TCP ports, scanning these ports can expose valuable and critical data about a device on the network. These data can then be used to understand where vulnerabilities lie and how potential hackers can use them. Thus learning to port scan using Nmap is one of the first things a security researcher needs to grasp.
 
-This guide contains the most valuable Nmap tricks/tips/commands that you can use for auditing a device on the network.
+This guide contains the most valuable Nmap tricks/tips/commands that you can use for auditing/hacking a device on the network.
 
 ## 1. Target Specification
 
