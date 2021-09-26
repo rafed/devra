@@ -1,5 +1,5 @@
 ---
-title: Top 10 Practical Reasons to Sse Jekyll for your Site/Blog
+title: Top 10 Practical Reasons to Use Jekyll for your Site/Blog
 description: Why should you use Jekyll? Jekyll is a really cool static site generator. Read more to find out.
 date: 2017-07-07
 tags: [blogging, web]
