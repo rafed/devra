@@ -82,9 +82,9 @@ $ git reset HEAD~3
 $ git reset --hard HEAD~3
 ```
 
-#### 5. Mistakenly committed to a branch
+#### 5. Committed to a wrong branch
 
-Oops, you were supposed to commit to a new branch but committed to master. No problem.
+Oops, you were supposed to commit to a _new branch_ but committed to _master_. No problem.
 
 ```bash
 $ git branch new-branch    # create the new branch to work with
@@ -92,7 +92,7 @@ $ git reset HEAD~ --hard   # reset the main branch to the previous commit
 $ git checkout new-branch  # finally switch to the new branch
 ```
 
-Avoid this mistake by making the habit of creating a new branch whenever you are implementing a new feature (even if they are going to be discarded).
+Avoid this mistake by making the habit of creating a new branch whenever you are implementing a new feature (even if they are going to be discarded later).
 
 #### 6. Committed files that should have been ignored
 
