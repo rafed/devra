@@ -1,6 +1,7 @@
 ---
 title: Contact
 layout: single2
+description: Contact information page
 ---
 
 {{<hidden-email>}}
