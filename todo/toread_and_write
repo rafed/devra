@@ -1,3 +1,13 @@
+Top 50 things you can do to take your software production to the next levels
+  set git hooks
+  sonarqube
+  veracode
+  set pipelines
+  set multiple environments (dev/test/stag/prod)
+  automated testing
+  set up monitoring
+  set up alerts
+
 Best Free Certifications For Software Engineers
   freecodecamp
   edx.org
@@ -27,15 +37,6 @@ https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
 capable of writing shell scripts
 You never really know a technology until the honeymoon is over and you are familiar with all of the ways it sucks
 
-### Devops/cloud
-DWDM and lambdas
-
-architectures in cse
- - computer architecture
- - software architecture
- - system architecture
- - design architecture
-
 Comment documentation
   javadoc
   godoc
@@ -48,12 +49,6 @@ Modern CMSes to speed up backend development
   Supabase strapi appwrite
 
 Agile vs kanban https://medium.com/developers-cafe/agile-scrum-vs-kanban-simplified-3d03a8d72cc0
-
-Backend engineer (types):
-  API Construction & design
-  Database management
-  Third party management
-  Infrastructure work
 
 Sorting "Sorting Algorithms"
   Bubblesort
@@ -170,3 +165,7 @@ https://dev.to/heroku/two-million-ways-to-use-postgres-3k62?
 https://dev.to/trekhleb/technical-interview-preparation-checklist-4m4f?
 Patt flynn will it fly
 Fancy programming words: idempotent, abstraction, ephermal, anonymous, memoization, serialization, predicate (https://www.youtube.com/watch?v=4Zc9ci9L5wY)
+
+
+
+All category competititve programming list https://codeforces.com/blog/entry/95106
