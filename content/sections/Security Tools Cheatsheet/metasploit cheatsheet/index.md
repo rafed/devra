@@ -1,5 +1,5 @@
 ---
-title: Metasploit Cheatsheet
+title: Pentesting with Metasploit the Vulnerability Exploitation Tool (with Cheat Sheets)
 date: 2021-09-26
 tags: [security, kali]
 image: msf.png

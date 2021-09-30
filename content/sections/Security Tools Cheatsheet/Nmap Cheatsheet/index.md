@@ -1,5 +1,5 @@
 ---
-title: Penetration Testing with Nmap
+title: Pentesting with Nmap the Network Testing Tool (with Cheat Sheets)
 date: 2021-09-21
 tags: [security, kali]
 image: nmap.png
