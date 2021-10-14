@@ -1,0 +1,261 @@
+<!doctype html><html lang=en-us>
+<head><title>
+Racial Bias in AI (And How I Got Embarrassed) |
+DevRa
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel=canonical href=https://rafed.github.io/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/>
+<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
+<meta name=description content="
+    Humans often wrongly discriminate based on skin color, religion and beliefs. Whether this increases or decreases every day we cannot tell for certain. But what we can tell, as data-driven apps continue to grow, computer-based discrimination will increase.
+    ">
+<meta property="og:description" content="
+    Humans often wrongly discriminate based on skin color, religion and beliefs. Whether this increases or decreases every day we cannot tell for certain. But what we can tell, as data-driven apps continue to grow, computer-based discrimination will increase.
+    ">
+<meta property="og:image" content="https://rafed.github.io/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/thumbnail.png">
+<meta property="og:title" content="Racial Bias in AI (and how I got Embarrassed)">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafed.github.io/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2021-10-13T00:00:00+00:00">
+<meta property="article:modified_time" content="2021-10-13T00:00:00+00:00">
+<meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://rafed.github.io/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/thumbnail.png">
+<meta name=twitter:title content="Racial Bias in AI (and how I got Embarrassed)">
+<meta name=twitter:description content="Humans often wrongly discriminate based on skin color, religion and beliefs. Whether this increases or decreases every day we cannot tell for certain. But what we can tell, as data-driven apps continue to grow, computer-based discrimination will increase.">
+<meta itemprop=name content="Racial Bias in AI (and how I got Embarrassed)">
+<meta itemprop=description content="Humans often wrongly discriminate based on skin color, religion and beliefs. Whether this increases or decreases every day we cannot tell for certain. But what we can tell, as data-driven apps continue to grow, computer-based discrimination will increase."><meta itemprop=datePublished content="2021-10-13T00:00:00+00:00">
+<meta itemprop=dateModified content="2021-10-13T00:00:00+00:00">
+<meta itemprop=wordCount content="737"><meta itemprop=image content="https://rafed.github.io/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/thumbnail.png">
+<meta itemprop=keywords content="machine learning,misc,">
+<link rel=stylesheet href=/devra/main.min.css>
+<script src=/devra/bundle.js></script>
+<script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-106132552-1','auto'),ga('send','pageview'))</script>
+</head>
+<body><header id=header>
+<div class=top-bar>
+<div class=container-md>
+<div class="row align-items-center">
+<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</div>
+<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
+<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="col-6 col-sm-4">
+<h2 class=title><a href=/devra/>DevRa</a></h2>
+</div>
+<div class="col-3 col-sm-4">
+<div class="col col-md-8 offset-md-4 d-none d-sm-block">
+<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
+<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<button class=btn type=submit>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=container-md>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item d-block d-sm-none">
+<ul class=social-buttons>
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</ul>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/>
+Home
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
+Blog
+</a>
+<div class=dropdown-menu>
+<a class=dropdown-item href=/devra/posts/>Posts</a>
+<a class=dropdown-item href=/devra/sections/>Sections</a>
+<div class=dropdown-divider></div>
+<a class=dropdown-item href=/devra/tags/>Tags</a>
+</div>
+</li>
+<li class=nav-item>
+<a class=nav-link href=http://rafed.github.io/>
+About
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/contact/>
+Contact
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/privacy/>
+Privacy
+</a>
+</li>
+</ul>
+<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
+<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<button class=btn type=submit>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<main class=blog-content>
+<div class=container-md>
+<div class=row>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-left-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+<div class="col-md-12 col-lg-8 px-lg-4">
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<h1 class=title>Racial Bias in AI (and how I got Embarrassed)</h1>
+<div class="container-fluid px-0 mb-4">
+<div class="row align-items-end">
+<div class="col-md-4 date-time">
+<span class=date>
+Oct 13, 2021
+</span>
+&#183;
+<span class=time-to-read>
+4 mins read</span>
+</div>
+<div class="col-md-8 tags">
+<a href=/devra/tags/machine-learning><span class="tag bg-dark">machine learning</span></a>
+<a href=/devra/tags/misc><span class="tag bg-dark">misc</span></a>
+</div>
+</div>
+</div>
+<figure>
+<img id=cover-image src=/devra/posts/machine-learning/racial-bias-in-machine-learning-and-ai/thumbnail.png alt="Racial Bias in AI (and how I got Embarrassed)">
+</figure>
+<p>Humans often wrongly discriminate based on skin color, religion and beliefs. Whether this increases or decreases every day we cannot tell for certain. But what we can tell, as data-driven apps continue to grow, computer-based discrimination will increase. Yes, computers can be racist too. And this is the story of how I embarrassingly happened to be in the part of making one.</p>
+<h2 id=the-back-story>The Back Story</h2>
+<p>I was a student in 2018. Me and two of my friends built an augmented reality project called <a href=https://rafed.github.io/project/virtual-trial-room/>virtual trial room</a>. The idea was simple. You pick a dress that you like and stand in front of a webcam. The app would then detect the person using object detection and overlay the dress over them in real-time. This would give an impression of how a dress would look/fit on you. The concept worked similarly for sunglasses and hats.</p>
+<p>We participated in a few competitions with this project and it was quite a success. However, the one place we did not succeed was in a competition held at <strong>Islamic University of Technology (IUT)</strong>.</p>
+<p>IUT is one of the leading universities in Bangladesh that hosts more foreign students than any other in the country through scholarship programs. A lot of their foreign students come from African countries.</p>
+<p>We reached IUT early in the morning. We set up our stall and started demonstrating our project to interested guests. Many people tried using it and found it to be fun and engaging. Everything was going well until our African guests started to come in.</p>
+<p>Whenever an African guest tried to use the app, it wouldn&rsquo;t detect them. This was an unexpected behavior. During testing, our app had never failed to detect a person before. We had tested the app with at least 100s of friends and family members of different ages and in different lighting conditions. But for some reason, this time it did not work. Our app relied heavily on facial recognition. And for the first time, our app could not detect any face.</p>
+<p>My teammates thought something was wrong with the app and tried restarting it as well as repositioning the guests and changing camera angles. But I stood there in horror. I knew exactly what had happened. And I knew we couldn&rsquo;t fix this now. The face detection model we used did not have training samples of darker-skinned people. So it essentially worked on people who were white or brown-skinned.</p>
+<p>Of course, we made excuses while the app wouldn&rsquo;t work. <em>&ldquo;There are too many people in the background disturbing our algorithm&rdquo;</em> or <em>&ldquo;the lighting is inadequate&rdquo;</em>. We did manage to convince many of our customers, but some of them saw right through it. One of our guests asked me, &ldquo;Why does it not work for me? Is it because I&rsquo;m black?&rdquo;</p>
+<p>This was too much of an embarrassment for us. I apologized straight away and explained to him in detail what had happened.</p>
+<h2 id=racial-bias-in-ai-causes-examples-and-solutions>Racial Bias in AI: Causes, Examples, and Solutions</h2>
+<p>If an algorithm/model discriminates between people based on their ethnicity or beliefs then it is said to have a racial bias. It is usually unconscious and intended (but can be sometimes be conscious as well).</p>
+<p>Other examples of racial bias that have been observed:</p>
+<ul>
+<li>Self-driving cars are more likely to recognize white pedestrians than Black pedestrians.</li>
+<li>Criminal risk assessment technology has led to Black individuals being sentenced to harsher criminal sentences.</li>
+<li>Healthcare company has used an algorithm that deemed Black patients less worthy of critical healthcare.</li>
+<li>Fin-tech companies have been shown to discriminate against Black households via higher mortgage interest rates.</li>
+</ul>
+<p>The most common reason for racial bias is the use of low-quality datasets. A dataset is of low quality when sampling is done incorrectly. When it comes to data-driven apps, &ldquo;garbage in, garbage out.&rdquo;</p>
+<p>If a dataset cannot be improved by collecting new data points, it can be mitigated through oversampling or undersampling. Oversampling randomly duplicates data points in the minority dataset to the quantity of the majority. And, undersampling randomly reduces the number of data points in the majority to the minority.</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>Yes, we lost that competition. But we learned a valuable lesson on racial bias. Let our lesson be an example for others so that they don&rsquo;t have to face the same sort of embarrassment, or worse, make an app that makes critical decisions with racial bias. We want racism to stop from humans and computers.</p>
+<h5 id=references>References</h5>
+<ul>
+<li><a href=https://www.credera.com/insights/racial-bias-in-machine-learning-and-artificial-intelligence>www.credera.com/insights/racial-bias-in-machine-learning-and-artificial-intelligence</a></li>
+</ul>
+<div id=social-media-share>
+<p><i>Sharing is caring!</i></p>
+<div class=share-buttons>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
+<img src=/devra/icons/45px/facebook.png>
+</a>
+<a href="https://twitter.com/intent/tweet?text=Racial%20Bias%20in%20AI%20%28and%20how%20I%20got%20Embarrassed%29&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
+<img src=/devra/icons/45px/twitter.png>
+</a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
+<img src=/devra/icons/45px/reddit.png>
+</a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
+<img src=/devra/icons/45px/pinterest.png>
+</a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
+<img src=/devra/icons/45px/tumblr.png>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f
+			&title=Racial%20Bias%20in%20AI%20%28and%20how%20I%20got%20Embarrassed%29&summary=Humans%20often%20wrongly%20discriminate%20based%20on%20skin%20color%2c%20religion%20and%20beliefs.%20Whether%20this%20increases%20or%20decreases%20every%20day%20we%20cannot%20tell%20for%20certain.%20But%20what%20we%20can%20tell%2c%20as%20data-driven%20apps%20continue%20to%20grow%2c%20computer-based%20discrimination%20will%20increase.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
+<img src=/devra/icons/45px/linkedin.png>
+</a>
+<a href="mailto:?subject=Racial%20Bias%20in%20AI%20%28and%20how%20I%20got%20Embarrassed%29&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fracial-bias-in-machine-learning-and-ai%2f" title="Share via Email. Opens in a new window.">
+<img src=/devra/icons/45px/mail.png>
+</a>
+</div>
+</div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<br>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-right-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p>
+© 2021 Rafed Muhammad Yasir.
+</p>
+</footer>
+<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+</body>
+</html>
