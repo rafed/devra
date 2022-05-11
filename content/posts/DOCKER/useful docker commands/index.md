@@ -40,6 +40,7 @@ $ docker image ls -a  # List all images
 # Remove Docker images
 $ docker image rm <image id> # Remove specified image
 $ docker image rm $(docker image ls -a -q) # Remove all images
+$ docker image rm $(docker images -f "dangling=true" -q) # Remove all dangling images
 {{</highlight>}}
 
 <!------------------------------------>
