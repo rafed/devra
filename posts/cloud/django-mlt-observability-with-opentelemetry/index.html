@@ -1,0 +1,672 @@
+<!doctype html><html lang=en-us>
+<head><title>
+Django Metrics, Logs & Traces Observability With Opentelemetry and Grafana |
+DevRa
+</title>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel=canonical href=https://rafed.github.io/devra/posts/cloud/django-mlt-observability-with-opentelemetry/>
+<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
+<meta name=description content="
+    Metrics, Logs and Traces (MLT) are the three pillars of observability that can provide us with complete visibility of a software system. In this article, we&rsquo;re going to set up a system where MLT data is collected from a hello-world microservice application.
+    ">
+<meta property="og:description" content="
+    Metrics, Logs and Traces (MLT) are the three pillars of observability that can provide us with complete visibility of a software system. In this article, we&rsquo;re going to set up a system where MLT data is collected from a hello-world microservice application.
+    ">
+<meta property="og:image" content="https://rafed.github.io/devra/posts/cloud/django-mlt-observability-with-opentelemetry/MLT.png">
+<meta property="og:title" content="Django Metrics, Logs & Traces Observability with Opentelemetry and Grafana">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://rafed.github.io/devra/posts/cloud/django-mlt-observability-with-opentelemetry/"><meta property="article:section" content="posts">
+<meta property="article:published_time" content="2022-05-11T00:00:00+00:00">
+<meta property="article:modified_time" content="2022-05-11T00:00:00+00:00">
+<meta name=twitter:card content="summary">
+<meta name=twitter:title content="Django Metrics, Logs & Traces Observability with Opentelemetry and Grafana">
+<meta name=twitter:description content="Metrics, Logs and Traces (MLT) are the three pillars of observability that can provide us with complete visibility of a software system. In this article, we&rsquo;re going to set up a system where MLT data is collected from a hello-world microservice application.">
+<meta itemprop=name content="Django Metrics, Logs & Traces Observability with Opentelemetry and Grafana">
+<meta itemprop=description content="Metrics, Logs and Traces (MLT) are the three pillars of observability that can provide us with complete visibility of a software system. In this article, we&rsquo;re going to set up a system where MLT data is collected from a hello-world microservice application."><meta itemprop=datePublished content="2022-05-11T00:00:00+00:00">
+<meta itemprop=dateModified content="2022-05-11T00:00:00+00:00">
+<meta itemprop=wordCount content="2388">
+<meta itemprop=keywords content="cloud,monitoring,devops,">
+<link rel=stylesheet href=/devra/main.min.css>
+<script src=/devra/bundle.js></script>
+<script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script type=application/javascript>var doNotTrack=!1;doNotTrack||(function(a,e,f,g,b,c,d){a.GoogleAnalyticsObject=b,a[b]=a[b]||function(){(a[b].q=a[b].q||[]).push(arguments)},a[b].l=1*new Date,c=e.createElement(f),d=e.getElementsByTagName(f)[0],c.async=1,c.src=g,d.parentNode.insertBefore(c,d)}(window,document,'script','https://www.google-analytics.com/analytics.js','ga'),ga('create','UA-106132552-1','auto'),ga('send','pageview'))</script>
+<script defer src=/devra/mermaid/mermaid.min.js></script>
+</head>
+<body><header id=header>
+<div class=top-bar>
+<div class=container-md>
+<div class="row align-items-center">
+<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</div>
+<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
+<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i>
+</button>
+</div>
+<div class="col-6 col-sm-4">
+<h2 class=title><a href=/devra/>DevRa</a></h2>
+</div>
+<div class="col-3 col-sm-4">
+<div class="col col-md-8 offset-md-4 d-none d-sm-block">
+<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
+<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<button class=btn type=submit>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class=container-md>
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+<div class="collapse navbar-collapse" id=navbarNav>
+<ul class="navbar-nav mx-auto">
+<li class="nav-item d-block d-sm-none">
+<ul class=social-buttons>
+<ul>
+<li>
+<a href=https://www.facebook.com/devrafed target=_blank>
+<i class="fab fa-facebook"></i></a>
+</li>
+<li>
+<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
+<i class="fab fa-youtube"></i></a>
+</li>
+<li>
+<a href=https://github.com/rafed target=_blank>
+<i class="fab fa-github"></i></a>
+</li>
+<li>
+<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
+<i class="fab fa-linkedin"></i></a>
+</li>
+</ul>
+</ul>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/>
+Home
+</a>
+</li>
+<li class="nav-item dropdown">
+<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
+Blog
+</a>
+<div class=dropdown-menu>
+<a class=dropdown-item href=/devra/posts/>Posts</a>
+<a class=dropdown-item href=/devra/sections/>Sections</a>
+<div class=dropdown-divider></div>
+<a class=dropdown-item href=/devra/tags/>Tags</a>
+</div>
+</li>
+<li class=nav-item>
+<a class=nav-link href=http://rafed.github.io/>
+About
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/contact/>
+Contact
+</a>
+</li>
+<li class=nav-item>
+<a class=nav-link href=/devra/privacy/>
+Privacy
+</a>
+</li>
+</ul>
+<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
+<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<button class=btn type=submit>
+<i class="fa fa-search"></i>
+</button>
+</form>
+</div>
+</nav>
+</div>
+</header>
+<main class=blog-content>
+<div class=container-md>
+<div class=row>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-left-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+<div class="col-md-12 col-lg-8 px-lg-4">
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<h1 class=title>Django Metrics, Logs & Traces Observability with Opentelemetry and Grafana</h1>
+<div class="container-fluid px-0 mb-4">
+<div class="row align-items-end">
+<div class="col-md-4 date-time">
+<span class=date>
+May 11, 2022
+</span>
+&#183;
+<span class=time-to-read>
+13 mins read</span>
+</div>
+<div class="col-md-8 tags">
+<a href=/devra/tags/cloud><span class="tag bg-dark">cloud</span></a>
+<a href=/devra/tags/monitoring><span class="tag bg-dark">monitoring</span></a>
+<a href=/devra/tags/devops><span class="tag bg-dark">devops</span></a>
+</div>
+</div>
+</div>
+<figure>
+<img id=cover-image src=/devra/posts/cloud/django-mlt-observability-with-opentelemetry/MLT.png alt="Django Metrics, Logs & Traces Observability with Opentelemetry and Grafana">
+</figure>
+<p>Metrics, Logs and Traces (MLT) are the three pillars of observability that can provide us with complete visibility of a software system. In this article, we&rsquo;re going to set up a system where MLT data is collected from a hello-world microservice application.</p>
+<h4 id=contents>Contents</h4>
+<ol>
+<li><a href=#1-what-are-metrics-logs-and-traces-mlt>What are metrics, logs and traces?</a></li>
+<li><a href=#2-how-can-we-collect-metrics-logs-and-traces>How can we collect metrics, logs and traces?</a></li>
+<li><a href=#3-project-background>Project background</a></li>
+<li><a href=#4-step-by-step-implementation>Step by step implementation</a>
+<ul>
+<li>4.1 <a href=#41-addrun-the-services-in-docker-compose>Add/run the services in docker-compose</a></li>
+<li>4.2 <a href=#42-install-prometheus-for-metrics>Install Prometheus (for metrics)</a></li>
+<li>4.3 <a href=#43-install-loki-and-promtail-for-logs>Install Loki and Promtail (for logs)</a></li>
+<li>4.4 <a href=#44-install-jaeger-for-tracing>Install Jaeger (for tracing)</a></li>
+<li>4.5 <a href=#45-install-grafana-for-monitoring>Install Grafana for monitoring</a></li>
+</ul>
+</li>
+<li><a href=#5-demo>Demo</a></li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ol>
+<h2 id=1-what-are-metrics-logs-and-traces-mlt>1. What are metrics, logs and traces (MLT)?</h2>
+<h4 id=metrics>Metrics</h4>
+<p>Metrics show the measure of how a system resource is used. They are typically numerical. For example-</p>
+<ul>
+<li>How much CPU was used in the past hour?</li>
+<li>How much disk space is consumed?</li>
+<li>How much bandwidth has been used?</li>
+</ul>
+<h4 id=logs>Logs</h4>
+<p>Logs are events that a running software records. For example-</p>
+<ul>
+<li>Log the stack trace of a runtime error</li>
+<li>Log when a user accesses the system</li>
+<li>Log a critical error</li>
+</ul>
+<h4 id=traces>Traces</h4>
+<p>Traces show the path of a program&rsquo;s execution. In a microservice/distributed system, a request from a client may get processed through several services. It is important to know through which path a request has been processed and how much processing time was needed in each node so that errors and bottlenecks can be identified.</p>
+<h4 id=more-about-mlt>More about MLT</h4>
+<p>It&rsquo;s not necessary that all three of MLT must be collected. Logs are the most important element to collect as they convey what errors have occurred and how the software executes.</p>
+<p>Metrics are the next most important element to collect. With metrics, we can know how well the software is performing and whether we need to optimize functions or scale up servers.</p>
+<p>Finally, with tracing, we can track in what sequence a request has been processed. This was unnecessary previously because most systems were monoliths and did not require tracing. But as microservices and distributed systems are getting more popular, it is increasingly becoming important to track how requests go through each service in the system.</p>
+<p>Thus we should get complete observability of a system by collecting metrics, logs and traces. In addition to that, we should be able to correlate MLT easily to better understand the system. For example, from a log we should also be able to go to its trace from where it was formed and vice-versa. By the end of this article, we should be able to see this implementation.</p>
+<h2 id=2-how-can-we-collect-metrics-logs-and-traces>2. How can we collect metrics, logs and traces?</h2>
+<p>The following tools can be used to collect MLT data. There are of course other alternatives. But for this tutorial, We will use the tools below.</p>
+<ol>
+<li><strong>Grafana</strong> <em>[Dashboard]</em>: This is a dashboard where we will observe the MLT data collected by the rest of the services.</li>
+<li><strong>Prometheus</strong> <em>[Monitoring]</em>: Collects and stores metrics from applications.</li>
+<li><strong>Promtail</strong> <em>[Logging]</em>: Collects log data from applications and sends them to Loki.</li>
+<li><strong>Loki</strong> <em>[Logging]</em>: Aggregates and stores all logs sent by Promtail.</li>
+<li><strong>Opentelemetry</strong> <em>[Tracing]</em>: Instruments an app to collect traces and sends them to Jaeger.</li>
+<li><strong>Jaeger</strong> <em>[Tracing]</em>: Collects and stores tracing information. Also helps in trace visualization.</li>
+</ol>
+<p>The following figure summarizes the technology dependencies.</p>
+<p><img src=./MLT.png alt="MLT in kubernetes"></p>
+<h2 id=3-project-background>3. Project Background</h2>
+<h4 id=31-prerequisites>3.1 Prerequisites</h4>
+<p>Before we get to the implementation, there are a few things that you should be acquainted with before moving forward.</p>
+<ul>
+<li><strong>Docker</strong>: You should be familiar with docker. The example project relies heavily on Dockerfiles and docker-compose files.</li>
+<li><strong>Python/Django</strong>: You should be familiar with python. Knowing Django isn&rsquo;t necessary but understanding it will help understand the hello-world microservices in the example project.</li>
+</ul>
+<h4 id=32-source-code>3.2 Source code</h4>
+<p>The complete implementation of this article can be found at <a href=https://github.com/rafed/opentelemetry-python-grafana-mlt>github.com/rafed/opentelemetry-python-grafana-mlt</a>. Clone the project using</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ git clone https://github.com/rafed/opentelemetry-python-grafana-mlt
+</code></pre></div><p>Explore the project structure of the repository to get a general idea of what exists where.</p>
+<h4 id=33-services-and-system-architecture>3.3 Services and System Architecture</h4>
+<p>The project has two django apps- a <strong>webapp</strong> and a <strong>webapi</strong>. They have the following endpoints.</p>
+<ul>
+<li>Webapp
+<ul>
+<li>/</li>
+<li>/service</li>
+</ul>
+</li>
+<li>Webapi
+<ul>
+<li>/</li>
+<li>/add</li>
+</ul>
+</li>
+</ul>
+<p>The system architecture is simple. A user hits Webapp at <em>localhost:8000/service</em>. The webapp subsequently hits webapi at <em>localhost:8001/add</em> to calculate the value of 2+2.</p>
+<div class=mermaid>
+graph TD;
+A[webapp<br>localhost:8000]-->B[webapi<br> localhost:8001];
+</div>
+<p>The root endpoints are provided so that we can check whether the services are running or not.</p>
+<h2 id=4-step-by-step-implementation>4. Step by step implementation</h2>
+<p>If you have a django project you can add the monitors by following the steps below. Or you can use the django projects in the repository provided with this tutorial.</p>
+<h4 id=41-addrun-the-services-in-docker-compose>4.1 Add/run the services in docker-compose</h4>
+<p>To run our implementation we will make use of docker-compose as it will make redeploying our iterations easier. Add services to a <code>docker-compose.yaml</code> file.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>services</span>:
+  <span style=color:#f92672>webapp</span>:
+    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>./webapp</span>
+    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>python manage.py runserver 0.0.0.0:8000</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>./webapp:/webapp</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;8000:8000&#34;</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>webapi</span>
+
+  <span style=color:#f92672>webapi</span>:
+    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>./webapi</span>
+    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>python manage.py runserver 0.0.0.0:8001</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>./webapi:/webapi</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;8001:8001&#34;</span>
+</code></pre></div><p>Run the services using</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ docker-compose up
+</code></pre></div><h4 id=42-install-prometheus-for-metrics>4.2 Install Prometheus (for metrics)</h4>
+<p>To collect metrics from django we need to install a metrics collector and exporter for django.</p>
+<p>In your django <code>requirements.txt</code> add the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>django<span style=color:#f92672>-</span>prometheus<span style=color:#f92672>==</span><span style=color:#ae81ff>2.2.0</span>
+</code></pre></div><p>In <code>settings.py</code> add in <em>INSTALLED_APPS</em></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>INSTALLED_APPS <span style=color:#f92672>=</span> [
+    <span style=color:#f92672>...</span>
+    <span style=color:#e6db74>&#39;django_prometheus&#39;</span>,
+]
+</code></pre></div><p>and in <em>MIDDLEWARE</em></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>MIDDLEWARE <span style=color:#f92672>=</span> [
+    <span style=color:#e6db74>&#39;django_prometheus.middleware.PrometheusBeforeMiddleware&#39;</span>,
+    <span style=color:#f92672>...</span> Other
+    <span style=color:#f92672>...</span> middlewares
+    <span style=color:#f92672>...</span> <span style=color:#f92672>in</span> the middle
+    <span style=color:#e6db74>&#39;django_prometheus.middleware.PrometheusAfterMiddleware&#39;</span>,
+]
+</code></pre></div><p>In <code>urls.py</code> add</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>urlpatterns <span style=color:#f92672>=</span> [
+    <span style=color:#f92672>...</span>
+    path(<span style=color:#e6db74>&#39;&#39;</span>, include(<span style=color:#e6db74>&#39;django_prometheus.urls&#39;</span>)),
+]
+</code></pre></div><p>Now, when the django apps run, they will export the django metrics in <code>/metrics</code> endpoint.</p>
+<p>Next we need to run prometheus to collect metrics from these endpoints exported from django. Create file a file <code>prometheus/prometheus.yaml</code> and add the following code.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>global</span>:
+  <span style=color:#f92672>scrape_interval</span>: <span style=color:#ae81ff>10s</span>
+  <span style=color:#f92672>scrape_timeout</span>: <span style=color:#ae81ff>5s</span>
+
+<span style=color:#f92672>scrape_configs</span>:
+  - <span style=color:#f92672>job_name</span>: <span style=color:#ae81ff>prometheus</span>
+    <span style=color:#f92672>metrics_path</span>: <span style=color:#ae81ff>/metrics</span>
+    <span style=color:#f92672>static_configs</span>:
+      - <span style=color:#f92672>targets</span>:
+          - <span style=color:#e6db74>&#39;prometheus:9090&#39;</span>
+
+  - <span style=color:#f92672>job_name</span>: <span style=color:#ae81ff>webapp-scraper</span>
+    <span style=color:#f92672>metrics_path</span>: <span style=color:#ae81ff>/metrics</span>
+    <span style=color:#f92672>static_configs</span>:
+      - <span style=color:#f92672>targets</span>:
+          - <span style=color:#e6db74>&#39;webapp:8000&#39;</span>
+        <span style=color:#f92672>labels</span>:
+          <span style=color:#f92672>app</span>: <span style=color:#ae81ff>webapp</span>
+
+  - <span style=color:#f92672>job_name</span>: <span style=color:#ae81ff>webapi-scraper</span>
+    <span style=color:#f92672>metrics_path</span>: <span style=color:#ae81ff>/metrics</span>
+    <span style=color:#f92672>static_configs</span>:
+      - <span style=color:#f92672>targets</span>:
+          - <span style=color:#e6db74>&#39;webapi:8001&#39;</span>
+        <span style=color:#f92672>labels</span>:
+          <span style=color:#f92672>app</span>: <span style=color:#ae81ff>webapi</span>
+</code></pre></div><p>This config tells prometheus that our app should be scraped at a 10 seconds interval. There are three jobs that define from what endpoints metrics should be collected. Notice that we are adding labels to the logs so that we can later filter search results with this label.</p>
+<p>Finally add prometheus to the <code>docker-compose.yaml</code> file.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>services</span>:
+    <span style=color:#f92672>prometheus</span>:
+        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>prom/prometheus:v2.35.0</span>
+        <span style=color:#f92672>ports</span>:
+            - <span style=color:#ae81ff>9090</span>:<span style=color:#ae81ff>9090</span>
+        <span style=color:#f92672>volumes</span>:
+            - <span style=color:#ae81ff>./prometheus:/etc/prometheus</span>
+        <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>config.file=/etc/prometheus/prometheus.yaml</span>
+</code></pre></div><p>Prometheus will now collect and export metrics from our django apps. Skip to <a href=#45-install-grafana-for-monitoring>section 4.5</a> to install grafana and check whether the metrics configuration is working or not.</p>
+<h4 id=43-install-loki-and-promtail-for-logs>4.3 Install Loki and Promtail (for logs)</h4>
+<p>At first we need to make sure that our django apps are writing logs.</p>
+<p>In your django <code>requirements.txt</code> make sure to have the following and install them.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>opentelemetry<span style=color:#f92672>-</span>sdk<span style=color:#f92672>==</span><span style=color:#ae81ff>1.10.0</span>
+opentelemetry<span style=color:#f92672>-</span>api<span style=color:#f92672>==</span><span style=color:#ae81ff>1.10.0</span>
+opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>-</span>django<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>-</span>logging<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+</code></pre></div><p>In <code>settings.py</code> add a <em>LOGGING</em> configuration. I use the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>LOGGING <span style=color:#f92672>=</span> {
+    <span style=color:#e6db74>&#39;version&#39;</span>: <span style=color:#ae81ff>1</span>,
+    <span style=color:#e6db74>&#39;disable_existing_loggers&#39;</span>: <span style=color:#66d9ef>False</span>,
+    <span style=color:#e6db74>&#39;formatters&#39;</span>: {
+        <span style=color:#e6db74>&#39;trace_formatter&#39;</span>: {
+            <span style=color:#e6db74>&#39;format&#39;</span>: <span style=color:#e6db74>&#39;[</span><span style=color:#e6db74>%(asctime)s</span><span style=color:#e6db74>] </span><span style=color:#e6db74>%(levelname)s</span><span style=color:#e6db74> [</span><span style=color:#e6db74>%(name)s</span><span style=color:#e6db74>:</span><span style=color:#e6db74>%(lineno)s</span><span style=color:#e6db74>] [trace_id=</span><span style=color:#e6db74>%(otelTraceID)s</span><span style=color:#e6db74> span_id=</span><span style=color:#e6db74>%(otelSpanID)s</span><span style=color:#e6db74>] [</span><span style=color:#e6db74>%(funcName)s</span><span style=color:#e6db74>] </span><span style=color:#e6db74>%(message)s</span><span style=color:#e6db74>&#39;</span>,  <span style=color:#75715e># optional, default is logging.BASIC_FORMAT</span>
+            <span style=color:#e6db74>&#39;datefmt&#39;</span>: <span style=color:#e6db74>&#39;%Y-%m-</span><span style=color:#e6db74>%d</span><span style=color:#e6db74> %H:%M:%S&#39;</span>,  <span style=color:#75715e># optional, default is &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+        },
+    },
+    <span style=color:#e6db74>&#39;handlers&#39;</span>: {
+        <span style=color:#e6db74>&#39;file&#39;</span>: {
+            <span style=color:#e6db74>&#39;level&#39;</span>: <span style=color:#e6db74>&#39;WARNING&#39;</span>,
+            <span style=color:#e6db74>&#39;class&#39;</span>: <span style=color:#e6db74>&#39;logging.FileHandler&#39;</span>,
+            <span style=color:#e6db74>&#39;formatter&#39;</span>: <span style=color:#e6db74>&#39;trace_formatter&#39;</span>,
+            <span style=color:#e6db74>&#39;filename&#39;</span>: <span style=color:#e6db74>&#39;webapp.log&#39;</span>,
+        },
+        <span style=color:#e6db74>&#39;console&#39;</span>: {
+            <span style=color:#e6db74>&#39;class&#39;</span>: <span style=color:#e6db74>&#39;logging.StreamHandler&#39;</span>,
+            <span style=color:#e6db74>&#39;formatter&#39;</span>: <span style=color:#e6db74>&#39;trace_formatter&#39;</span>,
+        },
+    },
+    <span style=color:#e6db74>&#39;loggers&#39;</span>: {
+        <span style=color:#e6db74>&#39;django&#39;</span>: {
+            <span style=color:#e6db74>&#39;handlers&#39;</span>: [<span style=color:#e6db74>&#39;console&#39;</span>],
+            <span style=color:#e6db74>&#39;level&#39;</span>: <span style=color:#e6db74>&#39;INFO&#39;</span>,
+            <span style=color:#e6db74>&#39;propagate&#39;</span>: <span style=color:#66d9ef>True</span>,
+        },
+    },
+    <span style=color:#e6db74>&#39;root&#39;</span>: {
+        <span style=color:#e6db74>&#39;handlers&#39;</span>: [<span style=color:#e6db74>&#39;console&#39;</span>, <span style=color:#e6db74>&#39;file&#39;</span>],
+        <span style=color:#e6db74>&#39;level&#39;</span>: <span style=color:#e6db74>&#39;WARNING&#39;</span>,
+    },
+}
+</code></pre></div><p>Ignore the trace_formatter for now. We will need it in the next section for logging trace ids.</p>
+<p>Make sure your django views are writing some sort of logs. You can use the following template for recording logs.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>import</span> logging
+
+logger <span style=color:#f92672>=</span> logging<span style=color:#f92672>.</span>getLogger(__name__)
+
+logger<span style=color:#f92672>.</span>error(<span style=color:#e6db74>&#34;Log1 on Webapp!&#34;</span>)
+</code></pre></div><p>After confirming that some sort of logs are being written on a file you can continue installing promtail.</p>
+<p>Create a file <code>promtail/promtail.yaml</code> and put the following config.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>server</span>:
+  <span style=color:#f92672>http_listen_port</span>: <span style=color:#ae81ff>9080</span>
+  <span style=color:#f92672>grpc_listen_port</span>: <span style=color:#ae81ff>0</span>
+
+<span style=color:#f92672>positions</span>:
+  <span style=color:#f92672>filename</span>: <span style=color:#ae81ff>/tmp/positions.yaml</span>
+
+<span style=color:#f92672>clients</span>:
+  - <span style=color:#f92672>url</span>: <span style=color:#ae81ff>http://loki:3100/loki/api/v1/push</span>
+
+<span style=color:#f92672>scrape_configs</span>:
+- <span style=color:#f92672>job_name</span>: <span style=color:#ae81ff>django-log-scraper</span>
+  <span style=color:#f92672>static_configs</span>:
+  - <span style=color:#f92672>targets</span>:
+      - <span style=color:#ae81ff>localhost</span>
+    <span style=color:#f92672>labels</span>:
+      <span style=color:#f92672>__path__</span>: <span style=color:#e6db74>&#34;/var/log/webapp.log&#34;</span>
+      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>webapp</span>
+  - <span style=color:#f92672>targets</span>:
+      - <span style=color:#ae81ff>localhost</span>
+    <span style=color:#f92672>labels</span>:
+      <span style=color:#f92672>__path__</span>: <span style=color:#e6db74>&#34;/var/log/webapi.log&#34;</span>
+      <span style=color:#f92672>app</span>: <span style=color:#ae81ff>webapi</span>
+</code></pre></div><p>This config tells promtail to collect logs from <code>/var/log/webapp.log</code> and <code>/var/log/webapi.log</code> in the promtail container and send them to a loki endpoint. But how does promtail get these logs in its own container? We mount the django logs in the promtail container using docker-compose.</p>
+<p>In the docker-compose add the following config.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>services</span>:
+    <span style=color:#f92672>promtail</span>:
+        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/promtail:2.5.0</span>
+        <span style=color:#f92672>volumes</span>:
+        - <span style=color:#ae81ff>./promtail/promtail.yaml:/etc/promtail/promtail.yaml</span>
+        - <span style=color:#ae81ff>./webapp/webapp.log:/var/log/webapp.log</span>
+        - <span style=color:#ae81ff>./webapi/webapi.log:/var/log/webapi.log</span>
+        <span style=color:#f92672>command</span>: --<span style=color:#ae81ff>config.file=/etc/promtail/promtail.yaml</span>
+        <span style=color:#f92672>depends_on</span>:
+        - <span style=color:#ae81ff>webapp</span>
+        - <span style=color:#ae81ff>webapi</span>
+
+    <span style=color:#f92672>loki</span>:
+        <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/loki:2.5.0</span>
+        <span style=color:#f92672>ports</span>:
+        - <span style=color:#e6db74>&#34;3100:3100&#34;</span>
+        <span style=color:#f92672>depends_on</span>:
+        - <span style=color:#ae81ff>promtail</span>
+</code></pre></div><p>Here we are binding the django log files to the container of promtail at <code>/var/log/</code>, so that they can be read by promtail.</p>
+<p>Voila! The log configuration should now be working properly. Skip to <a href=#45-install-grafana-for-monitoring>section 4.5</a> to install grafana and check whether the log configuration is working or not.</p>
+<h4 id=44-install-jaeger-for-tracing>4.4 Install Jaeger (for tracing)</h4>
+<p>For tracing to work make sure you have the following dependencies installed.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>opentelemetry<span style=color:#f92672>-</span>sdk<span style=color:#f92672>==</span><span style=color:#ae81ff>1.10.0</span>
+opentelemetry<span style=color:#f92672>-</span>api<span style=color:#f92672>==</span><span style=color:#ae81ff>1.10.0</span>
+<span style=display:block;width:100%;background-color:#3c3d38>opentelemetry<span style=color:#f92672>-</span>exporter<span style=color:#f92672>-</span>jaeger<span style=color:#f92672>==</span><span style=color:#ae81ff>1.10.0</span>
+</span>opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>-</span>django<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>-</span>logging<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+<span style=display:block;width:100%;background-color:#3c3d38>opentelemetry<span style=color:#f92672>-</span>instrumentation<span style=color:#f92672>-</span>requests<span style=color:#f92672>==</span><span style=color:#ae81ff>0.29</span>b0
+</span><span style=display:block;width:100%;background-color:#3c3d38>requests<span style=color:#f92672>==</span><span style=color:#ae81ff>2.27.1</span>
+</span></code></pre></div><p>We wil use the requests library to call APIs from the webapi service. By adding <em>opentelemetry-instrumentation-requests</em> package, calls made by <em>requests</em> library will automatically be injected with tokens required to trace requests.</p>
+<p>Now go to <code>manage.py</code> and add the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python>    DjangoInstrumentor()<span style=color:#f92672>.</span>instrument()
+    LoggingInstrumentor()<span style=color:#f92672>.</span>instrument()
+    RequestsInstrumentor()<span style=color:#f92672>.</span>instrument()
+
+    jaeger_exporter <span style=color:#f92672>=</span> JaegerExporter(
+        agent_host_name<span style=color:#f92672>=</span>os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#34;TRACING_HOST&#34;</span>),
+        agent_port<span style=color:#f92672>=</span> int(os<span style=color:#f92672>.</span>getenv(<span style=color:#e6db74>&#34;TRACING_PORT&#34;</span>)),
+    )
+    trace<span style=color:#f92672>.</span>set_tracer_provider(TracerProvider(
+        resource<span style=color:#f92672>=</span>Resource<span style=color:#f92672>.</span>create({SERVICE_NAME: <span style=color:#e6db74>&#39;webapp&#39;</span>})
+    ))
+    span_processor <span style=color:#f92672>=</span> BatchSpanProcessor(jaeger_exporter)
+    trace<span style=color:#f92672>.</span>get_tracer_provider()<span style=color:#f92672>.</span>add_span_processor(span_processor)
+</code></pre></div><p>The collected traces will be exported to the url <em>TRACING_HOST:TRACING_PORT</em>. But from where are the values coming? It can be set using docker-compose. Modify docker-compose to something like this.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>webapp</span>:
+    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>./webapp</span>
+    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>python manage.py runserver 0.0.0.0:8000</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>TRACING_HOST=jaeger</span>
+      - <span style=color:#ae81ff>TRACING_PORT=6831</span>
+    <span style=color:#ae81ff>...</span>
+
+  <span style=color:#f92672>webapi</span>:
+    <span style=color:#f92672>build</span>: <span style=color:#ae81ff>./webapi</span>
+    <span style=color:#f92672>command</span>: <span style=color:#ae81ff>python manage.py runserver 0.0.0.0:8001</span>
+    <span style=color:#f92672>environment</span>:
+      - <span style=color:#ae81ff>TRACING_HOST=jaeger</span>
+      - <span style=color:#ae81ff>TRACING_PORT=6831</span>
+    <span style=color:#ae81ff>...</span>
+</code></pre></div><p>Now that the environment variables are set up let&rsquo;s set up the host that will collect the traces. We will use Jaeger for this.</p>
+<p>In the docker-compose add configuration for jaeger.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>services</span>:
+  <span style=color:#f92672>jaeger</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>jaegertracing/all-in-one:1.32</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#ae81ff>16686</span>:<span style=color:#ae81ff>16686</span>
+      - <span style=color:#ae81ff>6831</span>:<span style=color:#ae81ff>6831</span>
+</code></pre></div><p>Now run all the containers in docker-compose. When requests are made, the traces should be collected and stored in jaeger. Check if the traces are being collected properly by visiting <a href=http://localhost:16686>localhost:16686</a>. Or optionally set up grafana in <a href=#45-install-grafana-for-monitoring>section 4.5</a> to view them from grafana.</p>
+<p>By default we don&rsquo;t need any extra code in our application to trace requests. However, if we need to know the execution time of a subpart of our trace we can add snippets like the following.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#f92672>from</span> opentelemetry <span style=color:#f92672>import</span> trace
+
+tracer <span style=color:#f92672>=</span> trace<span style=color:#f92672>.</span>get_tracer(__name__)
+
+<span style=color:#66d9ef>def</span> <span style=color:#a6e22e>service</span>(request):
+    <span style=color:#66d9ef>with</span> tracer<span style=color:#f92672>.</span>start_as_current_span(<span style=color:#e6db74>&#34;Heavy task&#34;</span>) <span style=color:#66d9ef>as</span> span:
+        <span style=color:#75715e>### A compute heavy task</span>
+        <span style=color:#f92672>...</span>
+
+    <span style=color:#66d9ef>return</span> render(request, <span style=color:#e6db74>&#39;app/service.html&#39;</span>, context)
+</code></pre></div><p>If you remember, in the previous section we added a config in the <em>LOGGER</em> in <code>settings.py</code> which was something like this.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#e6db74>&#39;formatters&#39;</span>: {
+    <span style=color:#e6db74>&#39;trace_formatter&#39;</span>: {
+        <span style=color:#e6db74>&#39;format&#39;</span>: <span style=color:#e6db74>&#39;[</span><span style=color:#e6db74>%(asctime)s</span><span style=color:#e6db74>] </span><span style=color:#e6db74>%(levelname)s</span><span style=color:#e6db74> [</span><span style=color:#e6db74>%(name)s</span><span style=color:#e6db74>:</span><span style=color:#e6db74>%(lineno)s</span><span style=color:#e6db74>] [trace_id=</span><span style=color:#e6db74>%(otelTraceID)s</span><span style=color:#e6db74> span_id=</span><span style=color:#e6db74>%(otelSpanID)s</span><span style=color:#e6db74>] [</span><span style=color:#e6db74>%(funcName)s</span><span style=color:#e6db74>] </span><span style=color:#e6db74>%(message)s</span><span style=color:#e6db74>&#39;</span>,  <span style=color:#75715e># optional, default is logging.BASIC_FORMAT</span>
+        <span style=color:#e6db74>&#39;datefmt&#39;</span>: <span style=color:#e6db74>&#39;%Y-%m-</span><span style=color:#e6db74>%d</span><span style=color:#e6db74> %H:%M:%S&#39;</span>,  <span style=color:#75715e># optional, default is &#39;%Y-%m-%d %H:%M:%S&#39;</span>
+    },
+},
+</code></pre></div><p>This formatter adds tracing information to the logs so that we can jump to traces right from our logs. How it&rsquo;s gonna work, we&rsquo;re going to look at it in the next section.</p>
+<h4 id=45-install-grafana-for-monitoring>4.5 Install Grafana for monitoring</h4>
+<p>Now that we are collecting everything, it&rsquo;s finally time to visualize them. We will use Grafana as our central observability system for everything.</p>
+<p>First, make a file <code>grafana/dashboard.yaml</code> and put in the content below.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>1</span>   <span style=color:#75715e># Dont remove this or you&#39;ll suffer</span>
+
+<span style=color:#f92672>datasources</span>:
+  - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>prometheus</span>
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>prometheus</span>
+    <span style=color:#f92672>uid</span>: <span style=color:#ae81ff>my-prometheus</span>
+    <span style=color:#f92672>access</span>: <span style=color:#ae81ff>browser</span>
+    <span style=color:#f92672>url</span>: <span style=color:#ae81ff>http://prometheus:9090</span>
+    <span style=color:#f92672>isDefault</span>: <span style=color:#66d9ef>false</span>
+    <span style=color:#f92672>version</span>: <span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>editable</span>: <span style=color:#66d9ef>true</span>
+    <span style=color:#f92672>basicAuth</span>: <span style=color:#66d9ef>false</span>
+
+  - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>loki</span>
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>loki</span>
+    <span style=color:#f92672>uid</span>: <span style=color:#ae81ff>my-loki</span>
+    <span style=color:#f92672>access</span>: <span style=color:#ae81ff>server</span>
+    <span style=color:#f92672>orgId</span>: <span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>url</span>: <span style=color:#ae81ff>http://loki:3100</span>
+    <span style=color:#f92672>basicAuth</span>: <span style=color:#66d9ef>false</span>
+    <span style=color:#f92672>isDefault</span>: <span style=color:#66d9ef>false</span>
+    <span style=color:#f92672>version</span>: <span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>editable</span>: <span style=color:#66d9ef>true</span>
+    <span style=color:#f92672>jsonData</span>:
+      <span style=color:#f92672>derivedFields</span>:
+        - <span style=color:#f92672>datasourceUid</span>: <span style=color:#ae81ff>my-jaeger</span>
+          <span style=color:#f92672>name</span>: <span style=color:#ae81ff>TraceID</span>
+          <span style=color:#f92672>matcherRegex</span>: <span style=color:#ae81ff>trace_id=(\w+)</span>
+          <span style=color:#f92672>url</span>: <span style=color:#e6db74>&#39;$${__value.raw}&#39;</span>
+        - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>TraceID</span>
+          <span style=color:#f92672>matcherRegex</span>: <span style=color:#ae81ff>trace_id=(\w+)</span>
+          <span style=color:#f92672>url</span>: <span style=color:#e6db74>&#39;http://localhost:16686/trace/$${__value.raw}&#39;</span>
+
+  - <span style=color:#f92672>name</span>: <span style=color:#ae81ff>jaeger</span>
+    <span style=color:#f92672>type</span>: <span style=color:#ae81ff>jaeger</span>
+    <span style=color:#f92672>uid</span>: <span style=color:#ae81ff>my-jaeger</span>
+    <span style=color:#f92672>access</span>: <span style=color:#ae81ff>browser</span>
+    <span style=color:#f92672>url</span>: <span style=color:#ae81ff>http://jaeger:16686</span>
+    <span style=color:#f92672>isDefault</span>: <span style=color:#66d9ef>false</span>
+    <span style=color:#f92672>version</span>: <span style=color:#ae81ff>1</span>
+    <span style=color:#f92672>editable</span>: <span style=color:#66d9ef>true</span>
+    <span style=color:#f92672>basicAuth</span>: <span style=color:#66d9ef>false</span>
+    <span style=color:#f92672>jsonData</span>:
+      <span style=color:#f92672>httpMethod</span>: <span style=color:#ae81ff>GET</span>
+      <span style=color:#f92672>tracesToLogs</span>:
+        <span style=color:#f92672>datasourceUid</span>: <span style=color:#ae81ff>my-loki</span>
+        <span style=color:#f92672>tags</span>: []
+        <span style=color:#f92672>mappedTags</span>: [{ <span style=color:#f92672>key: &#39;service.name&#39;, value</span>: <span style=color:#e6db74>&#39;app&#39;</span> }]
+        <span style=color:#f92672>mapTagNamesEnabled</span>: <span style=color:#66d9ef>true</span>
+</code></pre></div><p>This config defines the datasources grafana should pull data from. Since we made three data sources in the previous sections for metrics, logs and traces, this config also has three entries corresponding to each of them.</p>
+<p>The jsondata config in loki defines how to jump to traces from the viewed logs. And jsondata config in jaeger defines how to jump to logs from the viewed traces.</p>
+<p>Now lets add grafana to our list of services in the docker-compose file.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>services</span>:
+  <span style=color:#f92672>grafana</span>:
+    <span style=color:#f92672>image</span>: <span style=color:#ae81ff>grafana/grafana:8.5.2</span>
+    <span style=color:#f92672>ports</span>:
+      - <span style=color:#e6db74>&#34;3000:3000&#34;</span>
+    <span style=color:#f92672>volumes</span>:
+      - <span style=color:#ae81ff>./grafana/dashboard.yaml:/etc/grafana/provisioning/datasources/dashboard.yaml</span>
+    <span style=color:#f92672>depends_on</span>:
+      - <span style=color:#ae81ff>loki</span>
+      - <span style=color:#ae81ff>prometheus</span>
+      - <span style=color:#ae81ff>jaeger</span>
+</code></pre></div><p>Run docker compose and then the grafana dashboard should be up and running. Go to <a href=http://localhost:3000>localhost:3000</a> to check if it is running.</p>
+<p>Let&rsquo;s now see the demo of how everything should work!</p>
+<h2 id=5-demo>5. Demo</h2>
+<p>If you have followed the tutorial so far, kudos to you! Run your docker-compose file to spin up all ther services. If you haven&rsquo;t then clone the example repo and run it by following the steps below.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># 1. Clone the repo</span>
+$ git clone https://github.com/rafed/opentelemetry-python-grafana-mlt
+
+<span style=color:#75715e># 2. Go inside the repo</span>
+$ cd opentelemetry-python-grafana-mlt
+
+<span style=color:#75715e># 3. Run the apps and services (Docker should be installed)</span>
+$ docker-compose up
+</code></pre></div><p>Now go to <a href=http://localhost:3000>localhost:3000</a> where the Grafana admin panel is served. Login using <code>username:admin</code> and <code>password:admin</code>.</p>
+<p><img src=grafana.png alt=grafana></p>
+<p>To generate metrics, logs and traces make sure that you load the app several times (<a href=http://localhost:8000/service>localhost:8000/service</a>).</p>
+<p>Then, go to <code>explore</code> on the left side panel. On the top of the explore page, you&rsquo;ll find datasources <strong>loki</strong>, <strong>jaeger</strong> and <strong>prometheus</strong>. You can select each to explore logs, traces and metrics respectively emitted from the webapp and webapi.</p>
+<p><img src=explore.png alt="grafana explore"></p>
+<p>To view logs, select <strong>Loki</strong> as a datasource first. Select a log source by label from the <code>Log browser</code> and view logs. You should see something like this.</p>
+<p><img src=loki.png alt="loki logs"></p>
+<p>From these logs you can jump to their traces as well (click red marked area).</p>
+<p>To view metrics, select <strong>Prometheus</strong> as a datasource. Make a query (e.g. <code>rate(django_http_requests_latency_seconds_by_view_method_count[1m])</code>) and you should see something like this.</p>
+<p><img src=prometheus.png alt=prometheus></p>
+<p>Finally, to view traces, select <strong>Jaeger</strong> as a data source. Choose a service and run query. You should see many traces like the following.</p>
+<p><img src=jaeger.png alt="Jaeger traces"></p>
+<p>When you click a <code>trace_id</code>, the screen will be split to show the actual traces.</p>
+<p><img src=jaeger2.png alt="Jaeger traces split screen"></p>
+<p>You can also jump to logs from traces by clicking on the red marked area. Isn&rsquo;t this awesome?</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>MLT observability is now a necessity for distributed systems. But to actually implement it can be hard. I hope that this article can be of help to anyone who wants to achieve observability in their systems using open source technologies such as Grafana, Opentelemetry, Loki, Prometheus and Jaeger. If you find any problems with this article feel free to comment below. You can also contact me through my email if you face any issues.</p>
+<h2 id=references>References</h2>
+<ul>
+<li><a href=https://opentelemetry-python.readthedocs.io/en/latest/examples/django/README.html>opentelemetry-python.readthedocs.io/</a></li>
+<li><a href=https://grafana.com/oss/loki/>grafana.com/oss/loki/</a></li>
+<li><a href=https://prometheus.io/docs/visualization/grafana/>https://prometheus.io/docs/visualization/grafana/</a></li>
+<li><a href=https://www.jaegertracing.io/docs/1.34/getting-started/>jaegertracing.io/docs/1.34/getting-started/</a></li>
+</ul>
+<div id=social-media-share>
+<p><i>Sharing is caring!</i></p>
+<div class=share-buttons>
+<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
+<img src=/devra/icons/45px/facebook.png>
+</a>
+<a href="https://twitter.com/intent/tweet?text=Django%20Metrics%2c%20Logs%20%26%20Traces%20Observability%20with%20Opentelemetry%20and%20Grafana&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
+<img src=/devra/icons/45px/twitter.png>
+</a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
+<img src=/devra/icons/45px/reddit.png>
+</a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
+<img src=/devra/icons/45px/pinterest.png>
+</a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
+<img src=/devra/icons/45px/tumblr.png>
+</a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f
+			&title=Django%20Metrics%2c%20Logs%20%26%20Traces%20Observability%20with%20Opentelemetry%20and%20Grafana&summary=Metrics%2c%20Logs%20and%20Traces%20%28MLT%29%20are%20the%20three%20pillars%20of%20observability%20that%20can%20provide%20us%20with%20complete%20visibility%20of%20a%20software%20system.%20In%20this%20article%2c%20we%26rsquo%3bre%20going%20to%20set%20up%20a%20system%20where%20MLT%20data%20is%20collected%20from%20a%20hello-world%20microservice%20application.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
+<img src=/devra/icons/45px/linkedin.png>
+</a>
+<a href="mailto:?subject=Django%20Metrics%2c%20Logs%20%26%20Traces%20Observability%20with%20Opentelemetry%20and%20Grafana&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fcloud%2fdjango-mlt-observability-with-opentelemetry%2f" title="Share via Email. Opens in a new window.">
+<img src=/devra/icons/45px/mail.png>
+</a>
+</div>
+</div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+<br>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+<div class="col-lg-2 d-none d-xl-block">
+<div class=ad-right-offset></div>
+<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
+</div>
+</div>
+</div>
+</main>
+<footer class="text-center py-5">
+<p>
+© 2021 Rafed Muhammad Yasir.
+</p>
+</footer>
+<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only>
+</body>
+</html>
