@@ -25,7 +25,7 @@ DevRa
 <meta itemprop=name content="Useful Docker Commands">
 <meta itemprop=description content="This guide is a shortlist of the only docker commands you will ever need to know. I keep on forgetting them, so I&rsquo;m noting them down here."><meta itemprop=datePublished content="2020-05-09T00:00:00+00:00">
 <meta itemprop=dateModified content="2020-05-09T00:00:00+00:00">
-<meta itemprop=wordCount content="438">
+<meta itemprop=wordCount content="452">
 <meta itemprop=keywords content="docker,">
 <link rel=stylesheet href=/devra/main.min.css>
 <script src=/devra/bundle.js></script>
@@ -167,7 +167,7 @@ May 9, 2020
 </span>
 &#183;
 <span class=time-to-read>
-2 mins read</span>
+3 mins read</span>
 </div>
 <div class="col-md-8 tags">
 <a href=/devra/tags/docker><span class="tag bg-dark">docker</span></a>
@@ -200,7 +200,8 @@ $ docker image ls -a  <span style=color:#75715e># List all images</span>
 
 <span style=color:#75715e># Remove Docker images</span>
 $ docker image rm &lt;image id&gt; <span style=color:#75715e># Remove specified image</span>
-$ docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span></code></pre></div>
+$ docker image rm <span style=color:#66d9ef>$(</span>docker image ls -a -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all images</span>
+$ docker image rm <span style=color:#66d9ef>$(</span>docker images -f <span style=color:#e6db74>&#34;dangling=true&#34;</span> -q<span style=color:#66d9ef>)</span> <span style=color:#75715e># Remove all dangling images</span></code></pre></div>
 <h2 id=build-and-run-docker-containers>Build and run Docker containers</h2>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Create image using this directory&#39;s Dockerfile</span>
 $ docker build -t friendlyhello .  
