@@ -63,3 +63,81 @@ Ultimate Guide to Clean Code with over 30 Java Refactoring Examples
 10 Software Design Patterns used in Java Core Libraries
 Software Architecture Patterns for Front-End Development
 The Books like “Clean Code”, “Clean Coder” and “Clean Architecture” from R.C.Martin are main sources for this article.
+
+SOURCE: https://haitham-raik.medium.com/books-for-great-software-architect-34c81fc70e12
+Become a great software architect
+1. Fundamentals path
+
+Book 1: Applying UML and Patterns, by Larman
+
+This is a must read book and it must be your first book, because it will provide you with all you need to comprehend the subsequent books correctly. In this book you will learn:
+
+Book 2: Head First Design Patterns, by Freeman
+
+This book must be your second book to learn about OO Design Patterns. In this book, you will learn, in a very simple, yet comprehensive, way, the context of each , the problem it addresses and the solution it proposes.
+
+Book 3:Object Design: Roles, Responsibilities and Collaboration, by Ivar
+
+This book is taking the RDD (RDD basics are covered in Book 1) to the next level and taking it into more details.
+
+Book 4: Domain-Driven Design Tackling Complexity in the Heart of Software, by Eric
+
+Book 5: Fundamentals of Software Architecture, by Mark Richards
+
+In this book, you will learn the basic architectural concepts, elements, characteristics, rules, principles, measures and styles. It also shows the most important skills that an architect must have.
+
+Book 6: Clean Architecture, by Robert Martin
+
+This book is building on the previous book by focusing more on the architecture structure and the relationships between the different parts to come up with clean, maintainable and extendible solution.
+
+Book 7: Documenting Software Architecture, by Paul Clements
+
+By now, you should be able to build an architecture based on Books 5 and 6 and you need now to document them. This book explains how an architecture must be described and documented, although I didnt like the proposed template, but the book gives you all the techniques you need to build your own template and eventually your architecture documents.
+    
+2. Integration Architecture path
+
+Book 1: Enterprise Integration Patterns, by Hohpe
+
+This book is a must for every integration architect and it should be your first book as well before moving forward in your reading journey. It is impressively comprehensive book with about 55 patterns and with many examples showing when and how to use the different patterns.
+
+Book 2: Web Service Contract Design & Versioning, by Erl
+
+Although the RESTful webservices are dominating nowadays, but it is still common to see and implement SOAP-based webservices especially in the financial and banking systems. For those who are still working on SOAP-based webservices, this book is a must for you. It is a comprehensive guide to design, version and govern SOAP-based webservices contracts.
+
+Book 3: Designing Web APIs, by Jin
+
+This book is focusing on the Web APIs, listing the different APIs paradigms (RPC, REST, GraphQL, Event-Driven), and it is also defining how to choose the right paradigm. This book is also providing a set of best practices that need to be followed while implemented and documenting a Web API.
+
+Book 4: RESTful Web APIs, by Richardson
+
+This book is building on the previous one by focusing on designing RESTful APIs. The book is focusing on the best practices, especially the usage for hypermedia which is absolutely good, but the thing that I didn’t like about this book was the trying to take the hypermedia into a more dynamic level which is over-complicating the implementation on both the service provider and consumer.
+
+Application Architecture Path
+
+Book 1: Patterns of Enterprise Application Architecture, by Martin Fowler
+
+This book provides more than 50 patterns addressing multiple issues and problems related to data mapping, domain logic, web presentation, session management and concurrency.
+
+Book 2: Implementing Domain-Driven Design, by Vaughn
+
+This is one of my favorite books as it capitalizes on the principles and patterns discussed in the books mentioned in this part and the previous part (especially the books Applying UML and Patterns, Head First Design Patterns, Domain Driven Design, and Patterns of Enterprise Application Architecture), and provides a consolidated, yet practical, implementation for those principles and patterns.
+
+Book 3: SOA Principles of Service Design, by Erl
+
+This is one of the most important books in the SOA world. It lists and explains the different principles that when followed, you will get the real value from it.
+
+Book 4: SOA Design Patterns, by Erl
+
+This book provides about 85 design patterns (basic and compound) grouped mainly into inventory and inventory layering patterns, service design, composition and implementation patterns, service contract patterns, governance and security patterns.
+
+Book 5: Building Microservices, by Newman
+
+This is one of my favorite books. In this book, the author tries to highlight the main challenges you are going to face while transforming to Microservices and he also tries to address these challenges by providing the right techniques and suggesting different frameworks, tools and libraries to support you through the transformation process.
+
+Book 6: Microservices Patterns, by Richardson
+
+In this book, you will formalize what you have learned so far into a set of patterns that links the challenges with solutions and gives them a name that is supposed to streamline your solutioning skills and build strong architectural vocabulary.
+
+Book 7: Building Event-Driven Microservices, by Adam
+
+Microservices prefers choreography over orchestration for higher isolation between the services. This book builds on the previous books to implement choreography-based microservices using event-based platforms.

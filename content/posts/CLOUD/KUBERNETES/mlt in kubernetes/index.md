@@ -1,7 +1,7 @@
 ---
 title: Monitor Kubernetes Apps through Metrics, Logs and Traces (MLT)
 date: 2021-07-05
-tags: [cloud, kubernetes]
+tags: [cloud, kubernetes, monitoring, devops]
 image: MLT.png
 ---
 
