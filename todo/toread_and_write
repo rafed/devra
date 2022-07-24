@@ -67,12 +67,10 @@ Crawling Google & Google Scholar Search results
   echo -e 'AUTHENTICATE ""\r\nsignal NEWNYM\r\nQUIT' | nc 127.0.0.1 9051
 
 ### Others
-Gmail tricks you need to use now
 How to give a good presentation
   Follow the 3 second rule when giving lecture. (look at a person for 3 seconds)
 Where to spend your money as a web dev (domain, vps, hosting)
 cool reference extractor:
- anysite.io
  crossref
  http://freecite.library.brown.edu/welcome/api_instructions
 life motivation - not everyone has the same privilege, find your own answers
@@ -84,7 +82,6 @@ how I write my blog/ How to find blog articles to write about
  google analytics (how to know yor site is good)
  google alerts
  google lighthouse
-what is sql / why sql
 
 genjam with regex - https://regex101.com/ ++++ http://txt2re.com/index-python.php3?s=[2,%2018,%2013,%204]%20hello%20how%20are%20you&-64&-12&-65
 https://dev.to/emmabostian/regex-cheat-sheet-2j2a
