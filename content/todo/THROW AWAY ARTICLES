@@ -1,7 +1,4 @@
-My experience with clusterings
-Analyzing Survey Results with Python
 How I made a distributed system with docker
-thrift basics
 Make a crawler with firebase
 experience with data preprocessing in remote server
 
@@ -36,6 +33,3 @@ VSCode tasks are a great way to bring terminal commands into VS Code (e.g, start
 The additional benefit of tasks is that you can even configure a given task to run immediately before a debug session is started or run immediately after a debug session using preLaunchTask and postDebugTask properties in your launch.json debug config. This is extremely helpful to automate preparation commands/clean up commands when debugging. (e.g, Startup 3rd party dependencies in docker as preLaunchTask, and stopping dependencies once the debug session finishes as a postDebugTask).
 User Inputs in Tasks and Launch Configurations
 If we need to frequently change the arguments of a shell command in a VSCode task, we can define it as a VSCode input variable and provide it when the task is about to run. VSCode inputs can be used both in tasks as well as launch configurations which makes them extremely helpful.
-
-
-THE MOMENT I REALIZED I NEEDED TYPESCRIPT
