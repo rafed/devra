@@ -8,7 +8,7 @@ languageCode    = "en-us"
 title           = "DevRa"
 
 disqusShortname = "rafed"
-googleAnalytics = "UA-106132552-1"
+googleAnalytics = "316266800"
 
 [params]
     description  = "A personal blog on programming, software engineering, machine lelarning, security and tech"
