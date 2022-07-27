@@ -8,13 +8,13 @@ languageCode    = "en-us"
 title           = "DevRa"
 
 disqusShortname = "rafed"
-googleAnalytics = "316266800"
 
 [params]
     description  = "A personal blog on programming, software engineering, machine lelarning, security and tech"
     contactEmail = "rafed123@gmail.com"
     footer       = "© 2021 Rafed Muhammad Yasir."
     googleSearch = "000151824860492892407:kd5zijxwj6a"
+    googleAnalytics = "G-CD8YE5ES29" 
     adsense      = "ca-pub-7125931910131040"
     math         = false   # best to enable this in the front matter of a page
     mermaid      = false   # best to enable this in the front matter of a page
