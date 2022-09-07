@@ -1,288 +1,40 @@
-<!doctype html><html lang=en-us>
-<head><title>
-Image Clustering |
-DevRa
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel=canonical href=https://rafed.github.io/devra/posts/machine-learning/image-clustering/>
-<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
-<meta name=description content="
+<!doctype html><html lang=en-us><head><title>Image Clustering |
+DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/posts/machine-learning/image-clustering/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="
     A rudimentary image processing technique with K-means
-    ">
-<meta property="og:description" content="
+    "><meta property="og:description" content="
     A rudimentary image processing technique with K-means
-    ">
-<meta property="og:image" content="https://rafed.github.io/devra/posts/machine-learning/image-clustering/cluster.png">
-<meta property="og:title" content="Image Clustering">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://rafed.github.io/devra/posts/machine-learning/image-clustering/"><meta property="article:section" content="posts">
-<meta property="article:published_time" content="2017-09-18T00:00:00+00:00">
-<meta property="article:modified_time" content="2017-09-18T00:00:00+00:00">
-<meta name=twitter:card content="summary">
-<meta name=twitter:title content="Image Clustering">
-<meta name=twitter:description content="A rudimentary image processing technique with K-means">
-<meta itemprop=name content="Image Clustering">
-<meta itemprop=description content="A rudimentary image processing technique with K-means"><meta itemprop=datePublished content="2017-09-18T00:00:00+00:00">
-<meta itemprop=dateModified content="2017-09-18T00:00:00+00:00">
-<meta itemprop=wordCount content="340">
-<meta itemprop=keywords content="programming,machine learning,">
-<link rel=stylesheet href=/devra/main.min.css>
-<script src=/devra/bundle.js></script>
+    "><meta property="og:image" content="https://rafed.github.io/devra/posts/machine-learning/image-clustering/cluster.png"><meta property="og:title" content="Image Clustering"><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/posts/machine-learning/image-clustering/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2017-09-18T00:00:00+00:00"><meta property="article:modified_time" content="2017-09-18T00:00:00+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Image Clustering"><meta name=twitter:description content="A rudimentary image processing technique with K-means"><meta itemprop=name content="Image Clustering"><meta itemprop=description content="A rudimentary image processing technique with K-means"><meta itemprop=datePublished content="2017-09-18T00:00:00+00:00"><meta itemprop=dateModified content="2017-09-18T00:00:00+00:00"><meta itemprop=wordCount content="340"><meta itemprop=keywords content="programming,machine learning,"><link rel=stylesheet href=https://rafed.github.io/devra/main.min.css><script src=https://rafed.github.io/devra/bundle.js></script>
 <script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD8YE5ES29"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-CD8YE5ES29')</script>
-</head>
-<body><header id=header>
-<div class=top-bar>
-<div class=container-md>
-<div class="row align-items-center">
-<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</div>
-<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
-<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i>
-</button>
-</div>
-<div class="col-6 col-sm-4">
-<h2 class=title><a href=/devra/>DevRa</a></h2>
-</div>
-<div class="col-3 col-sm-4">
-<div class="col col-md-8 offset-md-4 d-none d-sm-block">
-<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
-<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CD8YE5ES29")</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=https://rafed.github.io/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit='return executeQuery("lg")' role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=container-md>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-<div class="collapse navbar-collapse" id=navbarNav>
-<ul class="navbar-nav mx-auto">
-<li class="nav-item d-block d-sm-none">
-<ul class=social-buttons>
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</ul>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/>
-Home
-</a>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
-Blog
-</a>
-<div class=dropdown-menu>
-<a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a>
-<div class=dropdown-divider></div>
-<a class=dropdown-item href=/devra/tags/>Tags</a>
-</div>
-</li>
-<li class=nav-item>
-<a class=nav-link href=http://rafed.github.io/>
-About
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/contact/>
-Contact
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/privacy/>
-Privacy
-</a>
-</li>
-</ul>
-<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
-<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=https://rafed.github.io/devra/posts/>Posts</a>
+<a class=dropdown-item href=https://rafed.github.io/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=https://rafed.github.io/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/contact/>Contact</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/privacy/>Privacy</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit='return executeQuery("xs")' role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</nav>
-</div>
-</header>
-<main class=blog-content>
-<div class=container-md>
-<div class=row>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-left-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-<div class="col-md-12 col-lg-8 px-lg-4">
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<h1 class=title>Image Clustering</h1>
-<div class="container-fluid px-0 mb-4">
-<div class="row align-items-end">
-<div class="col-md-4 date-time">
-<span class=date>
-Sep 18, 2017
-</span>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><h1 class=title>Image Clustering</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>Sep 18, 2017</span>
 &#183;
-<span class=time-to-read>
-2 mins read</span>
-</div>
-<div class="col-md-8 tags">
-<a href=/devra/tags/programming><span class="tag bg-dark">programming</span></a>
-<a href=/devra/tags/machine-learning><span class="tag bg-dark">machine learning</span></a>
-</div>
-</div>
-</div>
-<figure>
-<img id=cover-image src=/devra/posts/machine-learning/image-clustering/cluster.png alt="Image Clustering">
-</figure>
-<p>Clustering is a technique to group similar elements together. The following shows a simple program codebase is a small attempt to cluster colors in images.</p>
-<p>At the heart of the program lies the <strong>K-Means algorithm</strong>. The source is available at <a href=https://github.com/rafed123/Image-clustering>github.com/rafed/Image-clustering</a>.</p>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>Original</th>
-<th style=text-align:center>Averaged - 2 clusters</th>
-<th style=text-align:center>Averaged - 6 clusters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/original?raw=true" alt="Original image"></td>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/avg2?raw=true" alt="Averaged - 2 clusters"></td>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/avg6?raw=true" alt="Averaged - 6 clusters"></td>
-</tr>
-</tbody>
-</table>
-<p>Look at the &ldquo;original image&rdquo; above. There are pixels of many different colors. How many different colors exist is not of our interest. What we&rsquo;re interested in is that we&rsquo;ll create color groups in the image that are similar. We will specify how many clusters we want and the program will output an image with that many clusters. In the second image, the first image is represented using only 2 colors! The third image with only 6 colors!</p>
-<table>
-<thead>
-<tr>
-<th style=text-align:center>Original</th>
-<th style=text-align:center>Averaged - 2 clusters</th>
-<th style=text-align:center>Averaged - 6 clusters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/lenna?raw=true" alt="Original image"></td>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/len2?raw=true" alt="Averaged - 2 clusters"></td>
-<td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/len10?raw=true" alt="Averaged - 6 clusters"></td>
-</tr>
-</tbody>
-</table>
-<h2 id=features-of-the-program>Features of the program</h2>
-<ul>
-<li>Cluster (by averaging) - averages the color in a particular group (1st example)</li>
-<li>Cluster (by color) - select a random color for a particular group (2nd example)</li>
-<li>increase/decrease brightness and contrast</li>
-</ul>
-<h2 id=running-the-project>Running the project</h2>
-<p>Download the source code <a href=https://github.com/rafed/Image-clustering>here</a>. It is a Java project you can directly import to eclipse IDE.</p>
-<p>In Main.java, tweak the following:</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=color:#66d9ef>int</span> numOfClusters <span style=color:#f92672>=</span> 10<span style=color:#f92672>;</span>         <span style=color:#75715e>// num of clusters to make
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> numOfKmeansIteration <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>   
-<span style=color:#66d9ef>int</span> type <span style=color:#f92672>=</span> averaged<span style=color:#f92672>;</span>            <span style=color:#75715e>// (averaged/colored)
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> comparisonOn <span style=color:#f92672>=</span> hue<span style=color:#f92672>;</span>         <span style=color:#75715e>// (comparison color based on hue/brightness/saturation)
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> contrast <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>               <span style=color:#75715e>// +/- contrast
-</span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> brightness <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>             <span style=color:#75715e>// +/- brightness
-</span></code></pre></div>
-<p>First try out <strong>numOfClusters</strong> and <strong>type</strong> to have some fun. Then play with brightness and contrast to fine-tune the image. Specify your path to the input file and output path and you&rsquo;re ready to go!</p>
-<h2 id=k-means>K-Means</h2>
-<p>K-means is an <strong>unsupervised machine learning</strong> algorithm. Which basically means it can describe a hidden structure from unlabeled data. In our case, it finds clusters, without us providing information on where to look for it. It is one of the easiest machine learning algorithms to implement. If you&rsquo;re interested in machine learning consider learning this. It&rsquo;s one of the easiest algorithm out there.</p>
-<div id=social-media-share>
-<p><i>Sharing is caring!</i></p>
-<div class=share-buttons>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
-<img src=/devra/icons/45px/facebook.png>
-</a>
-<a href="https://twitter.com/intent/tweet?text=Image%20Clustering&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
-<img src=/devra/icons/45px/twitter.png>
-</a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
-<img src=/devra/icons/45px/reddit.png>
-</a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
-<img src=/devra/icons/45px/pinterest.png>
-</a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
-<img src=/devra/icons/45px/tumblr.png>
-</a>
+<span class=time-to-read>2 mins read</span></div><div class="col-md-8 tags"><a href=https://rafed.github.io/devra/tags/programming><span class="tag bg-dark">programming</span></a>
+<a href=https://rafed.github.io/devra/tags/machine-learning><span class="tag bg-dark">machine learning</span></a></div></div></div><figure><img id=cover-image src=https://rafed.github.io/devra/posts/machine-learning/image-clustering/cluster.png alt="Image Clustering"></figure><p>Clustering is a technique to group similar elements together. The following shows a simple program codebase is a small attempt to cluster colors in images.</p><p>At the heart of the program lies the <strong>K-Means algorithm</strong>. The source is available at <a href=https://github.com/rafed123/Image-clustering>github.com/rafed/Image-clustering</a>.</p><table><thead><tr><th style=text-align:center>Original</th><th style=text-align:center>Averaged - 2 clusters</th><th style=text-align:center>Averaged - 6 clusters</th></tr></thead><tbody><tr><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/original?raw=true" alt="Original image"></td><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/avg2?raw=true" alt="Averaged - 2 clusters"></td><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/avg6?raw=true" alt="Averaged - 6 clusters"></td></tr></tbody></table><p>Look at the &ldquo;original image&rdquo; above. There are pixels of many different colors. How many different colors exist is not of our interest. What we&rsquo;re interested in is that we&rsquo;ll create color groups in the image that are similar. We will specify how many clusters we want and the program will output an image with that many clusters. In the second image, the first image is represented using only 2 colors! The third image with only 6 colors!</p><table><thead><tr><th style=text-align:center>Original</th><th style=text-align:center>Averaged - 2 clusters</th><th style=text-align:center>Averaged - 6 clusters</th></tr></thead><tbody><tr><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/lenna?raw=true" alt="Original image"></td><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/len2?raw=true" alt="Averaged - 2 clusters"></td><td style=text-align:center><img src="https://github.com/rafed/Image-clustering/blob/master/img/len10?raw=true" alt="Averaged - 6 clusters"></td></tr></tbody></table><h2 id=features-of-the-program>Features of the program</h2><ul><li>Cluster (by averaging) - averages the color in a particular group (1st example)</li><li>Cluster (by color) - select a random color for a particular group (2nd example)</li><li>increase/decrease brightness and contrast</li></ul><h2 id=running-the-project>Running the project</h2><p>Download the source code <a href=https://github.com/rafed/Image-clustering>here</a>. It is a Java project you can directly import to eclipse IDE.</p><p>In Main.java, tweak the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-java data-lang=java><span style=display:flex><span><span style=color:#66d9ef>int</span> numOfClusters <span style=color:#f92672>=</span> 10<span style=color:#f92672>;</span>         <span style=color:#75715e>// num of clusters to make
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> numOfKmeansIteration <span style=color:#f92672>=</span> 5<span style=color:#f92672>;</span>   
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> type <span style=color:#f92672>=</span> averaged<span style=color:#f92672>;</span>            <span style=color:#75715e>// (averaged/colored)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> comparisonOn <span style=color:#f92672>=</span> hue<span style=color:#f92672>;</span>         <span style=color:#75715e>// (comparison color based on hue/brightness/saturation)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> contrast <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>               <span style=color:#75715e>// +/- contrast
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> brightness <span style=color:#f92672>=</span> 0<span style=color:#f92672>;</span>             <span style=color:#75715e>// +/- brightness
+</span></span></span></code></pre></div><p>First try out <strong>numOfClusters</strong> and <strong>type</strong> to have some fun. Then play with brightness and contrast to fine-tune the image. Specify your path to the input file and output path and you&rsquo;re ready to go!</p><h2 id=k-means>K-Means</h2><p>K-means is an <strong>unsupervised machine learning</strong> algorithm. Which basically means it can describe a hidden structure from unlabeled data. In our case, it finds clusters, without us providing information on where to look for it. It is one of the easiest machine learning algorithms to implement. If you&rsquo;re interested in machine learning consider learning this. It&rsquo;s one of the easiest algorithm out there.</p><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Facebook. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/facebook.png></a>
+<a href="https://twitter.com/intent/tweet?text=Image%20Clustering&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Twitter. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/twitter.png></a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Reddit. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/reddit.png></a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Pinterest. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/pinterest.png></a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Tumblr. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/tumblr.png></a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f
-			&title=Image%20Clustering&summary=Clustering%20is%20a%20technique%20to%20group%20similar%20elements%20together.%20The%20following%20shows%20a%20simple%20program%20codebase%20is%20a%20small%20attempt%20to%20cluster%20colors%20in%20images.%0aAt%20the%20heart%20of%20the%20program%20lies%20the%20K-Means%20algorithm.%20The%20source%20is%20available%20at%20github.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
-<img src=/devra/icons/45px/linkedin.png>
-</a>
-<a href="mailto:?subject=Image%20Clustering&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" title="Share via Email. Opens in a new window.">
-<img src=/devra/icons/45px/mail.png>
-</a>
-</div>
-</div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+			&title=Image%20Clustering&summary=Clustering%20is%20a%20technique%20to%20group%20similar%20elements%20together.%20The%20following%20shows%20a%20simple%20program%20codebase%20is%20a%20small%20attempt%20to%20cluster%20colors%20in%20images.%0aAt%20the%20heart%20of%20the%20program%20lies%20the%20K-Means%20algorithm.%20The%20source%20is%20available%20at%20github.&source=https://rafed.github.io/devra/" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on LinkedIn. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/linkedin.png></a>
+<a href="mailto:?subject=Image%20Clustering&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fposts%2fmachine-learning%2fimage-clustering%2f" title="Share via Email. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<br>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-right-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="rafed",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-</div>
-</div>
-</main>
-<footer class="text-center py-5">
-<p>
-© 2021 Rafed Muhammad Yasir.
-</p>
-</footer>
-<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
-<gcse:searchresults-only></gcse:searchresults-only>
-</body>
-</html>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only></body></html>

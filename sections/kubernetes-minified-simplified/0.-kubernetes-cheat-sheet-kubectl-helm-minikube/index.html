@@ -1,334 +1,96 @@
-<!doctype html><html lang=en-us>
-<head><title>
-#00 - Kubernetes CLI Cheat Sheet (Kubectl, Helm, Minikube) |
-DevRa
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel=canonical href=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/>
-<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
-<meta name=description content="
+<!doctype html><html lang=en-us><head><title>#00 - Kubernetes CLI Cheat Sheet (Kubectl, Helm, Minikube) |
+DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="
     This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
 But what are the differences between them you ask?
- kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes.
-    ">
-<meta property="og:description" content="
+kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes.
+    "><meta property="og:description" content="
     This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
 But what are the differences between them you ask?
- kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes.
-    ">
-<meta property="og:image" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png">
-<meta property="og:title" content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/"><meta property="article:section" content="sections">
-<meta property="article:published_time" content="2021-06-29T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-06-29T00:00:00+00:00">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png">
-<meta name=twitter:title content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)">
-<meta name=twitter:description content="This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
+kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes.
+    "><meta property="og:image" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png"><meta property="og:title" content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)"><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/"><meta property="article:section" content="sections"><meta property="article:published_time" content="2021-06-29T00:00:00+00:00"><meta property="article:modified_time" content="2021-06-29T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png"><meta name=twitter:title content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)"><meta name=twitter:description content="This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
 But what are the differences between them you ask?
- kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes.">
-<meta itemprop=name content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)">
-<meta itemprop=description content="This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
+kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes."><meta itemprop=name content="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)"><meta itemprop=description content="This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.
 But what are the differences between them you ask?
- kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes."><meta itemprop=datePublished content="2021-06-29T00:00:00+00:00">
-<meta itemprop=dateModified content="2021-06-29T00:00:00+00:00">
-<meta itemprop=wordCount content="629"><meta itemprop=image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png">
-<meta itemprop=keywords content="cloud,kubernetes,">
-<link rel=stylesheet href=/devra/main.min.css>
-<script src=/devra/bundle.js></script>
+kubectl: The most important CLI to learn. It is used to manage a Kubernetes cluster helm: Package manager for Kubernetes."><meta itemprop=datePublished content="2021-06-29T00:00:00+00:00"><meta itemprop=dateModified content="2021-06-29T00:00:00+00:00"><meta itemprop=wordCount content="629"><meta itemprop=image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png"><meta itemprop=keywords content="cloud,kubernetes,"><link rel=stylesheet href=https://rafed.github.io/devra/main.min.css><script src=https://rafed.github.io/devra/bundle.js></script>
 <script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD8YE5ES29"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-CD8YE5ES29')</script>
-</head>
-<body><header id=header>
-<div class=top-bar>
-<div class=container-md>
-<div class="row align-items-center">
-<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</div>
-<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
-<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i>
-</button>
-</div>
-<div class="col-6 col-sm-4">
-<h2 class=title><a href=/devra/>DevRa</a></h2>
-</div>
-<div class="col-3 col-sm-4">
-<div class="col col-md-8 offset-md-4 d-none d-sm-block">
-<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
-<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CD8YE5ES29")</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=https://rafed.github.io/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit='return executeQuery("lg")' role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=container-md>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-<div class="collapse navbar-collapse" id=navbarNav>
-<ul class="navbar-nav mx-auto">
-<li class="nav-item d-block d-sm-none">
-<ul class=social-buttons>
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</ul>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/>
-Home
-</a>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
-Blog
-</a>
-<div class=dropdown-menu>
-<a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a>
-<div class=dropdown-divider></div>
-<a class=dropdown-item href=/devra/tags/>Tags</a>
-</div>
-</li>
-<li class=nav-item>
-<a class=nav-link href=http://rafed.github.io/>
-About
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/contact/>
-Contact
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/privacy/>
-Privacy
-</a>
-</li>
-</ul>
-<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
-<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=https://rafed.github.io/devra/posts/>Posts</a>
+<a class=dropdown-item href=https://rafed.github.io/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=https://rafed.github.io/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/contact/>Contact</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/privacy/>Privacy</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit='return executeQuery("xs")' role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</nav>
-</div>
-</header>
-<main class=blog-content>
-<div class=container-md>
-<div class=row>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-left-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-<div class="col-md-12 col-lg-8 px-lg-4">
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<h1 class=title>#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)</h1>
-<div class="container-fluid px-0 mb-4">
-<div class="row align-items-end">
-<div class="col-md-4 date-time">
-<span class=date>
-Jun 29, 2021
-</span>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><h1 class=title>#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>Jun 29, 2021</span>
 &#183;
-<span class=time-to-read>
-3 mins read</span>
-</div>
-<div class="col-md-8 tags">
-<a href=/devra/tags/cloud><span class="tag bg-dark">cloud</span></a>
-<a href=/devra/tags/kubernetes><span class="tag bg-dark">kubernetes</span></a>
-</div>
-</div>
-</div>
-<figure>
-<img id=cover-image src=/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png alt="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)">
-</figure>
-<p>This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.</p>
-<p>But what are the differences between them you ask?</p>
-<ul>
-<li><strong>kubectl</strong>: The most important CLI to learn. It is used to manage a Kubernetes cluster</li>
-<li><strong>helm</strong>: Package manager for Kubernetes. It is sort of like <em>apt install</em> in Linux but for installing services in Kubernetes clusters</li>
-<li><strong>minikube</strong>: CLI for running Kubernetes locally</li>
-</ul>
-<h2 id=1-kubectl>1. kubectl</h2>
-<h4 id=enable-autocomplete>Enable autocomplete</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ source &lt;<span style=color:#f92672>(</span>kubectl completion bash<span style=color:#f92672>)</span> 
-$ echo <span style=color:#e6db74>&#34;source &lt;(kubectl completion bash)&#34;</span> &gt;&gt; ~/.bashrc
-</code></pre></div><h4 id=context-and-configuration>Context and configuration</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl config current-context
-$ kubectl config view
-
-$ kubectl config set-context mia
-$ kubectl config use-context mia
-</code></pre></div><h4 id=run-yaml-files--make-infrastructural-changes>Run Yaml files / Make infrastructural changes</h4>
-<h5 id=make-a-deployment>Make a deployment</h5>
-<p><em>Make sure to make a my-manifest.yaml file first!</em></p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e>## This deploys our app to the Kubernetes cluster</span>
-$ kubectl apply -f ./my-manifest.yaml
-
-<span style=color:#75715e># Compares the current state of the cluster against the state that the cluster would be in if the manifest was applied.</span>
-$ kubectl diff -f ./my-manifest.yaml
-</code></pre></div><h5 id=create-a-virtual-sub-cluster-before-making-deployments>Create a virtual sub-cluster before making deployments</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl create ns name-of-namespace
-$ kubectl apply -f ./my-manifest.yaml -n name-of-namespace
-</code></pre></div><h4 id=view-resources>View resources</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get deploy    <span style=color:#75715e># Shows deployments made</span>
-$ kubectl get service   <span style=color:#75715e># Shows services made</span>
-$ kubectl get pods      <span style=color:#75715e># Check the pods</span>
-$ kubectl get hpa       <span style=color:#75715e># Show horizontal pod autoscalers</span>
-$ kubectl get rs        <span style=color:#75715e># Show replica sets</span>
-</code></pre></div><p>Add <code>--watch</code> flag to watch updates in real time.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get deploy --watch
-</code></pre></div><p>Use the name of pods/nodes to run the below.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl describe nodes node-name
-$ kubectl describe pods pod-name
-$ kubectl describe deploy deployment-name
-</code></pre></div><h4 id=storage>Storage</h4>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get pv              <span style=color:#75715e># Get persistent volumes</span>
-$ kubectl get pvc             <span style=color:#75715e># Get persistent volume claims</span>
-$ kubesctl describe pvc -n namespace
-$ kubectl get storageClass    <span style=color:#75715e># or in short &#34;sc&#34;</span>
-</code></pre></div><h4 id=interact-with-podsservices>Interact with Pods/Services</h4>
-<p>Sometimes it is useful to get inside a pod and execute shell commands.</p>
-<h5 id=get-shell-in-a-pod>Get shell in a pod</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl exec --stdin --tty pod-name -- /bin/bash
-</code></pre></div><h5 id=access-service-with-a-proxy>Access service with a proxy</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#75715e># Port forward services to localhost (local-port:remote-port)</span>
-$ kubectl port-forward pod-name 3000:80
-$ kubectl port-forward service/service-name 3000:80
-</code></pre></div><h5 id=check-logs-of-pods>Check logs of pods</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl logs pod-name -n namespace
-</code></pre></div><h4 id=undo--delete--rollbacks>Undo / Delete / Rollbacks</h4>
-<h5 id=get-information-about-a-deployment>Get information about a deployment</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl rollout history deployment/frontend               <span style=color:#75715e># Check the history of deployments including the revision </span>
-$ kubectl rollout status -w deployment/frontend             <span style=color:#75715e># Watch rolling update status of &#34;frontend&#34; deployment until completion</span>
-</code></pre></div><h5 id=restart-a-deployment--rollback-to-a-previous-version>Restart a deployment / Rollback to a previous version</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl rollout restart deployment/frontend               <span style=color:#75715e># Rolling restart of the &#34;frontend&#34; deployment</span>
-$ kubectl rollout undo deployment/frontend                  <span style=color:#75715e># Rollback to the previous deployment</span>
-$ kubectl rollout undo deployment/frontend --to-revision<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>  <span style=color:#75715e># Rollback to a specific revision</span>
-</code></pre></div><h5 id=delete-services-or-deployments>Delete services or deployments</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl delete svc/&lt;service-name&gt;
-$ kubectl delete deployment/&lt;deployment-name&gt; 
-</code></pre></div><h2 id=2-helm-commands>2. Helm Commands</h2>
-<p>As an example, grafana (a browser based dashboard service) is deployed with helm. Don&rsquo;t use the following for deploying grafana. There are other variables that need to be set for using Grafana properly in production.</p>
-<h5 id=add-a-repo-to-helm-and-update-it>Add a repo to helm and update it</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helm repo add grafana https://grafana.github.io/helm-charts
-$ helm repo update
-</code></pre></div><h5 id=install-the-service>Install the service</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helm install grafana grafana/grafana --set persistence.enabled<span style=color:#f92672>=</span>true,persistence.size<span style=color:#f92672>=</span>2Gi 
-
-<span style=color:#75715e># Instead of installing, see the helm chart first</span>
-$ helm template grafana grafana/grafana --set persistence.enabled<span style=color:#f92672>=</span>true,persistence.size<span style=color:#f92672>=</span>2Gi 
-</code></pre></div><h5 id=delete-a-release>Delete a release</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ helm delete grafana
-</code></pre></div><h2 id=3-minkube-commands>3. Minkube Commands</h2>
-<p>After installation, use the following CLI commands to test out minikube.</p>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ minikube start        <span style=color:#75715e># Start minikube</span>
-$ minikube status       <span style=color:#75715e># Shows status</span>
-$ minikube delete       <span style=color:#75715e># WARNING! Deletes cluster</span>
-$ minikube dashboard    <span style=color:#75715e># Takes you to a browser based dashboard</span>
-$ minikube ip           <span style=color:#75715e># Shows ip of the minikube node</span>
-</code></pre></div><h5 id=first-get-the-service-name>First get the service name</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ kubectl get svc
-</code></pre></div><h5 id=get-a-proxy-to-the-service>Get a proxy to the service</h5>
-<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>$ minikube service &lt;service-name&gt;
-$ minikube service &lt;service-name&gt; --url <span style=color:#75715e>## And paste the URL in the browser</span>
-</code></pre></div>
-<div id=social-media-share>
-<p><i>Sharing is caring!</i></p>
-<div class=share-buttons>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
-<img src=/devra/icons/45px/facebook.png>
-</a>
-<a href="https://twitter.com/intent/tweet?text=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
-<img src=/devra/icons/45px/twitter.png>
-</a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
-<img src=/devra/icons/45px/reddit.png>
-</a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
-<img src=/devra/icons/45px/pinterest.png>
-</a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
-<img src=/devra/icons/45px/tumblr.png>
-</a>
+<span class=time-to-read>3 mins read</span></div><div class="col-md-8 tags"><a href=https://rafed.github.io/devra/tags/cloud><span class="tag bg-dark">cloud</span></a>
+<a href=https://rafed.github.io/devra/tags/kubernetes><span class="tag bg-dark">kubernetes</span></a></div></div></div><figure><img id=cover-image src=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/0.-kubernetes-cheat-sheet-kubectl-helm-minikube/cover.png alt="#00 - Kubernetes CLI Cheat Sheet (kubectl, helm, minikube)"></figure><p>This cheat sheet focuses on the most important CLI commands for Kubectl, helm and minikube CLIs.</p><p>But what are the differences between them you ask?</p><ul><li><strong>kubectl</strong>: The most important CLI to learn. It is used to manage a Kubernetes cluster</li><li><strong>helm</strong>: Package manager for Kubernetes. It is sort of like <em>apt install</em> in Linux but for installing services in Kubernetes clusters</li><li><strong>minikube</strong>: CLI for running Kubernetes locally</li></ul><h2 id=1-kubectl>1. kubectl</h2><h4 id=enable-autocomplete>Enable autocomplete</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ source &lt;<span style=color:#f92672>(</span>kubectl completion bash<span style=color:#f92672>)</span> 
+</span></span><span style=display:flex><span>$ echo <span style=color:#e6db74>&#34;source &lt;(kubectl completion bash)&#34;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><h4 id=context-and-configuration>Context and configuration</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl config current-context
+</span></span><span style=display:flex><span>$ kubectl config view
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>$ kubectl config set-context mia
+</span></span><span style=display:flex><span>$ kubectl config use-context mia
+</span></span></code></pre></div><h4 id=run-yaml-files--make-infrastructural-changes>Run Yaml files / Make infrastructural changes</h4><h5 id=make-a-deployment>Make a deployment</h5><p><em>Make sure to make a my-manifest.yaml file first!</em></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>## This deploys our app to the Kubernetes cluster</span>
+</span></span><span style=display:flex><span>$ kubectl apply -f ./my-manifest.yaml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Compares the current state of the cluster against the state that the cluster would be in if the manifest was applied.</span>
+</span></span><span style=display:flex><span>$ kubectl diff -f ./my-manifest.yaml
+</span></span></code></pre></div><h5 id=create-a-virtual-sub-cluster-before-making-deployments>Create a virtual sub-cluster before making deployments</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl create ns name-of-namespace
+</span></span><span style=display:flex><span>$ kubectl apply -f ./my-manifest.yaml -n name-of-namespace
+</span></span></code></pre></div><h4 id=view-resources>View resources</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl get deploy    <span style=color:#75715e># Shows deployments made</span>
+</span></span><span style=display:flex><span>$ kubectl get service   <span style=color:#75715e># Shows services made</span>
+</span></span><span style=display:flex><span>$ kubectl get pods      <span style=color:#75715e># Check the pods</span>
+</span></span><span style=display:flex><span>$ kubectl get hpa       <span style=color:#75715e># Show horizontal pod autoscalers</span>
+</span></span><span style=display:flex><span>$ kubectl get rs        <span style=color:#75715e># Show replica sets</span>
+</span></span></code></pre></div><p>Add <code>--watch</code> flag to watch updates in real time.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl get deploy --watch
+</span></span></code></pre></div><p>Use the name of pods/nodes to run the below.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl describe nodes node-name
+</span></span><span style=display:flex><span>$ kubectl describe pods pod-name
+</span></span><span style=display:flex><span>$ kubectl describe deploy deployment-name
+</span></span></code></pre></div><h4 id=storage>Storage</h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl get pv              <span style=color:#75715e># Get persistent volumes</span>
+</span></span><span style=display:flex><span>$ kubectl get pvc             <span style=color:#75715e># Get persistent volume claims</span>
+</span></span><span style=display:flex><span>$ kubesctl describe pvc -n namespace
+</span></span><span style=display:flex><span>$ kubectl get storageClass    <span style=color:#75715e># or in short &#34;sc&#34;</span>
+</span></span></code></pre></div><h4 id=interact-with-podsservices>Interact with Pods/Services</h4><p>Sometimes it is useful to get inside a pod and execute shell commands.</p><h5 id=get-shell-in-a-pod>Get shell in a pod</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl exec --stdin --tty pod-name -- /bin/bash
+</span></span></code></pre></div><h5 id=access-service-with-a-proxy>Access service with a proxy</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Port forward services to localhost (local-port:remote-port)</span>
+</span></span><span style=display:flex><span>$ kubectl port-forward pod-name 3000:80
+</span></span><span style=display:flex><span>$ kubectl port-forward service/service-name 3000:80
+</span></span></code></pre></div><h5 id=check-logs-of-pods>Check logs of pods</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl logs pod-name -n namespace
+</span></span></code></pre></div><h4 id=undo--delete--rollbacks>Undo / Delete / Rollbacks</h4><h5 id=get-information-about-a-deployment>Get information about a deployment</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl rollout history deployment/frontend               <span style=color:#75715e># Check the history of deployments including the revision </span>
+</span></span><span style=display:flex><span>$ kubectl rollout status -w deployment/frontend             <span style=color:#75715e># Watch rolling update status of &#34;frontend&#34; deployment until completion</span>
+</span></span></code></pre></div><h5 id=restart-a-deployment--rollback-to-a-previous-version>Restart a deployment / Rollback to a previous version</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl rollout restart deployment/frontend               <span style=color:#75715e># Rolling restart of the &#34;frontend&#34; deployment</span>
+</span></span><span style=display:flex><span>$ kubectl rollout undo deployment/frontend                  <span style=color:#75715e># Rollback to the previous deployment</span>
+</span></span><span style=display:flex><span>$ kubectl rollout undo deployment/frontend --to-revision<span style=color:#f92672>=</span><span style=color:#ae81ff>2</span>  <span style=color:#75715e># Rollback to a specific revision</span>
+</span></span></code></pre></div><h5 id=delete-services-or-deployments>Delete services or deployments</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl delete svc/&lt;service-name&gt;
+</span></span><span style=display:flex><span>$ kubectl delete deployment/&lt;deployment-name&gt; 
+</span></span></code></pre></div><h2 id=2-helm-commands>2. Helm Commands</h2><p>As an example, grafana (a browser based dashboard service) is deployed with helm. Don&rsquo;t use the following for deploying grafana. There are other variables that need to be set for using Grafana properly in production.</p><h5 id=add-a-repo-to-helm-and-update-it>Add a repo to helm and update it</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ helm repo add grafana https://grafana.github.io/helm-charts
+</span></span><span style=display:flex><span>$ helm repo update
+</span></span></code></pre></div><h5 id=install-the-service>Install the service</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ helm install grafana grafana/grafana --set persistence.enabled<span style=color:#f92672>=</span>true,persistence.size<span style=color:#f92672>=</span>2Gi 
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Instead of installing, see the helm chart first</span>
+</span></span><span style=display:flex><span>$ helm template grafana grafana/grafana --set persistence.enabled<span style=color:#f92672>=</span>true,persistence.size<span style=color:#f92672>=</span>2Gi 
+</span></span></code></pre></div><h5 id=delete-a-release>Delete a release</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ helm delete grafana
+</span></span></code></pre></div><h2 id=3-minkube-commands>3. Minkube Commands</h2><p>After installation, use the following CLI commands to test out minikube.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ minikube start        <span style=color:#75715e># Start minikube</span>
+</span></span><span style=display:flex><span>$ minikube status       <span style=color:#75715e># Shows status</span>
+</span></span><span style=display:flex><span>$ minikube delete       <span style=color:#75715e># WARNING! Deletes cluster</span>
+</span></span><span style=display:flex><span>$ minikube dashboard    <span style=color:#75715e># Takes you to a browser based dashboard</span>
+</span></span><span style=display:flex><span>$ minikube ip           <span style=color:#75715e># Shows ip of the minikube node</span>
+</span></span></code></pre></div><h5 id=first-get-the-service-name>First get the service name</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ kubectl get svc
+</span></span></code></pre></div><h5 id=get-a-proxy-to-the-service>Get a proxy to the service</h5><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>$ minikube service &lt;service-name&gt;
+</span></span><span style=display:flex><span>$ minikube service &lt;service-name&gt; --url <span style=color:#75715e>## And paste the URL in the browser</span>
+</span></span></code></pre></div><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Facebook. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/facebook.png></a>
+<a href="https://twitter.com/intent/tweet?text=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Twitter. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/twitter.png></a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Reddit. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/reddit.png></a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Pinterest. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/pinterest.png></a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Tumblr. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/tumblr.png></a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f
-			&title=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&summary=This%20cheat%20sheet%20focuses%20on%20the%20most%20important%20CLI%20commands%20for%20Kubectl%2c%20helm%20and%20minikube%20CLIs.%0aBut%20what%20are%20the%20differences%20between%20them%20you%20ask%3f%0a%20kubectl%3a%20The%20most%20important%20CLI%20to%20learn.%20It%20is%20used%20to%20manage%20a%20Kubernetes%20cluster%20helm%3a%20Package%20manager%20for%20Kubernetes.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
-<img src=/devra/icons/45px/linkedin.png>
-</a>
-<a href="mailto:?subject=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" title="Share via Email. Opens in a new window.">
-<img src=/devra/icons/45px/mail.png>
-</a>
-</div>
-</div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+			&title=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&summary=This%20cheat%20sheet%20focuses%20on%20the%20most%20important%20CLI%20commands%20for%20Kubectl%2c%20helm%20and%20minikube%20CLIs.%0aBut%20what%20are%20the%20differences%20between%20them%20you%20ask%3f%0akubectl%3a%20The%20most%20important%20CLI%20to%20learn.%20It%20is%20used%20to%20manage%20a%20Kubernetes%20cluster%20helm%3a%20Package%20manager%20for%20Kubernetes.&source=https://rafed.github.io/devra/" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on LinkedIn. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/linkedin.png></a>
+<a href="mailto:?subject=%2300%20-%20Kubernetes%20CLI%20Cheat%20Sheet%20%28kubectl%2c%20helm%2c%20minikube%29&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f0.-kubernetes-cheat-sheet-kubectl-helm-minikube%2f" title="Share via Email. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<br>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-right-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="rafed",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-</div>
-</div>
-</main>
-<footer class="text-center py-5">
-<p>
-© 2021 Rafed Muhammad Yasir.
-</p>
-</footer>
-<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
-<gcse:searchresults-only></gcse:searchresults-only>
-</body>
-</html>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only></body></html>

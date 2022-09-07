@@ -1,304 +1,34 @@
-<!doctype html><html lang=en-us>
-<head><title>
-#02 - Kubernetes Networking |
-DevRa
-</title>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover">
-<link rel=canonical href=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/>
-<link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico>
-<meta name=description content="
+<!doctype html><html lang=en-us><head><title>#02 - Kubernetes Networking |
+DevRa</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><link rel=canonical href=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/><link rel=icon type=image/png href=https://rafed.github.io/devra/image/favicon.ico><meta name=description content="
     Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity.
-    ">
-<meta property="og:description" content="
+    "><meta property="og:description" content="
     Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity.
-    ">
-<meta property="og:image" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png">
-<meta property="og:title" content="#02 - Kubernetes Networking">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/"><meta property="article:section" content="sections">
-<meta property="article:published_time" content="2021-08-13T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-08-13T00:00:00+00:00">
-<meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png">
-<meta name=twitter:title content="#02 - Kubernetes Networking">
-<meta name=twitter:description content="Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity.">
-<meta itemprop=name content="#02 - Kubernetes Networking">
-<meta itemprop=description content="Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity."><meta itemprop=datePublished content="2021-08-13T00:00:00+00:00">
-<meta itemprop=dateModified content="2021-08-13T00:00:00+00:00">
-<meta itemprop=wordCount content="409"><meta itemprop=image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png">
-<meta itemprop=keywords content="cloud,kubernetes,">
-<link rel=stylesheet href=/devra/main.min.css>
-<script src=/devra/bundle.js></script>
+    "><meta property="og:image" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png"><meta property="og:title" content="#02 - Kubernetes Networking"><meta property="og:type" content="article"><meta property="og:url" content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/"><meta property="article:section" content="sections"><meta property="article:published_time" content="2021-08-13T00:00:00+00:00"><meta property="article:modified_time" content="2021-08-13T00:00:00+00:00"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png"><meta name=twitter:title content="#02 - Kubernetes Networking"><meta name=twitter:description content="Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity."><meta itemprop=name content="#02 - Kubernetes Networking"><meta itemprop=description content="Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity."><meta itemprop=datePublished content="2021-08-13T00:00:00+00:00"><meta itemprop=dateModified content="2021-08-13T00:00:00+00:00"><meta itemprop=wordCount content="409"><meta itemprop=image content="https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png"><meta itemprop=keywords content="cloud,kubernetes,"><link rel=stylesheet href=https://rafed.github.io/devra/main.min.css><script src=https://rafed.github.io/devra/bundle.js></script>
 <script data-ad-client=ca-pub-7125931910131040 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-CD8YE5ES29"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-CD8YE5ES29')</script>
-</head>
-<body><header id=header>
-<div class=top-bar>
-<div class=container-md>
-<div class="row align-items-center">
-<div class="col-3 col-sm-4 social-buttons d-none d-sm-block">
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</div>
-<div class="ra-toggler col-3 col-sm-4 d-block d-sm-none">
-<button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
-<i class="fas fa-bars"></i>
-</button>
-</div>
-<div class="col-6 col-sm-4">
-<h2 class=title><a href=/devra/>DevRa</a></h2>
-</div>
-<div class="col-3 col-sm-4">
-<div class="col col-md-8 offset-md-4 d-none d-sm-block">
-<form id=cse-search-box-form-id class="input-group search-bar" onsubmit="return executeQuery('lg')" role=search>
-<input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-CD8YE5ES29")</script></head><body><header id=header><div class=top-bar><div class=container-md><div class="row align-items-center"><div class="col-3 col-sm-4 social-buttons d-none d-sm-block"><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></div><div class="ra-toggler col-3 col-sm-4 d-block d-sm-none"><button class=bg-dark type=button data-bs-toggle=collapse data-bs-target=#navbarNav>
+<i class="fas fa-bars"></i></button></div><div class="col-6 col-sm-4"><h2 class=title><a href=https://rafed.github.io/devra/>DevRa</a></h2></div><div class="col-3 col-sm-4"><div class="col col-md-8 offset-md-4 d-none d-sm-block"><form id=cse-search-box-form-id class="input-group search-bar" onsubmit='return executeQuery("lg")' role=search><input id=cse-search-input-box-id type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class=container-md>
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-<div class="collapse navbar-collapse" id=navbarNav>
-<ul class="navbar-nav mx-auto">
-<li class="nav-item d-block d-sm-none">
-<ul class=social-buttons>
-<ul>
-<li>
-<a href=https://www.facebook.com/devrafed target=_blank>
-<i class="fab fa-facebook"></i></a>
-</li>
-<li>
-<a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank>
-<i class="fab fa-youtube"></i></a>
-</li>
-<li>
-<a href=https://github.com/rafed target=_blank>
-<i class="fab fa-github"></i></a>
-</li>
-<li>
-<a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank>
-<i class="fab fa-linkedin"></i></a>
-</li>
-</ul>
-</ul>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/>
-Home
-</a>
-</li>
-<li class="nav-item dropdown">
-<a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>
-Blog
-</a>
-<div class=dropdown-menu>
-<a class=dropdown-item href=/devra/posts/>Posts</a>
-<a class=dropdown-item href=/devra/sections/>Sections</a>
-<div class=dropdown-divider></div>
-<a class=dropdown-item href=/devra/tags/>Tags</a>
-</div>
-</li>
-<li class=nav-item>
-<a class=nav-link href=http://rafed.github.io/>
-About
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/contact/>
-Contact
-</a>
-</li>
-<li class=nav-item>
-<a class=nav-link href=/devra/privacy/>
-Privacy
-</a>
-</li>
-</ul>
-<form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit="return executeQuery('xs')" role=search>
-<input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
+<i class="fa fa-search"></i></button></form></div></div></div></div></div><div class=container-md><nav class="navbar navbar-expand-sm navbar-dark bg-dark"><div class="collapse navbar-collapse" id=navbarNav><ul class="navbar-nav mx-auto"><li class="nav-item d-block d-sm-none"><ul class=social-buttons><ul><li><a href=https://www.facebook.com/devrafed target=_blank><i class="fab fa-facebook"></i></a></li><li><a href=https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA target=_blank><i class="fab fa-youtube"></i></a></li><li><a href=https://github.com/rafed target=_blank><i class="fab fa-github"></i></a></li><li><a href=https://www.linkedin.com/in/rafed-m-yasir/ target=_blank><i class="fab fa-linkedin"></i></a></li></ul></ul></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/>Home</a></li><li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href=# id=navbarDropdown role=button data-bs-toggle=dropdown>Blog</a><div class=dropdown-menu><a class=dropdown-item href=https://rafed.github.io/devra/posts/>Posts</a>
+<a class=dropdown-item href=https://rafed.github.io/devra/sections/>Sections</a><div class=dropdown-divider></div><a class=dropdown-item href=https://rafed.github.io/devra/tags/>Tags</a></div></li><li class=nav-item><a class=nav-link href=http://rafed.github.io/>About</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/contact/>Contact</a></li><li class=nav-item><a class=nav-link href=https://rafed.github.io/devra/privacy/>Privacy</a></li></ul><form id=cse-search-box-form-id2 class="d-flex search-bar d-block d-sm-none" onsubmit='return executeQuery("xs")' role=search><input id=cse-search-input-box-id2 type=text class=form-control placeholder=Search>
 <button class=btn type=submit>
-<i class="fa fa-search"></i>
-</button>
-</form>
-</div>
-</nav>
-</div>
-</header>
-<main class=blog-content>
-<div class=container-md>
-<div class=row>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-left-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<i class="fa fa-search"></i></button></form></div></nav></div></header><main class=blog-content><div class=container-md><div class=row><div class="col-lg-2 d-none d-xl-block"><div class=ad-left-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-<div class="col-md-12 col-lg-8 px-lg-4">
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div><div class="col-md-12 col-lg-8 px-lg-4"><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<h1 class=title>#02 - Kubernetes Networking</h1>
-<div class="container-fluid px-0 mb-4">
-<div class="row align-items-end">
-<div class="col-md-4 date-time">
-<span class=date>
-Aug 13, 2021
-</span>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><h1 class=title>#02 - Kubernetes Networking</h1><div class="container-fluid px-0 mb-4"><div class="row align-items-end"><div class="col-md-4 date-time"><span class=date>Aug 13, 2021</span>
 &#183;
-<span class=time-to-read>
-2 mins read</span>
-</div>
-<div class="col-md-8 tags">
-<a href=/devra/tags/cloud><span class="tag bg-dark">cloud</span></a>
-<a href=/devra/tags/kubernetes><span class="tag bg-dark">kubernetes</span></a>
-</div>
-</div>
-</div>
-<figure>
-<img id=cover-image src=/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png alt="#02 - Kubernetes Networking">
-</figure>
-<p>Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity.</p>
-<p>The basic objects that communicate in the Kubernetes network are</p>
-<ul>
-<li><strong>Nodes</strong>: real machines in the cluster</li>
-<li><strong>Pods</strong>: containers that are encapsulated
-<ul>
-<li>They are the atomic unit in Kubernetes</li>
-<li>A pod may contain multiple containers (even though they usually run only one)</li>
-</ul>
-</li>
-</ul>
-<p>Kubernetes networking is based on a <strong>flat network structure</strong> and does not require you to map ports between hosts and containers. This means:</p>
-<ul>
-<li>All nodes in the cluster have to be able to talk to each other.</li>
-<li>All pods can communicate without NAT.</li>
-<li>Every pod gets its own IP address.</li>
-</ul>
-<p>The following diagram shows a generalized view of how Kubernetes networking is implemented.</p>
-<p><img src=networking.png alt="Kubernetes Networking"></p>
-<h4 id=kubernetes-networking-scenarios>Kubernetes Networking Scenarios</h4>
-<p>There are four common networking scenarios</p>
-<ul>
-<li>Container-to-Container Networking (Handled by Pods)</li>
-<li>Pod-to-Pod Networking (Handled by Pods)</li>
-<li>Pod-to-Service Networking (Handled by Services)</li>
-<li>Internet-to-Service Networking (Handled by Services)</li>
-</ul>
-<h5 id=1-container-to-container-networking>1. Container-to-Container Networking</h5>
-<ul>
-<li>This occurs between containers that are within the same pod.</li>
-<li>The containers in a pos share a single IP and port space.</li>
-</ul>
-<h5 id=2-pod-to-pod-networking>2. Pod-to-Pod Networking</h5>
-<p>This occurs between-</p>
-<ul>
-<li>Pods in the same node</li>
-<li>Pods across multiple nodes</li>
-</ul>
-<h5 id=3-pod-to-service-networking-handled-by-services>3. Pod-to-Service Networking (Handled by Services)</h5>
-<p>Kubernetes allows pods to be created and replaced dynamically. Thus, pods running a particular service will have varying IP addresses over time. To address this issue <strong>services</strong> are used.</p>
-<p>Services abstract pod addresses by assigning a single virtual IP (a cluster IP) to a group of pod IPs. Then, any traffic sent to the virtual IP is distributed to the associated pods.</p>
-<p>There are three ways to map services to pods-</p>
-<ul>
-<li><strong>ClusterIP</strong> (default)
-<ul>
-<li>Gets own IP</li>
-<li>Service accessible only from within the cluster</li>
-</ul>
-</li>
-<li><strong>Nodeport</strong>
-<ul>
-<li>Gets cluster-wide port</li>
-<li>service accessible from outside of the cluster</li>
-</ul>
-</li>
-<li><strong>Loadbalancer</strong>
-<ul>
-<li>Integrates with a public cloud load balancer (e.g. AWS ELB, GCP CLB)</li>
-</ul>
-</li>
-</ul>
-<h5 id=4-internet-to-service-networking-handled-by-services>4. Internet-to-Service Networking (Handled by Services)</h5>
-<p>The final networking situation that is needed for most deployments is between the Internet and services. This connectivity enables end-users to access your services.</p>
-<p>They are of two types-</p>
-<ul>
-<li><strong>Ingress</strong>: Ingress routes traffic an outside connection to a service in your cluster</li>
-<li><strong>Egress</strong>: Egress routes traffic from your node to an outside connection</li>
-</ul>
-<p>That was all about the basics of networking in Kubernetes. Head over to the next section about <a href=../3.-kubernetes-storage>Kubernetes storage</a>.</p>
-<div id=social-media-share>
-<p><i>Sharing is caring!</i></p>
-<div class=share-buttons>
-<a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Facebook. Opens in a new window.">
-<img src=/devra/icons/45px/facebook.png>
-</a>
-<a href="https://twitter.com/intent/tweet?text=%2302%20-%20Kubernetes%20Networking&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick="return socialMediaPopUp(this.href,'',500,500),!1" title="Share on Twitter. Opens in a new window.">
-<img src=/devra/icons/45px/twitter.png>
-</a>
-<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Reddit. Opens in a new window.">
-<img src=/devra/icons/45px/reddit.png>
-</a>
-<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Pinterest. Opens in a new window.">
-<img src=/devra/icons/45px/pinterest.png>
-</a>
-<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on Tumblr. Opens in a new window.">
-<img src=/devra/icons/45px/tumblr.png>
-</a>
+<span class=time-to-read>2 mins read</span></div><div class="col-md-8 tags"><a href=https://rafed.github.io/devra/tags/cloud><span class="tag bg-dark">cloud</span></a>
+<a href=https://rafed.github.io/devra/tags/kubernetes><span class="tag bg-dark">kubernetes</span></a></div></div></div><figure><img id=cover-image src=https://rafed.github.io/devra/sections/kubernetes-minified-simplified/2.-kubernetes-networking/cover.png alt="#02 - Kubernetes Networking"></figure><p>Kubernetes is a container orchestration platform. It is used to help containers in a cluster communicate between them in an easy way. This is where networking in Kubernetes kicks in. To understand how Kubernetes works, knowing its basic underlying networking concepts is a fundamental necessity.</p><p>The basic objects that communicate in the Kubernetes network are</p><ul><li><strong>Nodes</strong>: real machines in the cluster</li><li><strong>Pods</strong>: containers that are encapsulated<ul><li>They are the atomic unit in Kubernetes</li><li>A pod may contain multiple containers (even though they usually run only one)</li></ul></li></ul><p>Kubernetes networking is based on a <strong>flat network structure</strong> and does not require you to map ports between hosts and containers. This means:</p><ul><li>All nodes in the cluster have to be able to talk to each other.</li><li>All pods can communicate without NAT.</li><li>Every pod gets its own IP address.</li></ul><p>The following diagram shows a generalized view of how Kubernetes networking is implemented.</p><p><img src=networking.png alt="Kubernetes Networking"></p><h4 id=kubernetes-networking-scenarios>Kubernetes Networking Scenarios</h4><p>There are four common networking scenarios</p><ul><li>Container-to-Container Networking (Handled by Pods)</li><li>Pod-to-Pod Networking (Handled by Pods)</li><li>Pod-to-Service Networking (Handled by Services)</li><li>Internet-to-Service Networking (Handled by Services)</li></ul><h5 id=1-container-to-container-networking>1. Container-to-Container Networking</h5><ul><li>This occurs between containers that are within the same pod.</li><li>The containers in a pos share a single IP and port space.</li></ul><h5 id=2-pod-to-pod-networking>2. Pod-to-Pod Networking</h5><p>This occurs between-</p><ul><li>Pods in the same node</li><li>Pods across multiple nodes</li></ul><h5 id=3-pod-to-service-networking-handled-by-services>3. Pod-to-Service Networking (Handled by Services)</h5><p>Kubernetes allows pods to be created and replaced dynamically. Thus, pods running a particular service will have varying IP addresses over time. To address this issue <strong>services</strong> are used.</p><p>Services abstract pod addresses by assigning a single virtual IP (a cluster IP) to a group of pod IPs. Then, any traffic sent to the virtual IP is distributed to the associated pods.</p><p>There are three ways to map services to pods-</p><ul><li><strong>ClusterIP</strong> (default)<ul><li>Gets own IP</li><li>Service accessible only from within the cluster</li></ul></li><li><strong>Nodeport</strong><ul><li>Gets cluster-wide port</li><li>service accessible from outside of the cluster</li></ul></li><li><strong>Loadbalancer</strong><ul><li>Integrates with a public cloud load balancer (e.g. AWS ELB, GCP CLB)</li></ul></li></ul><h5 id=4-internet-to-service-networking-handled-by-services>4. Internet-to-Service Networking (Handled by Services)</h5><p>The final networking situation that is needed for most deployments is between the Internet and services. This connectivity enables end-users to access your services.</p><p>They are of two types-</p><ul><li><strong>Ingress</strong>: Ingress routes traffic an outside connection to a service in your cluster</li><li><strong>Egress</strong>: Egress routes traffic from your node to an outside connection</li></ul><p>That was all about the basics of networking in Kubernetes. Head over to the next section about <a href=../3.-kubernetes-storage>Kubernetes storage</a>.</p><div id=social-media-share><p><i>Sharing is caring!</i></p><div class=share-buttons><a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Facebook. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/facebook.png></a>
+<a href="https://twitter.com/intent/tweet?text=%2302%20-%20Kubernetes%20Networking&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick='return socialMediaPopUp(this.href,"",500,500),!1' title="Share on Twitter. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/twitter.png></a>
+<a href="http://www.reddit.com/submit?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Reddit. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/reddit.png></a>
+<a href="http://pinterest.com/pin/create/button/?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Pinterest. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/pinterest.png></a>
+<a href="http://www.tumblr.com/share/link?url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on Tumblr. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/tumblr.png></a>
 <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f
-			&title=%2302%20-%20Kubernetes%20Networking&summary=Kubernetes%20is%20a%20container%20orchestration%20platform.%20It%20is%20used%20to%20help%20containers%20in%20a%20cluster%20communicate%20between%20them%20in%20an%20easy%20way.%20This%20is%20where%20networking%20in%20Kubernetes%20kicks%20in.%20To%20understand%20how%20Kubernetes%20works%2c%20knowing%20its%20basic%20underlying%20networking%20concepts%20is%20a%20fundamental%20necessity.&source=https://rafed.github.io/devra/" onclick="return socialMediaPopUp(this.href,'',900,500),!1" title="Share on LinkedIn. Opens in a new window.">
-<img src=/devra/icons/45px/linkedin.png>
-</a>
-<a href="mailto:?subject=%2302%20-%20Kubernetes%20Networking&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" title="Share via Email. Opens in a new window.">
-<img src=/devra/icons/45px/mail.png>
-</a>
-</div>
-</div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+			&title=%2302%20-%20Kubernetes%20Networking&summary=Kubernetes%20is%20a%20container%20orchestration%20platform.%20It%20is%20used%20to%20help%20containers%20in%20a%20cluster%20communicate%20between%20them%20in%20an%20easy%20way.%20This%20is%20where%20networking%20in%20Kubernetes%20kicks%20in.%20To%20understand%20how%20Kubernetes%20works%2c%20knowing%20its%20basic%20underlying%20networking%20concepts%20is%20a%20fundamental%20necessity.&source=https://rafed.github.io/devra/" onclick='return socialMediaPopUp(this.href,"",900,500),!1' title="Share on LinkedIn. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/linkedin.png></a>
+<a href="mailto:?subject=%2302%20-%20Kubernetes%20Networking&body=Check out this site https%3a%2f%2frafed.github.io%2fdevra%2fsections%2fkubernetes-minified-simplified%2f2.-kubernetes-networking%2f" title="Share via Email. Opens in a new window."><img src=https://rafed.github.io/devra/icons/45px/mail.png></a></div></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=4914046999 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-<br>
-<div id=disqus_thread></div>
-<script type=text/javascript>(function(){var a,b;if(window.location.hostname=="localhost")return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='rafed',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
-<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
-</div>
-<div class="col-lg-2 d-none d-xl-block">
-<div class=ad-right-offset></div>
-<script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script><br><div id=disqus_thread></div><script type=text/javascript>(function(){if(window.location.hostname=="localhost")return;var t,e=document.createElement("script");e.type="text/javascript",e.async=!0,t="rafed",e.src="//"+t+".disqus.com/embed.js",(document.getElementsByTagName("head")[0]||document.getElementsByTagName("body")[0]).appendChild(e)})()</script><noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript></div><div class="col-lg-2 d-none d-xl-block"><div class=ad-right-offset></div><script async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script>
 <ins class=adsbygoogle style=display:block data-ad-client=ca-pub-7125931910131040 data-ad-slot=3331960876 data-ad-format=auto data-full-width-responsive=true></ins>
-<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script>
-</div>
-</div>
-</div>
-</main>
-<footer class="text-center py-5">
-<p>
-© 2021 Rafed Muhammad Yasir.
-</p>
-</footer>
-<script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
-<gcse:searchresults-only></gcse:searchresults-only>
-</body>
-</html>
+<script>(adsbygoogle=window.adsbygoogle||[]).push({})</script></div></div></div></main><footer class="text-center py-5"><p>© 2021 Rafed Muhammad Yasir.</p></footer><script async src="https://cse.google.com/cse.js?cx=000151824860492892407%3akd5zijxwj6a"></script>
+<gcse:searchresults-only></gcse:searchresults-only></body></html>
