@@ -5,11 +5,11 @@ tags: [database, programming, python]
 image: "image.png"
 ---
 
-What if you needed to connect a django project with an exiting database that already contains data? In this tutorial we will learn how to connect an existing MySQL database to a django project.
+Do you need to connect a django project with an exiting database that already contains data? In this tutorial we will learn how to connect an existing MySQL database to a django project.
 
 ## Get an existing database
 
-If don't have an existing database to play with, you can get one at [mysqltutorial.org](https://www.mysqltutorial.org/mysql-sample-database.aspx/)
+If you don't have an existing database to play with, you can get one at [mysqltutorial.org](https://www.mysqltutorial.org/mysql-sample-database.aspx/)
 
 ## Import the data to MySQL
 
@@ -50,7 +50,7 @@ DATABASES = {
 
 ## Create the Django models from MySQL
 
-The above below will produce django models in **models.py** from tables present in MySQL. 
+The below will produce django models in **models.py** from tables present in MySQL. 
 
 ```bash
 $ python manage.py inspectdb > models.py
@@ -145,13 +145,13 @@ Awesome! Now we can work in django with legacy databases!
 
 ## Modifying database tables
 
-Legacy tables are not permitted to be modified by default. But they can be modified if needed. First set **managed=True** in sub Meta classes of classes you want to modify. And then, add the new field you want.
+Legacy tables are not permitted to be modified by default. But they can be modified if needed. First set **managed=True** in Meta classes of the classes you want to modify. And then, add the new field you want.
 
 ```python
 class Customers(models.Model):
     customernumber = models.IntegerField(db_column='customerNumber', primary_key=True)  # Field name made lowercase.
     customername = models.CharField(db_column='customerName', max_length=50)  # Field name made lowercase.
-    demo = models.CharField(db_column='customerName', max_length=50, blank=True, null=True) # NEW FIELD
+    new = models.CharField(db_column='new_column', max_length=50, blank=True, null=True) # NEW FIELD
     ... 
 
     class Meta:
