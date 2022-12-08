@@ -50,7 +50,10 @@ To determine the rank/quality of a **conference** you can use [CORE rankings](ht
 
 To determine the rank/quality of a **Journal** you can use [SJR](https://www.scimagojr.com/journalrank.php).
 
-#### 9. CSRankings
+#### 9. BibTeX Converter
+
+Sometimes you might need to convert bibtex citations to well formatted text references. This online tool [BibTeX to APA converter](https://www.bibtex.com/c/bibtex-to-apa-converter/) is very well suited to do that.
+#### 10. CSRankings
 
 This is a very niche tool that probably won't help you conduct research activities. However, it would be a nice addition to include it in this list. If you're interested in studiying a computer science/software engineering abroad, you can use [csrankings.org](https://csrankings.org/#/index?all&us) to find rankings of universities where you might want to study.
 
