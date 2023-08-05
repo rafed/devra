@@ -1,5 +1,5 @@
 ---
-title: 7 Github Repos that will Make You LOL
+title: 7 Funny Github Repos that will Make You Laugh
 date: 2019-09-21
 tags: [github]
 image: "githubcat.png"
@@ -20,7 +20,7 @@ Go through the README. You'll know the best way to write secure and reliable app
 ## 3. DeepCreamPy
 #### [github.com/deeppomf/DeepCreamPy](https://github.com/deeppomf/DeepCreamPy)
 
-This guy should be awarded for this creative name. Hmm... never thought deep learning could be used this way.
+This guy should be awarded for his creativity. Hmm... never thought deep learning could be used this way.
 
 ## 4. Fetlang 
 #### [github.com/fetlang/fetlang](https://github.com/fetlang/fetlang)
@@ -43,3 +43,9 @@ Wtf! A chrome extension that replaces "the cloud" with "my butt"? Wtf!
 #### [github.com/tomdionysus/foaas](https://github.com/tomdionysus/foaas)
 
 FOAAS (Fuck Off As A Service) provides a modern, RESTful, scalable solution to the common problem of telling people to fuck off. That's one service I didn't know I needed. You can see their documentation here at [foaas.com](https://foaas.com).
+
+## 8. DevJoke
+#### [github.com/shrutikapoor08/devjoke](https://github.com/shrutikapoor08/devjoke)
+
+Tired of dad jokes? Here are some DEV jokes.
+
