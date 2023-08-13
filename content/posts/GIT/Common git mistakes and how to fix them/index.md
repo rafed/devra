@@ -3,7 +3,6 @@ title: Common Git Mistakes and How to Fix them
 date: 2021-06-24
 tags: [git, github]
 image: mistake.jpg
-# draft: true
 ---
 
 <!-- * You want to be able to confidently undo changes that break your cod
