@@ -1,6 +1,9 @@
+
+How to Find a Research Topic
+Top CLI tools to use
+How to Make Good CI/CD Pipelines
+
 How I made a distributed system with docker
-Make a crawler with firebase
-experience with data preprocessing in remote server
 
 TERMINAL
 Tips and tricks for making a console program
@@ -12,11 +15,7 @@ Popular Stacks
 
 GIT
 Understanding the github licences
-Open Source Stories (HacktoberFest)
 
-DOCKER
-how i use docker and why you should use it too
-Advanced Docker commands
 
 PARSING GIT REPOS WITH PYTHON
 It's been sometime since I've been working with analyzing git repositories from Github. In this article I will discuss how I did it with python, the challenges I faced and other stuff.
