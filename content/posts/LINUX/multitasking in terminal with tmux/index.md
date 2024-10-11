@@ -1,7 +1,7 @@
 ---
 title: Bare Minimum Multi-Tasking Guide for the Terminal with Tmux
 date: 2019-09-29
-lastmod: 20202-05-15
+lastmod: 2022-05-15
 tags: [terminal, linux]
 image: "tmux.png"
 ---

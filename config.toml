@@ -1,5 +1,4 @@
 baseURL = "https://rafed.github.io/devra/"
-canonifyURLs=true
 pluralizeListTitles = false
 summaryLength   = 35
 
@@ -12,7 +11,7 @@ disqusShortname = "rafed"
 [params]
     description  = "A personal blog on programming, software engineering, machine lelarning, security and tech"
     contactEmail = "rafed123@gmail.com"
-    footer       = "© 2021 Rafed Muhammad Yasir."
+    #footer       = "© 2021 Rafed Muhammad Yasir."
     googleSearch = "000151824860492892407:kd5zijxwj6a"
     googleAnalytics = "G-CD8YE5ES29" 
     adsense      = "ca-pub-7125931910131040"
@@ -21,9 +20,9 @@ disqusShortname = "rafed"
 
     # Social Media Params
     facebook   = "https://www.facebook.com/devrafed"
-    twitter    = ""
+    twitter    = "https://x.com/rafedyasir"
     youtube    = "https://www.youtube.com/channel/UC5NjXdWBtuSiY4QcU0nh_JA"
-    instagram  = ""
+    instagram  = "https://www.instagram.com/rafedyasir/"
     github     = "https://github.com/rafed"
     pinterest  = ""
     linkedin   = "https://www.linkedin.com/in/rafed-m-yasir/"
@@ -82,4 +81,4 @@ disqusShortname = "rafed"
 [module]
   [module.hugoVersion]
     extended = true
-    min = "0.91.2"
+    min = "0.135.0"

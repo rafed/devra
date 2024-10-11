@@ -1,6 +1,6 @@
 ---
 title: All Django CLI commands list for Noobs
-date: 2022-10-6
+date: 2022-10-06
 tags: [web, backend]
 image: domain.jpg
 draft: true
