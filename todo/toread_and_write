@@ -35,7 +35,6 @@ Python tricks series:
 	python logging https://medium.com/dev-genius/python-logging-basics-458ad969e850
 	https://medium.com/techtofreedom/8-levels-of-using-list-comprehension-in-python-efc3c339a1f0
 
-https://psiloveyou.xyz/how-i-learned-beauty-can-be-a-curse-fb9b99b189b6
 capable of writing shell scripts
 You never really know a technology until the honeymoon is over and you are familiar with all of the ways it sucks
 
@@ -83,7 +82,7 @@ how I write my blog/ How to find blog articles to write about
  google alerts
  google lighthouse
 
-genjam with regex - https://regex101.com/ ++++ http://txt2re.com/index-python.php3?s=[2,%2018,%2013,%204]%20hello%20how%20are%20you&-64&-12&-65
+genjam with regex - https://regex101.com/
 https://dev.to/emmabostian/regex-cheat-sheet-2j2a
 
 
@@ -103,7 +102,6 @@ Social engineering the art of human hacking
 
 
 Productivity
-https://dev.to/ilonacodes/ultimate-short-guide-to-stop-procrastinating-2jof?
 https://dev.to/leewarrickjr/7-bad-habits-of-a-successful-developer-35l1?
 https://dev.to/danilapetrova/the-only-productivity-rule-you-need-the-two-day-rule-2aj9?
 https://dev.to/iamdoomling/five-things-that-are-killing-my-productivity-as-a-developer-and-how-to-potentially-fix-them-1db?
@@ -112,7 +110,6 @@ https://dev.to/gaelthomas/poor-productivity-how-to-stop-wasting-time-dj1
 https://entrepreneurshandbook.co/how-to-get-more-done-in-3-hours-than-most-do-in-a-week-c5bcdcff801e
 https://medium.com/the-ascent/how-to-start-earning-10x-more-money-in-the-next-30-days-60206dfc96d7
 https://www.entrepreneur.com/article/361691
-http://www.planetofsuccess.com/blog/2015/stephen-coveys-time-management-matrix-explained/#:~:text=Covey's%20matrix%20allows%20you%20to%20organize%20your%20priorities%20much%20better%20than%20before.&text=Covey's%20system%20makes%20use%20of,if%20you%20can%20postpone%20it.
 How to found a startup https://www.ycombinator.com/library
 How to win debates https://www.vbriefly.com/2014/11/26/drillin-like-a-villain-how-to-get-better-at-debate-by-danny-debois/?
 https://www-freecodecamp-org.cdn.ampproject.org/c/s/www.freecodecamp.org/news/how-to-stay-productive-all-day-coding-and-scheduling-tips-for-programmers/amp/
@@ -124,20 +121,15 @@ https://dev.to/lucis/tech-writing-cheat-sheet-3kho
 https://dev.to/vaibhavkhulbe/writing-a-technical-article-blog-101-2pjm?
 
 System
-https://dev.to/alialp/soap-vs-rest-219k?
-https://dev.to/semaphore/ci-cd-continuous-integration-delivery-explained-75l?
-https://dev.to/getd/reinvent-graphql-using-restful-learn-graphql-from-the-perspective-of-restful-in-4-mins-3khk?
 https://dev.to/adammc331/mvwtf-demystifying-architecture-patterns-ap1?
 https://dev.to/risafj/beginner-s-guide-to-oauth-understanding-access-tokens-and-authorization-codes-2988
 https://dev.to/pluralsight/the-top-10-books-on-devops-you-need-to-read-45m2?
-https://dev.to/ashokdey_/building-a-scalable-system-4l41?
 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api
 https://dev.to/emmawedekind/design-systems-part-ii-design-language-217k?
 https://dev.to/justaashir/do-design-systems-prevent-creativity-8pa?
 Patterns of Enterprise Application Architecture:
 
 Adhoc
-https://dev.to/deciduously/how-to-make-a-makefile-1dep?
 https://forum.hackthebox.eu/discussion/1730/a-script-kiddie-s-guide-to-passing-oscp-on-your-first-attempt
 https://dev.to/cppchedy/rolling-out-your-own-mom-or-how-i-did-it-general-introduction-3j20?
 https://dev.to/carlillo/do-you-want-to-be-a-top-developer-you-must-build-things-7-apps-to-build-2oje?
@@ -163,8 +155,4 @@ https://dev.to/stevensunflash/using-domain-driven-design-ddd-in-golang-3ee5?
 https://dev.to/heroku/two-million-ways-to-use-postgres-3k62?
 https://dev.to/trekhleb/technical-interview-preparation-checklist-4m4f?
 Patt flynn will it fly
-Fancy programming words: idempotent, abstraction, ephermal, anonymous, memoization, serialization, predicate (https://www.youtube.com/watch?v=4Zc9ci9L5wY)
 
-
-
-All category competititve programming list https://codeforces.com/blog/entry/95106
